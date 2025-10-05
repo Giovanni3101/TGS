@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css'
+import {motion }  from 'framer-motion'
 
 function App() {
 
@@ -9,9 +10,12 @@ function App() {
         Hello world!
       </h1>
       <div className="mt-4 p-4 bg-white rounded shadow">
-        <button className="btn btn-primary">
+        <motion.button className="btn btn-primary"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           Daisy UI Button
-        </button>
+        </motion.button>
       </div>
     </div>
   )
