@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Router>
-      <div className='flex flex-col items-center min-h-screen bg-gray-100'>
+      <div className='flex flex-col items-center min-h-screen'>
         <Navbar />
         <main className='w-full max-w-7xl px-4 mt-24'>
           <Routes>
