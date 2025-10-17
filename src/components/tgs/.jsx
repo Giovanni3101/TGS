@@ -2,7 +2,6 @@ import { useState } from 'react';
 import gitu from '../../assets/images/tgs_logo_one-removebg-preview.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -97,41 +96,31 @@ function Navbar() {
     };
 
     // Composant pour les sous-menus desktop - version hover uniquement
-    const DesktopSubMenu = ({ items }) => {
+    const DesktopSubMenu = ({ items, level = 0 }) => {
         return (
-            <ul className="absolute left-0 mt-[28px] w-56 bg-white/90 shadow-lg py-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
-                {items.map((item, idx) => (
-                    <li key={idx} className="relative group/item">
+            <div className={`absolute top- left-0 hidden group-hover:block bg-white/90 bg-transparent shadow-lg py-2 ${level > 0 ? 'ml-50 mt-[-3rem]' : ''
+                } min-w-[200px] z-50`}>
+                {items.map((item, index) => (
+                    <div key={index} className="relative group">
                         {item.submenu ? (
                             <>
-                                <div className="relative flex items-center px-4 py-2 hover:bg-sky-600 cursor-pointer w-full">
-                                    <span className="flex-1 text-center">{item.name}</span>
-                                    <ChevronDown className="absolute right-4 w-4 h-4 rotate-[-90deg]" />
+                                <div className="flex justify-center items-center px-4 py-2 text-sky-950 hover:text-sky-600 hover:bg-sky-50 cursor-pointer">
+                                    <span>{item.name}</span>
+                                    <ChevronRight size={16} className='justify-end'/>
                                 </div>
-                                <ul className="absolute top-0 left-full w-56 bg-white/90 shadow-lg py-1 opacity-0 group-hover/item:opacity-100 invisible group-hover/item:visible transition-all duration-200">
-                                    {item.submenu.map((sub, subIdx) => (
-                                        <li key={subIdx}>
-                                            <Link
-                                                to={sub.href}
-                                                className="block px-4 py-2 hover:bg-sky-600"
-                                            >
-                                                {sub.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <DesktopSubMenu items={item.submenu} level={level + 1} />
                             </>
                         ) : (
-                            <Link
-                                to={item.href}
-                                className="block px-4 py-2 hover:bg-sky-600"
+                            <a
+                                href={item.href || item.path}
+                                className="hidden group-hover:block px-4 py-2 text-sky-950 hover:text-sky-600 hover:bg-sky-50"
                             >
                                 {item.name}
-                            </Link>
+                            </a>
                         )}
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         );
     };
 
@@ -140,16 +129,26 @@ function Navbar() {
         const hasSubmenu = item.submenu && item.submenu.length > 0;
 
         return (
-            <li key={index} className="relative group space-x-2 px-3 py-6">
-                <Link
-                    to={item.path}
-                    className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                    {item.icon}
-                    <span>{item.name}</span>
-                    {item.submenu && <ChevronDown size={16} className="mt-[2px]" />}
-                </Link>
-                {item.submenu && <DesktopSubMenu items={item.submenu} />}
+            <li key={index} className="text-sky-950 hover:text-sky-600 relative group w-full">
+                {hasSubmenu ? (
+                    <>
+                        <div className="flex items-center cursor-pointer">
+                            <span className="block py-2 md:inline-block px-4">
+                                {item.name}
+                            </span>
+                            <ChevronDown size={16} className="ml-auto" />
+                        </div>
+                        <DesktopSubMenu items={item.submenu} />
+                    </>
+                ) : (
+                    <motion.a
+                        href={item.path}
+                        whileHover={{ scale: 1.1 }}
+                        className="block py-2 md:inline-block px-4 cursor-pointer"
+                    >
+                        {item.name}
+                    </motion.a>
+                )}
             </li>
         );
     };
@@ -166,9 +165,7 @@ function Navbar() {
                     {/* Navigation Desktop */}
                     <nav className="hidden md:flex items-center space-x-2">
                         <ul className="md:flex md:space-x-0 md:w-auto md:bg-transparent md:text-center w-full">
-                            {NavItems.map((item, index) =>
-                                renderDesktopMenuItem(item, index)
-                            )}
+                            {NavItems.map((item, index) => renderDesktopMenuItem(item, index))}
                         </ul>
                         <div>
                             <motion.button
