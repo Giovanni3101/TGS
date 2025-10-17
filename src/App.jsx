@@ -9,14 +9,15 @@ import {
 import Navbar from './components/tgs/NavBar';
 
 // Pages
-import HomeTgs from './pages/HomeTgs';
-import Opportunities from './pages/Opportunities';
-import News from './pages/News';
-import Mission from './pages/AboutTgs/Mission';
-import Story from './pages/AboutTgs/Story';
-import Board from './pages/AboutTgs/Board';
-import Ambassadors from './pages/AboutTgs/Ambassadors';
-import Contact from './pages/AboutTgs/Contact';
+import HomeTgs from './pages/tgs/hometgs/HomeTgs';
+import Opportunities from './pages/tgs/Opportunities';
+import News from './pages/tgs/News';
+import Mission from './pages/tgs/AboutTgs/Mission';
+import Story from './pages/tgs/AboutTgs/Story';
+import Board from './pages/tgs/AboutTgs/Board';
+import Ambassadors from './pages/tgs/AboutTgs/Ambassadors';
+import Contact from './pages/tgs/AboutTgs/Contact';
+import Footer from './components/tgs/Footer';
 
 function App() {
 
@@ -44,6 +45,9 @@ function App() {
             <Route path="*" element={<Navigate to="/home" replace />} />
           </Routes>
         </main>
+        <div className='px-6 py-8'>
+          <Footer />
+        </div>
       </div>
     </Router>
   )

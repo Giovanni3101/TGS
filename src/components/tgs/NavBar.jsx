@@ -166,7 +166,7 @@ function Navbar() {
     return (
         <header className="fixed z-50 rounded-full md:w-[65%] w-[95%] bg-white/90 shadow-md px-6 py-3 md:m-4 m-3">
             <div className='max-w-7xl'>
-                <div className='flex items-center justify-between mx-auto h-14 w-full'>
+                <div className='flex items-center justify-between mx-auto md:h-14 h-8 w-full'>
                     {/* Logo */}
                     <div>
                         <img src={gitu} alt="Logo" className="h-16 w-[100px] md:h-[100px] md:w-[100px] object-contain" />
