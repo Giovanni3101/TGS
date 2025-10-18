@@ -2,12 +2,13 @@ import { useState } from 'react';
 import gitu from '../../assets/images/tgs_logo_one-removebg-preview.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [aboutOpen, setAboutOpen] = useState(false);
-    const [opportunitiesOpen, setOpportunitiesOpen] = useState(false);
-    const [teamOpen, setTeamOpen] = useState(false);
+    const [openMenus, setOpenMenus] = useState({});
+
+    const location = useLocation();
 
     const NavItems = [
         { name: 'Home', path: '/home' },
@@ -35,71 +36,57 @@ function Navbar() {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
         if (menuOpen) {
-            setAboutOpen(false);
-            setOpportunitiesOpen(false);
-            setTeamOpen(false);
+            setOpenMenus({});
         }
     };
 
-    const toggleSubMenu = (menuName) => {
-        switch (menuName) {
-            case 'About':
-                setAboutOpen(!aboutOpen);
-                break;
-            case 'Our team':
-                setTeamOpen(!teamOpen);
-                break;
-            default:
-                break;
-        }
+    const toggleSubMenu = (menuName, level = 0) => {
+        setOpenMenus(prev => ({
+            ...prev,
+            [menuName]: !prev[menuName]
+        }));
     };
 
-    // Composant récursif pour les sous-menus
+    const isMenuOpen = (menuName) => {
+        return openMenus[menuName];
+    };
+
+    const isMenuActive = (menuName) => {
+        setActiveMenu(menuName);
+    };
+
+    // Composant récursif pour les sous-menus mobile
     const renderMenuItem = (item, level = 0) => {
         const hasSubmenu = item.submenu && item.submenu.length > 0;
+        const isOpen = isMenuOpen(item.name);
 
         return (
             <div key={item.name}>
                 {hasSubmenu ? (
                     <div>
                         <button
-                            onClick={() => toggleSubMenu(item.name)}
+                            onClick={() => toggleSubMenu(item.name, level)}
                             className={`flex justify-between items-center w-full px-4 py-3 text-left hover:bg-sky-800 rounded-lg ${level > 0 ? 'text-sky-200' : 'text-white'
                                 }`}
                         >
                             <span>{item.name}</span>
                             <span>
-                                {item.name === 'About' ? (
-                                    aboutOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />
-                                ) : item.name === 'Our team' ? (
-                                    teamOpen ? <ChevronDown size={20} /> : <ChevronUp size={20} />
-                                ) : null}
+                                {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                             </span>
                         </button>
 
-                        {/* Sous-menu About */}
-                        {item.name === 'About' && aboutOpen && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="ml-4 mt-2 space-y-1"
-                            >
-                                {item.submenu.map((subItem) => renderMenuItem(subItem, level + 1))}
-                            </motion.div>
-                        )}
-
-                        {/* Sous-menu Our team */}
-                        {item.name === 'Our team' && !teamOpen && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="ml-4 mt-2 space-y-1"
-                            >
-                                {item.submenu.map((subItem) => renderMenuItem(subItem, level + 1))}
-                            </motion.div>
-                        )}
+                        <AnimatePresence>
+                            {isOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="ml-4 mt-2 space-y-1"
+                                >
+                                    {item.submenu.map((subItem) => renderMenuItem(subItem, level + 1))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 ) : (
                     <a
@@ -115,60 +102,63 @@ function Navbar() {
         );
     };
 
-    // Composant pour les sous-menus desktop
-    const DesktopSubMenu = ({ items, level = 0 }) => {
+    // Composant pour les sous-menus desktop - version hover uniquement
+    const DesktopSubMenu = ({ items }) => {
         return (
-            <div className={`absolute top-full left-0 hidden group-hover:block bg-white/95 shadow-lg rounded-lg py-2 ${level > 0 ? 'ml-52' : ''
-                } min-w-[200px] z-50`}>
-                {items.map((item, index) => (
-                    <div key={index} className="relative group">
+            <ul className="absolute left-0 mt-[26.5px] w-56 bg-white/90 shadow-lg py-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
+                {items.map((item, idx) => (
+                    <li key={idx} className="relative group/item">
                         {item.submenu ? (
                             <>
-                                <div className="flex justify-between items-center px-4 py-2 text-sky-950 hover:text-sky-600 hover:bg-sky-50 cursor-pointer">
-                                    <span>{item.name}</span>
-                                    <ChevronDown size={16} />
+                                <div className="relative flex items-center px-4 py-2 hover:bg-sky-600 cursor-pointer w-full">
+                                    <span className="flex-1 text-center">{item.name}</span>
+                                    <ChevronDown className="absolute right-4 w-4 h-4 rotate-[-90deg]" />
                                 </div>
-                                <DesktopSubMenu items={item.submenu} level={level + 1} />
+                                <ul className="absolute top-0 left-full w-56 bg-white/90 shadow-lg py-1 opacity-0 group-hover/item:opacity-100 invisible group-hover/item:visible transition-all duration-200">
+                                    {item.submenu.map((sub, subIdx) => (
+                                        <li key={subIdx}>
+                                            <Link
+                                                to={sub.href}
+                                                className="block px-4 py-2 hover:bg-sky-600"
+                                            >
+                                                {sub.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
                             </>
                         ) : (
-                            <a
-                                href={item.href || item.path}
-                                className="block px-4 py-2 text-sky-950 hover:text-sky-600 hover:bg-sky-50"
+                            <Link
+                                to={item.href}
+                                className="block px-4 py-2 hover:bg-sky-600"
                             >
                                 {item.name}
-                            </a>
+                            </Link>
                         )}
-                    </div>
+                    </li>
                 ))}
-            </div>
+            </ul>
         );
     };
 
-    // Composant récursif pour le menu desktop
+    // Composant récursif pour le menu desktop - version hover uniquement
     const renderDesktopMenuItem = (item, index) => {
-        const hasSubmenu = item.submenu && item.submenu.length > 0;
-
+        const isActive = location.pathname === item.path;
         return (
-            <li key={index} className="text-sky-950 hover:text-sky-600 relative group space-x-2">
-                {hasSubmenu ? (
-                    <>
-                        <div className="flex items-center cursor-pointer">
-                            <span className="block py-2 md:inline-block">
-                                {item.name}
-                            </span>
-                            <ChevronDown size={16} className="ml-1" />
-                        </div>
-                        <DesktopSubMenu items={item.submenu} />
-                    </>
-                ) : (
-                    <motion.a
-                        href={item.path}
-                        whileHover={{ scale: 1.1 }}
-                        className="block w-[120px] py-2 md:inline-block cursor-pointer"
-                    >
-                        {item.name}
-                    </motion.a>
-                )}
+            <li key={index} className="relative group space-x-2 px-3 py-6">
+                <Link
+                    to={item.path}
+                    className={`flex items-center space-x-2 border-b-3 transition-all duration-200
+                    ${isActive
+                            ? "border-sky-600 text-sky-700 font-semibold"
+                            : "border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600"
+                        }`}
+                >
+                    {item.icon}
+                    <span>{item.name}</span>
+                    {item.submenu && <ChevronDown size={16} className="mt-[2px]" />}
+                </Link>
+                {item.submenu && <DesktopSubMenu items={item.submenu} />}
             </li>
         );
     };
@@ -176,16 +166,18 @@ function Navbar() {
     return (
         <header className="fixed z-50 rounded-full md:w-[65%] w-[95%] bg-white/90 shadow-md px-6 py-3 md:m-4 m-3">
             <div className='max-w-7xl'>
-                <div className='flex items-center justify-between mx-auto h-14 w-full'>
+                <div className='flex items-center justify-between mx-auto md:h-14 h-8 w-full'>
                     {/* Logo */}
                     <div>
                         <img src={gitu} alt="Logo" className="h-16 w-[100px] md:h-[100px] md:w-[100px] object-contain" />
                     </div>
 
                     {/* Navigation Desktop */}
-                    <div className="hidden md:flex items-center space-x-2">
-                        <ul className="md:flex md:space-x-0 md:w-auto md:bg-transparent md:text-center md:ml-1">
-                            {NavItems.map((item, index) => renderDesktopMenuItem(item, index))}
+                    <nav className="hidden md:flex items-center space-x-2">
+                        <ul className="md:flex md:space-x-0 md:w-auto md:bg-transparent md:text-center w-full">
+                            {NavItems.map((item, index) =>
+                                renderDesktopMenuItem(item, index)
+                            )}
                         </ul>
                         <div>
                             <motion.button
@@ -196,7 +188,7 @@ function Navbar() {
                                 TGS ACADEMY
                             </motion.button>
                         </div>
-                    </div>
+                    </nav>
 
                     {/* Bouton Menu Mobile */}
                     <div className="md:hidden flex justify-end w-full px-4">
