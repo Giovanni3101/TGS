@@ -76,7 +76,7 @@ const Mission = () => {
 
   return (
     <section id="mission" className="py-20" style={{ fontFamily: "'Raleway', sans-serif" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 m-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
           <Title level={2} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: "'Raleway', sans-serif" }}>

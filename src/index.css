@@ -2,9 +2,7 @@
 
 @import "tailwindcss";
 
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
-}
+/* DaisyUI plugin should be configured in tailwind.config.js, not via @plugin in CSS */
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -17,4 +15,49 @@ body {
 
 .ant-row-top {
   margin-top: 20px;
+}
+
+.ant-card-body {
+  padding: 16px;
+}
+
+.ant-card-bordered {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.py-0 { /* the element was section#story */
+  width: 99vw;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 6.2rem;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.py-20 { /* the element was section#contact */
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.lg\:px-8 { /* the element was .max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8 */
+  margin: 0px;
+  width: 100%;
+}
+
+:where(.css-dev-only-do-not-override-1odpy5d).ant-col-md-14 {
+  flex-grow: 1;
+  flex-basis: 0px;
+  max-width: none;
+}
+
+:where(.css-dev-only-do-not-override-1odpy5d).ant-col-lg-14 {
+  flex-grow: 1;
+  flex-basis: 0px;
+  max-width: none;
 }

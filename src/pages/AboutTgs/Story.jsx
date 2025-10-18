@@ -1,17 +1,18 @@
 import React from 'react';
 import { Typography, Timeline, Row, Col, Card } from 'antd';
-import { 
-  MapPin, 
-  Users, 
-  TreePine, 
-  GraduationCap, 
-  Globe, 
+import {
+  MapPin,
+  Users,
+  TreePine,
+  GraduationCap,
+  Globe,
   Target,
   Award,
   School,
   HeartHandshake,
   Lightbulb
 } from 'lucide-react';
+import Benjamin from '../../assets/Benjamin.jpg';
 
 const { Title, Paragraph } = Typography;
 
@@ -49,7 +50,7 @@ const Story = () => {
       achievements: [
         "Youngest Human Rights Defender",
         "HISA Youth Fellowship, Oxford",
-        "Youth Vision Assembly, Amsterdam", 
+        "Youth Vision Assembly, Amsterdam",
         "Only African at Global Youth MIDORI"
       ],
       color: "orange"
@@ -77,8 +78,8 @@ const Story = () => {
 
   return (
     <section id="story" className="py-0" >
-      <div className="max-w-7xl m-0 px-4 sm:px-6 lg:px-8">
-        
+      <div className="max-w-7xl m-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header Section */}
         <div className="text-center mb-10">
           <Title level={1} className="text-4xl md:text-5xl font-bold text-gray-900 mb-2" style={{ fontFamily: "'Raleway', sans-serif" }}>
@@ -91,14 +92,14 @@ const Story = () => {
         </div>
 
         {/* Hero Quote */}
-        <Card 
+        <Card
           className="mb-10 border-l-4 border-blue-500 shadow-lg bg-white/80 backdrop-blur-sm"
-          Style={{ padding: '2rem', marginBottom:20 }}
+          style={{ padding: '2rem', marginBottom: 20 }}
         >
           <div className="text-center">
             <HeartHandshake className="w-12 h-12 text-blue-600 mx-auto mb-4" />
             <Paragraph className="text-2xl md:text-3xl font-light text-gray-800 italic text-center leading-relaxed">
-              "Talent knows no borders, but access to opportunity does. From villages to cities, 
+              "Talent knows no borders, but access to opportunity does. From villages to cities,
               from the Global South to the North, every young person deserves an equal and fair chance to rise."
             </Paragraph>
             <div className="mt-4 text-lg font-semibold text-blue-600">
@@ -114,11 +115,11 @@ const Story = () => {
               <Title level={3} className="text-3xl font-bold text-gray-900 mb-8">
                 Our Journey Timeline
               </Title>
-              
+
               <div className="relative">
                 {/* Vertical Line */}
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200 z-0"></div>
-                
+
                 <div className="space-y-8 relative z-10">
                   {milestones.map((milestone, index) => (
                     <div key={index} className="flex items-start space-x-6 group">
@@ -129,7 +130,7 @@ const Story = () => {
                         </div>
                         <div className={`absolute -left-1 top-14 w-4 h-4 rounded-full border-4 ${getColorClasses(milestone.color).replace('bg-', 'bg-').replace('text-', 'bg-').split(' ')[0]} border-white`}></div>
                       </div>
-                      
+
                       {/* Content */}
                       <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-gray-200 group-hover:shadow-xl transition-all duration-300">
                         <div className="flex items-center mb-3">
@@ -140,14 +141,14 @@ const Story = () => {
                             {milestone.title}
                           </Title>
                         </div>
-                        
+
                         <Paragraph className="text-gray-700 mb-4 leading-relaxed">
                           {milestone.description}
                         </Paragraph>
-                        
+
                         <div className="flex flex-wrap gap-2">
                           {milestone.achievements.map((achievement, idx) => (
-                            <span 
+                            <span
                               key={idx}
                               className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
                             >
@@ -166,7 +167,7 @@ const Story = () => {
           {/* Story Details Section */}
           <Col xs={24} lg={12}>
             <div className="space-y-8">
-              
+
               {/* Founding Story */}
               <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                 <Card.Meta
@@ -175,9 +176,9 @@ const Story = () => {
                   description="The journey began not in a conference hall, but on the ground in Goma, DRC"
                 />
                 <Paragraph className="text-gray-700 mt-4 text-lg leading-relaxed">
-                  The journey of <strong>The Growth Sphere (TGS)</strong> is the story of its founder, 
-                  <strong> Kyamoneka Mpey Benjamin</strong>, and a realization born from deep commitment 
-                  and firsthand experience. It's a journey that began in the heart of the Global South, 
+                  The journey of <strong>The Growth Sphere (TGS)</strong> is the story of its founder,
+                  <strong> Kyamoneka Mpey Benjamin</strong>, and a realization born from deep commitment
+                  and firsthand experience. It's a journey that began in the heart of the Global South,
                   where potential meets persistent barriers.
                 </Paragraph>
               </Card>
@@ -190,9 +191,9 @@ const Story = () => {
                   description="A testament to local action and youth leadership"
                 />
                 <Paragraph className="text-gray-700 mt-4 text-lg leading-relaxed">
-                  In December 2019, Benjamin co-founded <strong>EDDEC (Act for a Sustainable Development 
-                  of the Environment in Congo)</strong>. This was more than an organization; it was a testament 
-                  to local action. As Co-founder and President, he successfully led a massive project to 
+                  In December 2019, Benjamin co-founded <strong>EDDEC (Act for a Sustainable Development
+                    of the Environment in Congo)</strong>. This was more than an organization; it was a testament
+                  to local action. As Co-founder and President, he successfully led a massive project to
                   plant <strong>6,000 trees</strong> across 35 schools in Goma, benefiting over 3,000 students.
                 </Paragraph>
                 <div className="mt-4 p-4 bg-white rounded-lg border border-green-200">
@@ -214,8 +215,8 @@ const Story = () => {
                   description="Witnessing potential, identifying gaps"
                 />
                 <Paragraph className="text-gray-700 mt-4 text-lg leading-relaxed">
-                  Through participation in international forums and global platforms, Benjamin witnessed 
-                  the exceptional potential of Global South youth firsthand. Yet, he also saw a critical gap: 
+                  Through participation in international forums and global platforms, Benjamin witnessed
+                  the exceptional potential of Global South youth firsthand. Yet, he also saw a critical gap:
                   <strong> 'Talent knows no borders, but access to opportunity does.'</strong>
                 </Paragraph>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -238,9 +239,9 @@ const Story = () => {
                   description="Bridging the global opportunity gap"
                 />
                 <Paragraph className="text-gray-700 mt-4 text-lg leading-relaxed">
-                  Driven by this realization, Benjamin created <strong>The Growth Sphere (TGS)</strong>. 
-                  TGS is the culmination of his six-year journey—a global youth empowerment platform, 
-                  rooted in the Global South, built upon the foundation of local and continental training 
+                  Driven by this realization, Benjamin created <strong>The Growth Sphere (TGS)</strong>.
+                  TGS is the culmination of his six-year journey—a global youth empowerment platform,
+                  rooted in the Global South, built upon the foundation of local and continental training
                   to bridge the global opportunity gap he personally experienced.
                 </Paragraph>
                 <div className="mt-6 p-4 bg-white rounded-lg border border-purple-200">
@@ -248,8 +249,8 @@ const Story = () => {
                     TGS Mission Today:
                   </Title>
                   <Paragraph className="text-gray-700">
-                    To equip the next generation of leaders with the skills, mentorship, and opportunities 
-                    they need to rise, ensuring every young person, regardless of their origin, has an 
+                    To equip the next generation of leaders with the skills, mentorship, and opportunities
+                    they need to rise, ensuring every young person, regardless of their origin, has an
                     equal and fair chance to shape the future.
                   </Paragraph>
                 </div>
