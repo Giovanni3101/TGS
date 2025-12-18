@@ -8,6 +8,12 @@ import HeroPhoto2 from '../../../../public/hero2.jpeg';
 import HeroPhoto3 from '../../../../public/hero3.webp';
 import HeroPhoto4 from '../../../../public/hero4.jpeg';
 
+
+// Test second hero images
+import HeroPhoto5 from '../../../assets/images/hero/1.png'
+import HeroPhoto6 from '../../../assets/images/hero/2.webp'
+import HeroPhoto7 from '../../../assets/images/hero/3.avif'
+
 function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -17,11 +23,19 @@ function HeroSection() {
     // Animation de parallaxe pour le background
     const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
+    // const images = [
+    //     HeroPhoto1,
+    //     HeroPhoto2,
+    //     HeroPhoto3,
+    //     HeroPhoto4,
+    // ];
+
     const images = [
-        HeroPhoto1,
-        HeroPhoto2,
-        HeroPhoto3,
-        HeroPhoto4,
+        HeroPhoto5,
+        // "https://img.freepik.com/premium-photo/crowd-young-people-dancing-enjoying-festival-party-celebration_1057738-33627.jpg",
+        // "https://media.istockphoto.com/id/1912509958/photo/group-of-happy-teenagers-talking-in-high-school-hallway.jpg?s=612x612&w=0&k=20&c=W4mpDip6o2Mt6NTAV67e5RDF06GvgrpgdVpUGPs9wQ8="
+        // HeroPhoto6,
+        // HeroPhoto7,
     ];
 
     // Animation automatique du carrousel
@@ -34,18 +48,6 @@ function HeroSection() {
 
         return () => clearInterval(interval);
     }, [isPlaying, images.length]);
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % images.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
-    };
-
-    const goToSlide = (index) => {
-        setCurrentSlide(index);
-    };
 
     // Variantes d'animation pour le texte
     const containerVariants = {
@@ -108,7 +110,6 @@ function HeroSection() {
 
     return (
         <section className="min-h-[70vh] md:min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
-            {/* Carrousel d'arrière-plan avec parallaxe */}
             <motion.div
                 className="absolute inset-0 w-full h-full"
                 style={{ y }}
@@ -134,62 +135,42 @@ function HeroSection() {
                 ))}
             </motion.div>
 
-            {/* Overlay gradient amélioré */}
             <div className="absolute inset-0 bg-gradient-to-br from-sky-900/70 via-transparent to-teal-900/70 mix-blend-multiply"></div>
-            <div className="absolute inset-0 bg-black/30"></div>
+            <div className="absolute inset-0 bg-white/60"></div>
 
-            {/* Contrôles du carrousel */}
-            <div className="absolute bottom-8 right-8 z-20 flex items-center gap-4">
-                <button
-                    onClick={() => setIsPlaying(!isPlaying)}
-                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
-                >
-                    {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-                </button>
-
-                <div className="flex gap-2">
-                    {images.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => goToSlide(index)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                                    ? 'bg-white scale-125'
-                                    : 'bg-white/50 hover:bg-white/80'
-                                }`}
-                        />
-                    ))}
-                </div>
-            </div>
 
             {/* Contenu principal */}
-            <div className="relative md:mt-6 z-10 text-start text-white px-4 max-w-6xl mx-auto w-full">
+            <div className="relative md:mt-10 z-10 text-start md:flex md:space-x-24 px-4 max-w-7xl mx-auto w-full">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="space-y-2"
+                    className="space-y-2 flex-1 mt-24"
                 >
+                    <motion.p
+                        variants={itemVariants}
+                        className="flex items-center text-sm md:text-sm w-fit text-gray-700 p-2 bg-white/60 backdrop-blur-sm rounded-full tracking-wide"
+                    >
+                        <ChevronRight className='bg-teal-900 p-1 rounded-full text-white mr-1' />
+                        Empowering Youth
+                    </motion.p>
                     <motion.h1
                         variants={itemVariants}
-                        className="text-2xl md:text-4xl lg:text-4xl font-black leading-tight tracking-tight"
+                        className="text-3xl md:text-[100px] lg:text-4xl"
                     >
-                        <span className="block bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent">
-                            YOUR PASSPORT
-                        </span>
-                        <span className="block bg-gradient-to-r from-cyan-200 to-teal-200 bg-clip-text text-transparent mt-2">
-                            TO GROWTH BEYOND
-                        </span>
-                        <span className="block bg-gradient-to-r from-teal-200 to-sky-300 bg-clip-text text-transparent mt-2">
-                            BORDERS
-                        </span>
+                        <p className='text-gray-800'>
+                            <span className='text-4xl font-bold md:text-6xl lg:text-5xl'>The Growth Sphere:</span>
+                            <span className='block font-semibold mt-2 md:mt-4'>Your passport to growth beyond borders</span>
+
+                        </p>
                     </motion.h1>
 
                     <motion.p
                         variants={itemVariants}
-                        className="bg-black/50 w-fit text-sm md:text-xl font-light max-w-3xl leading-relaxed"
+                        className="w-fit text-sm md:text-[15px] max-w-3xl "
                     >
-                        Opening doors for youth from the Global South to the world, 
-                        The Growth Sphere (TGS) is a dynamic movement that empowers 
+                        Opening doors for youth from the Global South to the world,
+                        The Growth Sphere (TGS) is a dynamic movement that empowers
                         young people to unlock their potential and lead change across borders.
                     </motion.p>
 
@@ -201,47 +182,38 @@ function HeroSection() {
                             variants={buttonVariants}
                             whileHover="hover"
                             whileTap="tap"
-                            className="px-6 py-2 rounded-full text-lg font-semibold bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm border border-cyan-400/20"
+                            className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-teal-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
                         >
-                            Explore Opportunities
+                            Explore Opportunities →
                         </motion.button>
 
                         <motion.button
                             variants={buttonVariants}
                             whileHover="hover"
                             whileTap="tap"
-                            className="px-6 py-2 rounded-full text-lg font-semibold bg-transparent text-white border-2 border-white/80 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white"
+                            className="px-6 py-2 rounded-full text-lg font-semibold bg-transparent text-gray-800 border-2 border-gray-800 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white"
                         >
                             Join TGS Academy
                         </motion.button>
                     </motion.div>
                 </motion.div>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="hidden md:block flex-1 flex justify-center items-center mb-12 md:mb-0"
+                >
+                    <motion.img
+                        src={HeroPhoto2}
+                        alt="Hero Image"
+                        className="w-[600px] h-full mx-auto rounded-lg shadow-2xl shadow-cyan-500/25 mt-8 md:mt-0"
+                        variants={itemVariants}
+                    >
+                    </motion.img>
+                </motion.div>
             </div>
 
-            {/* Indicateur de défilement amélioré */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 2 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-            >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="flex flex-col items-center gap-2"
-                >
-                    <div className="text-white/80 text-xs font-light tracking-widest">
-                        SCROLL TO EXPLORE
-                    </div>
-                    <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-                        <motion.div
-                            animate={{ y: [0, 12, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            className="w-1 h-2 bg-white/80 rounded-full mt-2"
-                        />
-                    </div>
-                </motion.div>
-            </motion.div>
+
 
             {/* Éléments décoratifs */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

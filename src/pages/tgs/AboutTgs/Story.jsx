@@ -12,7 +12,7 @@ import {
   HeartHandshake,
   Lightbulb
 } from 'lucide-react';
-import Benjamin from '../../assets/Benjamin.jpg';
+// import Benjamin from '../../assets/Benjamin.jpg';
 
 const { Title, Paragraph } = Typography;
 

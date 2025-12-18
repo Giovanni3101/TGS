@@ -49,7 +49,7 @@ function Footer() {
 
                 <div className="border-t border-sky-700 mt-8 pt-8 text-center">
                     <p className="text-sky-200">
-                        &copy; {new Date().getFullYear()} Powered by <a className="" href="https://giovanni-portofolio.onrender.com" target="_blank"> GITU Technology</a>. All rights reserved.
+                        &copy; {new Date().getFullYear()} Powered by <a className="" href="https://gitutechnology.onrender.com" target="_blank"> GITU Technology</a>. All rights reserved.
                     </p>
                 </div>
             </div>
