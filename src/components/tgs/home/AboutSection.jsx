@@ -190,7 +190,7 @@ const AboutSection = () => {
                         <motion.img
                             src='https://media.istockphoto.com/id/1912511508/photo/portrait-of-happy-high-school-students-looking-at-camera.jpg?s=612x612&w=0&k=20&c=69wPs2E1pjk9UfRgEZogIFweao1Uw8FgXLDOZmYtLVg='
                             alt="About The Growth Sphere"
-                            className="w-full h-full object-cover rounded-lg shadow-2xl shadow-teal-900/30"
+                            className="w-full h-full object-cover rounded-lg shadow-2xl shadow-sky-900/30"
                             whileHover={{ scale: 1.02 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         />
@@ -202,11 +202,11 @@ const AboutSection = () => {
                         variants={textVariants}
                     >
                         <motion.h2
-                            className="text-3xl md:text-4xl font-bold text-teal-800 mb-4"
+                            className="text-3xl md:text-4xl font-bold text-sky-800 mb-4"
                             variants={itemVariants}
                         >
                             About The Growth Sphere.{" "}
-                            <span className="text-teal-600 italic">Empowering Youth Globally</span>
+                            <span className="text-sky-600 italic">Empowering Youth Globally</span>
                         </motion.h2>
 
                         <div className="space-y-6 text-gray-700 text-md leading-relaxed">
@@ -237,7 +237,7 @@ const AboutSection = () => {
                                     variants={buttonVariants}
                                     whileHover="hover"
                                     whileTap="tap"
-                                    className="px-6 py-3 rounded-full text-lg text-white font-semibold bg-gradient-to-r from-teal-700 to-teal-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
+                                    className="px-6 py-3 rounded-full text-lg text-white font-semibold bg-gradient-to-r from-sky-700 to-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
                                 >
                                     <Link to="/our_mission" className="flex items-center gap-2">
                                         Discover our mission

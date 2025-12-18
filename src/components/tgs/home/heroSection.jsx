@@ -135,7 +135,7 @@ function HeroSection() {
                 ))}
             </motion.div>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-900/70 via-transparent to-teal-900/70 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-900/70 via-transparent to-sky-900/70 mix-blend-multiply"></div>
             <div className="absolute inset-0 bg-white/60"></div>
 
 
@@ -151,7 +151,7 @@ function HeroSection() {
                         variants={itemVariants}
                         className="flex items-center text-sm md:text-sm w-fit text-gray-700 p-2 bg-white/60 backdrop-blur-sm rounded-full tracking-wide"
                     >
-                        <ChevronRight className='bg-teal-900 p-1 rounded-full text-white mr-1' />
+                        <ChevronRight className='bg-sky-900 p-1 rounded-full text-white mr-1' />
                         Empowering Youth
                     </motion.p>
                     <motion.h1
@@ -182,7 +182,7 @@ function HeroSection() {
                             variants={buttonVariants}
                             whileHover="hover"
                             whileTap="tap"
-                            className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-teal-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
+                            className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
                         >
                             Explore Opportunities →
                         </motion.button>
