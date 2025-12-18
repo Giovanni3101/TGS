@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 function MissionBanner() {
     return (
-        <section className="bg-teal-900 text-white md:py-6 py-2">
+        <section className="bg-sky-900 text-white md:py-6 py-2">
             <div className="container mx-auto px-4 max-w-4xl">
                 <motion.blockquote
                     initial={{ opacity: 0 }}

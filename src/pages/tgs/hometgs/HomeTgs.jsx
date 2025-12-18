@@ -5,6 +5,9 @@ import TGSAcademy from '../../../components/tgs/home/TGSAcademy';
 import ValuesSection from '../../../components/tgs/home/ValuesSection';
 import ContactSection from '../../../components/tgs/home/ContactSection';
 import AboutSection from '../../../components/tgs/home/AboutSection';
+import ContactBanner from '../../../components/tgs/home/ContactBanner';
+import ProjectsSection from '../../../components/tgs/home/ProjectsSection';
+import PartenerSection from '../../../components/tgs/home/PartenerSection';
 
 function HomeTgs() {
     return (
@@ -12,8 +15,13 @@ function HomeTgs() {
             <HeroSection />
             {/* <MissionBanner /> */}
             <AboutSection />
+            <ProjectsSection />
+            <PartenerSection />
+            <div className='px-5 py-10'>
+                <ContactBanner />
+            </div>
             {/* <SuccessStories /> */}
-            <TGSAcademy />
+            {/* <TGSAcademy /> */}
             {/* <ValuesSection /> */}
             {/* <ContactSection /> */}
         </div>

@@ -84,7 +84,7 @@ function SuccessStories() {
             style={{ backgroundImage: `url(${SuccessBg})` }}
         >
             {/* Overlay de fond */}
-            {/* <div className="absolute inset-0 bg-gradient-to-br from-sky-900/90 via-purple-900/80 to-teal-900/90"></div> */}
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-sky-900/90 via-purple-900/80 to-sky-900/90"></div> */}
             <div className="absolute inset-0 bg-black"></div>
 
             {/* Éléments décoratifs */}
@@ -237,7 +237,7 @@ function SuccessStories() {
                                                 <ArrowRight className="w-5 h-5 text-white group-hover:text-cyan-300" />
                                             </button>
                                             
-                                            <button className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-900 to-teal-700 text-white font-semibold hover:from-cyan-600 hover:to-teal-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25">
+                                            <button className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-900 to-sky-700 text-white font-semibold hover:from-cyan-600 hover:to-sky-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25">
                                                 See More
                                             </button>
                                         </div>
