@@ -4,6 +4,8 @@ import projet1 from '../../../assets/images/projects/1.jpeg';
 import projet2 from '../../../assets/images/projects/2.jpeg';
 import projet3 from '../../../assets/images/projects/3.webp';
 import { FiExternalLink, FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { buttonVariants, cardVariants, containerVariants, itemVariants } from '../../animation/Animation';
+
 
 function ProjectsSection() {
     const [expandedCard, setExpandedCard] = useState(null);
@@ -49,49 +51,6 @@ function ProjectsSection() {
         }
     };
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1,
-            },
-        },
-    };
-
-    const cardVariants = {
-        hidden: {
-            opacity: 0,
-            y: 50,
-            scale: 0.95,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 15,
-                duration: 0.6,
-            },
-        },
-    };
-
-    const titleVariants = {
-        hidden: { opacity: 0, x: -30 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-            },
-        },
-    };
-
     return (
         <section className="py-6 bg-sky-100">
             <div className="px-4 sm:px-6 lg:px-8">
@@ -103,7 +62,7 @@ function ProjectsSection() {
                     className="text-center mb-2 lg:mb-6"
                 >
                     <motion.div
-                        variants={titleVariants}
+                        variants={itemVariants}
                         className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-sky-100 to-cyan-100 "
                     >
                         <span className="text-sm font-semibold text-sky-700 uppercase tracking-wider">
@@ -112,14 +71,14 @@ function ProjectsSection() {
                     </motion.div>
 
                     <motion.h2
-                        variants={titleVariants}
+                        variants={itemVariants}
                         className="text-4xl md:text-5xl font-bold text-gray-900 mb-2"
                     >
                         Featured <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">Projects</span>
                     </motion.h2>
 
                     <motion.p
-                        variants={titleVariants}
+                        variants={itemVariants}
                         className="text-sm text-gray-600 max-w-3xl mx-auto"
                     >
                         Discover our ongoing initiatives creating meaningful impact across communities,
@@ -137,10 +96,13 @@ function ProjectsSection() {
                     {projects.map((project) => (
                         <motion.div
                             key={project.id}
-                            variants={cardVariants}
+                            // variants={cardVariants}
                             className="relative group w-full md:w-[calc(33.333%-1rem)] md:max-w-md"
                         >
-                            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-sky-200/50 h-full flex flex-col">
+                            <motion.div
+                                variants={itemVariants}
+                                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-sky-200/50 h-full flex flex-col"
+                            >
                                 <div className="relative h-48 md:h-56 overflow-hidden p-4">
                                     <motion.img
                                         src={project.image}
@@ -235,26 +197,33 @@ function ProjectsSection() {
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </motion.div>
 
                 <motion.div
-                    className='flex flex-col justify-center items-center py-10 md:mx-4 my-12 bg-sky-900 rounded-3xl'
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    className='flex flex-col justify-center items-center py-10 md:mx-4 my-12 md:mt-32 bg-sky-900 rounded-3xl'
                 >
                     <div className='text-center text-white px-'>
                         <motion.p
+                            variants={itemVariants}
                             className='text-3xl mt-4 font-semibold'
                         >
                             A specific project in mind?
                         </motion.p>
                         <motion.p
+                        variants={itemVariants}
                             className='text-md'
                         >
                             Contact us to discuss your needs and find out how we can contribute to your personal development.
                         </motion.p>
                         <motion.button
+                        values={buttonVariants}
                             className="mt-4 px-6 py-2 rounded-full text-lg text-white font-semibold bg-transparent border-2 border-white shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
                         >
                             <a href='#contact'>Contact Us →</a>

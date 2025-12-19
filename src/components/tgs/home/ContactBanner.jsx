@@ -33,36 +33,6 @@ function ContactBanner() {
         },
     };
 
-    const buttonVariants = {
-        hidden: {
-            opacity: 0,
-            scale: 0.8,
-        },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 15,
-                delay: 0.6,
-            },
-        },
-        hover: {
-            scale: 1.05,
-            backgroundColor: "rgba(3, 105, 161, 0.9)",
-            boxShadow: "0 0 40px rgba(6, 182, 212, 0.4)",
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 15,
-            },
-        },
-        tap: {
-            scale: 0.95,
-        },
-    };
-
     const overlayVariants = {
         hidden: {
             background: "rgba(0, 0, 0, 0.3)",
@@ -79,7 +49,7 @@ function ContactBanner() {
     return (
         <motion.section
             id='contact'
-            className="relative max-w-[1100px] rounded-4xl overflow-hidden mx-auto my-12 cursor-pointer"
+            className="relative max-w-[1100px] rounded-4xl overflow-hidden mx-auto cursor-pointer"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -107,18 +77,11 @@ function ContactBanner() {
                 />
             </motion.div>
 
-            {/* Content */}
             <motion.div
                 className="relative z-10 w-full h-full flex items-center justify-center py-12 px-2 md:px-8"
                 variants={containerVariants}
             >
                 <div className="text-center text-white max-w-2xl mx-auto px-4">
-                    {/* <motion.div
-                        className="inline-block mb-4 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
-                        variants={itemVariants}
-                    >
-                    </motion.div> */}
-
                     <motion.h2
                         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                         variants={itemVariants}
@@ -145,14 +108,16 @@ function ContactBanner() {
                             <input
                                 type="email"
                                 placeholder="Your email address"
-                                className="input w-full px-6 pr-36 py-6 rounded-full text-gray-800 font-medium 
-                                            focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                                className="w-full input px-6 pr-36 py-6 rounded-full text-gray-800 font-medium
+                                                focus:outline-none focus:ring-2 focus:ring-cyan-400
+                                                relative z-0"
                             />
 
                             <button
-                                className="absolute right-1 top-1/2 -translate-y-1/2 
-                                            bg-sky-800 hover:bg-sky-700 transition-colors
-                                            px-5 py-2 rounded-full"
+                                className="absolute right-2 top-1/2 -translate-y-1/2
+                                                bg-sky-800 hover:bg-sky-700 transition-colors
+                                                px-5 py-2 rounded-full
+                                                z-10"
                             >
                                 <span className="text-white font-medium">Submit Email</span>
                             </button>
