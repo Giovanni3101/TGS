@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useTransform, useScroll, useMotionValue, useSpring } from 'framer-motion';
-import Contact from '../../../../public/contact.jpg';
+import Contact from '../../../assets/images/contact.jpg';
 
 function ContactBanner() {
     const containerVariants = {
