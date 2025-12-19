@@ -1,11 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=TASA+Explorer:wght@400..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@400..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 @import "tailwindcss";
 
 @plugin "daisyui" {
   themes: light --default, light --prefersdark;
 }
+
+html {
+  scrollbar-width: thick;
+  /* Firefox */
+  scrollbar-color: oklch(39.1% 0.09 240.876) oklch(95.1% 0.026 236.824);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: oklch(95.1% 0.026 236.824);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: oklch(95.1% 0.026 236.824);
+  border-radius: 4px;
+}
+
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -65,4 +87,47 @@ body {
   flex-grow: 1;
   flex-basis: 0px;
   max-width: none;
+}
+
+
+.wrap {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 14rem;
+  justify-items: stretch;
+  animation: loop 25s linear infinite;
+}
+
+@keyframes loop {
+  to {
+    translate: calc(-15 * 14rem);
+  }
+}
+
+.wrap_testimony_left {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 20rem;
+  justify-items: stretch;
+  animation: loop_left 25s linear infinite;
+}
+
+.wrap_testimony_right {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 20rem;
+  justify-items: stretch;
+  animation: loop_right 25s linear infinite;
+}
+
+@keyframes loop_left {
+  to {
+    translate: calc(-4 * 20rem);
+  }
+}
+
+@keyframes loop_right {
+  to {
+    translate: calc(4 * 20rem);
+  }
 }

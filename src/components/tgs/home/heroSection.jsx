@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { containerVariants, itemVariants, buttonVariants } from '../../animation/Animation';
 
 // Importez vos images (ajoutez au moins 3-4 images pour le carrousel)
 import HeroPhoto1 from '../../../../public/hero1.webp';
@@ -48,65 +49,6 @@ function HeroSection() {
 
         return () => clearInterval(interval);
     }, [isPlaying, images.length]);
-
-    // Variantes d'animation pour le texte
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: {
-            opacity: 0,
-            y: 60,
-            filter: "blur(10px)"
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-                duration: 0.8
-            },
-        },
-    };
-
-    const buttonVariants = {
-        hidden: {
-            opacity: 0,
-            scale: 0.8
-        },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                type: "spring",
-                damping: 15,
-                stiffness: 300,
-                delay: 0.6
-            },
-        },
-        hover: {
-            scale: 1.05,
-            transition: {
-                type: "spring",
-                damping: 15,
-                stiffness: 400,
-            },
-        },
-        tap: {
-            scale: 0.95,
-        },
-    };
 
     return (
         <section className="min-h-[70vh] md:min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
