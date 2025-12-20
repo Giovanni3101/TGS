@@ -16,6 +16,7 @@ import Mission from './pages/tgs/AboutTgs/Mission';
 import Story from './pages/tgs/AboutTgs/Story';
 import Board from './pages/tgs/AboutTgs/Board';
 import Ambassadors from './pages/tgs/AboutTgs/Ambassadors';
+import Contact from './pages/tgs/AboutTgs/Contact';
 import Footer from './components/tgs/Footer';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route path="/our_team" element={<Navigate to="/board" replace />} />
             <Route path="/board" element={<Board />} />
             <Route path="/ambassadors" element={<Ambassadors />} />
+            <Route path="/contact" element={<Contact />} />
 
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/home" replace />} />
