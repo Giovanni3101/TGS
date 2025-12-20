@@ -198,7 +198,7 @@ const Mission = () => {
           </div>
           <div className="Mission-image flex-1">
             <img
-            src="https://media.istockphoto.com/id/2172316557/photo/portrait-of-little-middle-eastern-girl-studying-at-home-on-digital-tablet.webp?a=1&b=1&s=612x612&w=0&k=20&c=zyMhz_U05AF1uDxi7YYoYzwQriy2KhjDNByL6pftqqQ="
+            src="https://images.unsplash.com/photo-1758270704025-0e1a1793e1ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwc3R1ZGVudHMlMjBsZWFybmluZ3xlbnwxfHx8fDE3NjYxNTIwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Mission Illustration"
             style={{ width: '600px', height: '500px', fit: 'cover', borderRadius: '10px' }}
             />
