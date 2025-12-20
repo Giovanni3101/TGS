@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { containerVariants, itemVariants, buttonVariants } from '../../animation/Animation';
 
 // Importez vos images (ajoutez au moins 3-4 images pour le carrousel)
 import HeroPhoto1 from '../../../../public/hero1.webp';
@@ -49,65 +50,6 @@ function HeroSection() {
         return () => clearInterval(interval);
     }, [isPlaying, images.length]);
 
-    // Variantes d'animation pour le texte
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: {
-            opacity: 0,
-            y: 60,
-            filter: "blur(10px)"
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-                duration: 0.8
-            },
-        },
-    };
-
-    const buttonVariants = {
-        hidden: {
-            opacity: 0,
-            scale: 0.8
-        },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                type: "spring",
-                damping: 15,
-                stiffness: 300,
-                delay: 0.6
-            },
-        },
-        hover: {
-            scale: 1.05,
-            transition: {
-                type: "spring",
-                damping: 15,
-                stiffness: 400,
-            },
-        },
-        tap: {
-            scale: 0.95,
-        },
-    };
-
     return (
         <section className="min-h-[70vh] md:min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
             <motion.div
@@ -135,7 +77,7 @@ function HeroSection() {
                 ))}
             </motion.div>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-900/70 via-transparent to-teal-900/70 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-900/70 via-transparent to-sky-900/70 mix-blend-multiply"></div>
             <div className="absolute inset-0 bg-white/60"></div>
 
 
@@ -151,7 +93,7 @@ function HeroSection() {
                         variants={itemVariants}
                         className="flex items-center text-sm md:text-sm w-fit text-gray-700 p-2 bg-white/60 backdrop-blur-sm rounded-full tracking-wide"
                     >
-                        <ChevronRight className='bg-teal-900 p-1 rounded-full text-white mr-1' />
+                        <ChevronRight className='bg-sky-900 p-1 rounded-full text-white mr-1' />
                         Empowering Youth
                     </motion.p>
                     <motion.h1
@@ -182,7 +124,7 @@ function HeroSection() {
                             variants={buttonVariants}
                             whileHover="hover"
                             whileTap="tap"
-                            className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-teal-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
+                            className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
                         >
                             Explore Opportunities →
                         </motion.button>

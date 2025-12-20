@@ -183,7 +183,7 @@ function Navbar() {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-teal-900 text-white w-[150px] py-4 rounded-full hover:bg-sky-600 md:ml-[1rem]"
+                                className="bg-sky-900 text-white w-[150px] py-4 rounded-full hover:bg-sky-600 md:ml-[1rem]"
                             >
                                 TGS ACADEMY
                             </motion.button>
@@ -250,7 +250,7 @@ function Navbar() {
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-sky-400 text-white w-full max-w-xs py-3 rounded-full hover:bg-teal-700 font-semibold"
+                                            className="bg-sky-400 text-white w-full max-w-xs py-3 rounded-full hover:bg-sky-700 font-semibold"
                                             onClick={toggleMenu}
                                         >
                                             TGS ACADEMY
