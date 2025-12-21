@@ -193,7 +193,7 @@ function Navbar() {
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-sky-900 text-white w-[150px] py-4 rounded-full hover:bg-sky-600 md:ml-[1rem]"
                             >
-                                TGS ACADEMY
+                                TGS CONNECT
                             </motion.button>
                         </div>
                     </nav>
