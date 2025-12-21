@@ -4,7 +4,7 @@ import './index.css'
 import TgsApp from './apps/TgsApp.jsx'
 import OpportunitiesApp from './apps/OpportunitiesApp.jsx'
 import { getSubdomain } from './utils/subdomain.js'
-import { getAppTitle } from './utils/DocTitle.js'
+import { getAppTitle } from './utils/doctitle.js'
 
 let AppToRender;
 const subdomain = getSubdomain()
