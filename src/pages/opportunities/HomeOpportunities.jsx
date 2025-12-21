@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../components/opportunities/Navbar'
 import HeroSection from '../../components/opportunities/HeroSection'
 import TypeOppSection from '../../components/opportunities/TypeOppSection'
 import Steps from '../../components/opportunities/Steps'
