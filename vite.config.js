@@ -8,4 +8,13 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  server: {
+    host: true,
+    port: 5173,
+    allowedHosts: [
+      'lvh.me',
+      'opportunities.lvh.me',
+      'academy.lvh.me'
+    ],
+  },
 })
