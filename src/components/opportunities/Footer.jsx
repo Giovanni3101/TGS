@@ -82,7 +82,7 @@ function Footer() {
                         </div>
                     </div>
 
-                    <div className="border-t border-gray-400 pt-3 text-center text-gray-300">
+                    <div className="border-t border-gray-500 pt-3 text-center text-gray-300">
                         <div className='md:flex justify-between items-center'>
                             {/* <p>&copy; {year} TGS Connect. All rights reserved.</p> */}
                             <p>&copy; {year} Powered by <a href='https://gitutechnology.onreder.com'>Gitu technology</a></p>

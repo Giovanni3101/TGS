@@ -3,14 +3,15 @@ import { Mail, Phone, Menu, X, FacebookIcon, InstagramIcon, TwitterIcon, Linkedi
 import tgsConnect from '../../assets/images/tgs-connect-removebg-preview.png'
 import { FacebookFilled, InstagramFilled, LinkedinFilled, TikTokFilled, WhatsAppOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion'
+import { Link } from 'react-router';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     const navItems = [
-        { label: 'Home', href: '#' },
-        { label: 'How it works', href: '#' },
-        { label: 'Blog', href: '#' },
+        { label: 'Home', href: '/home#' },
+        { label: 'How it works', href: '/home#how-it-works' },
+        { label: 'Blog', href: '/#' },
     ];
 
     return (
@@ -81,13 +82,15 @@ const Navbar = () => {
                             ))}
                         </div>
                         <div className='md:flex items-center space-x-2'>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-sky-900 text-white w-[150px] py-4 rounded-xl hover:bg-sky-600"
-                            >
-                                Opportunities
-                            </motion.button>
+                            <Link to="/opportunities">
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-sky-900 text-white w-[150px] py-4 rounded-xl hover:bg-sky-600"
+                                >
+                                    Opportunities
+                                </motion.button>
+                            </Link>
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -121,13 +124,15 @@ const Navbar = () => {
                                 </a>
                             ))}
                             <div className='md:flex items-center space-x-2 px-4'>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-gray-100 text-sky-900 w-[150px] py-4 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
-                                >
-                                    Opportunities
-                                </motion.button>
+                                <Link to="/opportunities">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="bg-gray-100 text-sky-900 w-[150px] py-4 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
+                                    >
+                                        Opportunities
+                                    </motion.button>
+                                </Link>
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
