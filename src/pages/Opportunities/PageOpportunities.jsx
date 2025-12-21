@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/opportunities/Navbar'
-import HeroSection from '../../components/opportunities/heroSection'
+import HeroSection from '../../components/opportunities/HeroSection'
 
 function PageOpportunities() {
     return (
