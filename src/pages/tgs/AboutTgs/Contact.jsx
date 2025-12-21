@@ -48,7 +48,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Contact Rapide</h3>
-                <p className="text-gray-600 text-sm">hello@tibago.org</p>
+                <p className="text-gray-600 text-sm">info@thegrowthsphere.org</p>
               </div>
             </div>
             
@@ -70,7 +70,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Adresse Physique</h3>
-                <p className="text-gray-600 text-sm">Goma, DRC</p>
+                <p className="text-gray-600 text-sm">Nairobi, Kenya</p>
               </div>
             </div>
           </div>
