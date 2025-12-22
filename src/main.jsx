@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import TgsApp from './apps/TgsApp.jsx'
-import OpportunitiesApp from './apps/OpportunitiesApp.jsx'
+import OpportunitiesApp from './apps/TGSConnect.jsx'
 import { getSubdomain } from './utils/subdomain.js'
 import { getAppTitle } from './utils/doctitle.js'
 

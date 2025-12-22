@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Globe, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router'
+import { getFeaturedOpportunities } from '../data/opportunities';
+
 
 function FeaturedOpportunities() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,48 +11,7 @@ function FeaturedOpportunities() {
     const [containerWidth, setContainerWidth] = useState(0);
     const [itemWidth, setItemWidth] = useState(300);
 
-    const featuredOpportunities = [
-        {
-            title: 'UN Youth Leadership Summit 2024',
-            description: "",
-            type: 'Conference',
-            deadline: 'March 15, 2024',
-            location: 'New York, USA',
-            tag: 'Fully Funded'
-        },
-        {
-            title: 'Global Scholars Program',
-            description: "",
-            type: 'Scholarship',
-            deadline: 'April 30, 2024',
-            location: 'Multiple Countries',
-            tag: 'Open Now'
-        },
-        {
-            title: 'Tech for Good Fellowship',
-            description: "",
-            type: 'Fellowship',
-            deadline: 'May 20, 2024',
-            location: 'Remote',
-            tag: 'Featured'
-        },
-        {
-            title: 'Global Scholars Program',
-            description: "",
-            type: 'Scholarship',
-            deadline: 'April 30, 2024',
-            location: 'Multiple Countries',
-            tag: 'Open Now'
-        },
-        {
-            title: 'Tech for Good Fellowship',
-            description: "",
-            type: 'Fellowship',
-            deadline: 'May 20, 2024',
-            location: 'Remote',
-            tag: 'Featured'
-        }
-    ];
+    const featuredOpportunities = getFeaturedOpportunities();
 
     useEffect(() => {
         const updateDimensions = () => {
@@ -113,16 +75,16 @@ function FeaturedOpportunities() {
                             >
                                 <div className="p-6">
                                     <div className="flex items-center justify-between mb-3">
-                                        <span className="text-sm font-medium text-sky-600">{opp.type}</span>
+                                        <span className="text-sm font-medium text-sky-600 capitalize">{opp.category}</span>
                                         <span className="bg-sky-100 text-sky-700 text-xs px-3 py-1 rounded-full font-medium">
-                                            {opp.tag}
+                                            {opp.funding || 'Featured'}
                                         </span>
                                     </div>
                                     <h3 className="text-xl font-bold text-gray-900 mb-3">
                                         {opp.title}
                                     </h3>
                                     <p className="text-gray-800 mb-3">
-                                        {opp.description}
+                                        {opp.short_description}
                                     </p>
                                     <div className="space-y-2 text-sm text-gray-600">
                                         <div className="flex items-center">
@@ -134,9 +96,11 @@ function FeaturedOpportunities() {
                                             Deadline: {opp.deadline}
                                         </div>
                                     </div>
-                                    <button className="mt-6 text-start text-sky-600 hover:text-sky-700 font-medium">
-                                        Explore →
-                                    </button>
+                                    <Link to={`/${opp.category}/${opp.slug}`}>
+                                        <button className="cursor-pointer mt-6 text-start text-sky-600 hover:text-sky-700 font-medium">
+                                            Explore →
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
@@ -165,9 +129,11 @@ function FeaturedOpportunities() {
                         <ChevronRight className="w-5 h-5" />
                     </button>
                 </div>
-                <button className="mt-6 cursor-pointer border-2 border-sky-600 text-sky-600 px-8 py-2 rounded-full hover:bg-sky-50 transition-colors font-medium text-lg">
-                    Explore All
-                </button>
+                <Link to='/opportunities'>
+                    <button className="mt-6 cursor-pointer border-2 border-sky-600 text-sky-600 px-8 py-2 rounded-full hover:bg-sky-50 transition-colors font-medium text-lg">
+                        Explore All
+                    </button>
+                </Link>
             </div>
         </section>
     );

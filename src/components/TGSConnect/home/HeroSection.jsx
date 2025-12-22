@@ -1,8 +1,8 @@
 import React from 'react';
-import heroImage from '../../assets/images/hero/heroOpportunities.jpeg'
-import heroImage2 from '../../assets/images/hero/bg-hero_m7zwmb.png'
+import heroImage from '../../../assets/images/hero/heroOpportunities.jpeg'
+import heroImage2 from '../../../assets/images/hero/bg-hero_m7zwmb.png'
 import { motion } from 'framer-motion'
-import Navbar from './Navbar';
+import { Link } from 'react-router'
 
 function HeroSection() {
     return (
@@ -43,12 +43,13 @@ function HeroSection() {
                                 that transform dreams into reality.
                             </p>
                             <div className="flex flex-col items-center justify-center md:justify-start sm:flex-row gap-4">
-                                <button className="bg-sky-600 text-white px-8 py-2 rounded-full hover:bg-sky-700 transition-all font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center">
-                                    Explore Opportunities
-                                    {/* <ArrowRight className="ml-2 w-5 h-5" /> */}
-                                </button>
+                                <Link to='/opportunities'>
+                                    <button className="cursor-pointer bg-sky-600 text-white px-8 py-2 rounded-full hover:bg-sky-700 transition-all font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center">
+                                        Explore Opportunities
+                                    </button>
+                                </Link>
                                 <a href='#how-it-works'>
-                                    <button className="border-2 border-sky-600 text-sky-600 px-8 py-2 rounded-full hover:bg-sky-50 transition-colors font-medium text-lg">
+                                    <button className="cursor-pointer border-2 border-sky-600 text-sky-600 px-8 py-2 rounded-full hover:bg-sky-50 transition-colors font-medium text-lg">
                                         Learn More
                                     </button>
                                 </a>
