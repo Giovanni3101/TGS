@@ -2,13 +2,12 @@ import { useState } from 'react';
 import gitu from '../../assets/images/tgs_logo_one-removebg-preview.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { URLS } from '../../utils/urls';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openMenus, setOpenMenus] = useState({});
-
-    const location = useLocation();
 
     const NavItems = [
         { name: 'Home', path: '/home' },
@@ -29,7 +28,7 @@ function Navbar() {
                 { name: 'Get in touch', href: '/contact' },
             ]
         },
-        { name: 'Opportunities', path: '/opportunities' },
+        { name: 'Opportunities' },
         { name: 'News', path: '/news' },
     ]
 
@@ -146,18 +145,27 @@ function Navbar() {
         const isActive = location.pathname === item.path;
         return (
             <li key={index} className="relative group space-x-2 px-3 py-6">
-                <Link
-                    to={item.path}
-                    className={`flex items-center space-x-2 border-b-3 transition-all duration-200
-                    ${isActive
-                            ? "border-sky-600 text-sky-700 font-semibold"
-                            : "border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600"
-                        }`}
-                >
-                    {item.icon}
-                    <span>{item.name}</span>
-                    {item.submenu && <ChevronDown size={16} className="mt-[2px]" />}
-                </Link>
+                {item.name.toLowerCase() === "opportunities" ?
+                    <a
+                        href={URLS.opportunitiesUrl}
+                        className='border-b-3 transition-all duration-200 border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600'
+                        target='_blank'
+                    >
+
+                        {item.name}
+                    </a> :
+                    <Link
+                        to={item.path}
+                        className={`flex items-center space-x-2 border-b-3 transition-all duration-200
+                        ${isActive
+                                ? "border-sky-600 text-sky-700 font-semibold"
+                                : "border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600"
+                            }`}
+                    >
+                        <span>{item.name}</span>
+                        {item.submenu && <ChevronDown size={16} className="mt-[2px]" />}
+                    </Link>
+                }
                 {item.submenu && <DesktopSubMenu items={item.submenu} />}
             </li>
         );

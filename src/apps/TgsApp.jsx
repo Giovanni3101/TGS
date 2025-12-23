@@ -1,14 +1,15 @@
 import React from 'react';
-import './index.css'
+// import './index.css'
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate
 } from "react-router-dom";
-import Navbar from './components/tgs/NavBar';
+import Navbar from '../components/tgs/NavBar';
 
 // Pages
+<<<<<<< HEAD:src/App.jsx
 import HomeTgs from './pages/tgs/hometgs/HomeTgs';
 import Opportunities from './pages/tgs/Opportunities';
 import News from './pages/tgs/News';
@@ -20,7 +21,18 @@ import Contact from './pages/tgs/AboutTgs/Contact';
 import Footer from './components/tgs/Footer';
 
 function App() {
+=======
+import HomeTgs from '../pages/tgs/hometgs/HomeTgs';
+// import Opportunities from '../components/opportunities/HeroSection';
+import News from '../pages/tgs/News';
+import Mission from '../pages/tgs/AboutTgs/Mission';
+import Story from '../pages/tgs/AboutTgs/Story';
+import Board from '../pages/tgs/AboutTgs/Board';
+import Ambassadors from '../pages/tgs/AboutTgs/Ambassadors';
+import Footer from '../components/tgs/Footer';
+>>>>>>> main:src/apps/TgsApp.jsx
 
+function TgsApp() {
   return (
     <Router>
       <div className='flex flex-col items-center min-h-screen'>
@@ -29,7 +41,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<HomeTgs />} />
-            <Route path="/opportunities" element={<Opportunities />} />
+            {/* <Route path="/opportunities" element={<Opportunities />} /> */}
             <Route path="/news" element={<News />} />
 
             {/* About & subpages */}
@@ -53,4 +65,4 @@ function App() {
   )
 }
 
-export default App;
+export default TgsApp;
