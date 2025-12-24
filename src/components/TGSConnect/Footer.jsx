@@ -8,7 +8,7 @@ import { FacebookFilled, InstagramFilled, LinkedinFilled, TikTokFilled, WhatsApp
 function Footer() {
     const year = new Date().getFullYear()
     return (
-        <footer className="bg-sky-900 text-gray-100 py-12">
+        <footer className="w-full bg-sky-900 text-gray-100 py-12">
             <div className="mx-auto sm:px-6 lg:px-8">
                 <div className='md:px-20 px-5'>
                     <div className="grid md:grid-cols-4 gap-8 mb-8">
