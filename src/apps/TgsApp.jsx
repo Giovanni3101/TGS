@@ -9,19 +9,6 @@ import {
 import Navbar from '../components/tgs/NavBar';
 
 // Pages
-<<<<<<< HEAD:src/App.jsx
-import HomeTgs from './pages/tgs/hometgs/HomeTgs';
-import Opportunities from './pages/tgs/Opportunities';
-import News from './pages/tgs/News';
-import Mission from './pages/tgs/AboutTgs/Mission';
-import Story from './pages/tgs/AboutTgs/Story';
-import Board from './pages/tgs/AboutTgs/Board';
-import Ambassadors from './pages/tgs/AboutTgs/Ambassadors';
-import Contact from './pages/tgs/AboutTgs/Contact';
-import Footer from './components/tgs/Footer';
-
-function App() {
-=======
 import HomeTgs from '../pages/tgs/hometgs/HomeTgs';
 // import Opportunities from '../components/opportunities/HeroSection';
 import News from '../pages/tgs/News';
@@ -30,7 +17,7 @@ import Story from '../pages/tgs/AboutTgs/Story';
 import Board from '../pages/tgs/AboutTgs/Board';
 import Ambassadors from '../pages/tgs/AboutTgs/Ambassadors';
 import Footer from '../components/tgs/Footer';
->>>>>>> main:src/apps/TgsApp.jsx
+import Contact from '../pages/tgs/AboutTgs/Contact';
 
 function TgsApp() {
   return (

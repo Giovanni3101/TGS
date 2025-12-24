@@ -8,6 +8,7 @@ import Francis from '../../../assets/images/francis.jpeg';
 import Idris from '../../../assets/images/idris.jpeg';
 import Jubilant from '../../../assets/images/jubilant.jpeg';
 import Benjamin from '../../../assets/images/Benjamin.jpg';
+import Sophia from '../../../assets/images/Sophia.jpeg';
 
 /**
  * EXTENDED BOARD MEMBER DATA STRUCTURE
@@ -38,30 +39,31 @@ const boardMembers = [
   },
   {
     id: 3,
-    name: 'Sophia Madima',
+    name: 'Francis Muraguri',
     role: 'General Secretary',
-    shortBio: 'Dedicated administrator with proven track record in governance and compliance.',
-    fullDescription: 'Sophia Madima is a passionate advocate for justice, education, and social impact. Through participation in multiple moot court competitions, she has refined her legal reasoning, advocacy, and research skills. Based in Kenya, Sophia strives to advance access to education, empowerment, and equality, driving meaningful change within her community and beyond.',
-    photo: {},
+    shortBio: 'Results-oriented project manager with expertise in planning and execution.',
+    fullDescription: 'Results-oriented project manager with expertise in planning, execution, and impact measurement. Committed to delivering excellence in every initiative. Skilled in managing complex projects from conception to completion while ensuring alignment with organizational goals.',
+    photo: Francis,
     linkedin: 'https://linkedin.com',
-    email: 'sophia@organization.org',
-    tags: ['Legal Advocacy', 'Education', 'Social Impact']
+    email: 'francis@organization.org',
+    tags: ['Project Management', 'Strategy', 'Impact Measurement']
   },
+  
   {
     id: 4,
     name: 'Nonso Echendu Alan',
-    role: 'Co-Founder & Director of IT/Programs',
-    shortBio: 'Technology innovator driving digital transformation and program delivery.',
+    role: 'Co-Founder & Research/Projects Director',
+    shortBio: 'Strategic leader bridging research and execution to turn ideas into sustainable solutions.',
     fullDescription: 'Alan Nonso is an emerging data scientist and researcher, with a strong interdisciplinary background spanning statistics, data science, artificial intelligence, and bio-chemistry. Currently pursuing a Bachelor of Science in Statistics and Data Science at Strathmore University, where he is developing a solid foundation in data-driven problem solving and analytical thinking.',
     photo: Alan,
-    linkedin: 'https://linkedin.com',
-    email: 'nonso@organization.org',
+    linkedin:'https://alan-n-offical-portfolio.streamlit.app/',
+    email: 'nonsoalan171417@gmail.com',
     tags: ['Data Science', 'AI', 'Research']
   },
   {
     id: 5,
     name: 'Muhammad Idris',
-    role: 'Director of Human Resources & Expansion',
+    role: 'Human Resources & Expansion Director',
     shortBio: 'People-focused leader committed to talent development and organizational growth.',
     fullDescription: 'Muhammad Idris is a Rohingya human rights activist and advocate originally from Rakhine State, Myanmar. He fled his homeland in 2017 due to the genocide committed against the Rohingya by the Myanmar government. Since then, he has dedicated his life to advancing justice, accountability, and equality for the Rohingya community. He is the Founder and Executive Director of the Refugees Empowerment Network (REN).',
     photo: Idris,
@@ -72,7 +74,7 @@ const boardMembers = [
   {
     id: 6,
     name: 'Bernice Gladys Wambui',
-    role: 'Director of Finance & Administration',
+    role: 'Finance & Administration Director',
     shortBio: 'Financial strategist ensuring fiscal responsibility and sustainable growth.',
     fullDescription: 'Bernice Gladys Wambui is a passionate human rights advocate and environmental enthusiast committed to empowering individuals with knowledge of their rights and responsibilities. Dedicated to promoting access to justice and equal opportunity, she strives to create lasting community impact. Bernice has also served as Treasurer for Legal Alliance Associates, a student-led law firm.',
     photo: Bernice,
@@ -83,19 +85,30 @@ const boardMembers = [
   {
     id: 7,
     name: 'Jubilant Zulu',
-    role: 'Director of Marketing & Communication',
+    role: 'Marketing & Communication Director',
     shortBio: 'Creative communications expert building brand visibility and stakeholder engagement.',
     fullDescription: 'Jubilant Zulu is a dynamic legal scholar, youth leader, and emerging voice in law and business. Passionate about using law for transformation and social impact, she serves as Campus Director for the Millennium Fellowship, leading youth empowerment initiatives. As Country Director at The Lawrit Journal of Law, she advances legal research and dialogue across Africa.',
     photo: Jubilant,
     linkedin: 'https://linkedin.com',
     email: 'jubilant@organization.org',
     tags: ['Marketing', 'Legal Research', 'Youth Leadership']
-  }
+  },
+   {
+    id: 8,
+    name: 'Giovanni Mahasano',
+    role: 'Co-Founder & IT/Programs Director',
+    shortBio: 'Technology innovator driving digital transformation and program delivery.',
+    fullDescription: 'The founder of GITU Technology, a Goma-based company driven by a passion for innovation, electronics, and artificial intelligence. His journey began at ITIG Don Bosco, where he completed his secondary studies in electronic engineering. Today, he continues to pursue his dream as a Bachelor student in Computer Science, combining academic growth with entrepreneurial vision to build technologies that inspire progress.',
+    photo:'',
+    linkedin:'https://www.linkedin.com/in/giovanni-mahasano-a07023345?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BD89eHwveTG21opDlu9UdAA%3D%3D',
+    email: 'giovannimahasano@gmail.com',
+    tags: ['Computer Science', 'AI', 'Electronic & Computer Engineer']
+  },
 ];
 
 const teamMembers = [
   {
-    id: 8,
+    id: 9,
     name: 'Stephanie Andriamora',
     role: 'HR & Partnerships Manager',
     shortBio: 'Relationship builder connecting organizations with strategic partners.',
@@ -105,17 +118,18 @@ const teamMembers = [
     email: 'stephanie@organization.org',
     tags: ['HR', 'Partnerships', 'Talent Acquisition']
   },
+  
   {
-    id: 9,
-    name: 'Francis Muraguri',
-    role: 'Head of Projects',
-    shortBio: 'Results-oriented project manager with expertise in planning and execution.',
-    fullDescription: 'Results-oriented project manager with expertise in planning, execution, and impact measurement. Committed to delivering excellence in every initiative. Skilled in managing complex projects from conception to completion while ensuring alignment with organizational goals.',
-    photo: Francis,
+    id: 10,
+    name: 'Sophia Madima',
+    role: 'Internal Communication Officer',
+    shortBio: 'Dedicated administrator with proven track record in governance and compliance.',
+    fullDescription: 'Sophia Madima is a passionate advocate for justice, education, and social impact. Through participation in multiple moot court competitions, she has refined her legal reasoning, advocacy, and research skills. Based in Kenya, Sophia strives to advance access to education, empowerment, and equality, driving meaningful change within her community and beyond.',
+    photo: Sophia,
     linkedin: 'https://linkedin.com',
-    email: 'francis@organization.org',
-    tags: ['Project Management', 'Strategy', 'Impact Measurement']
-  }
+    email: 'sophia@organization.org',
+    tags: ['Legal Advocacy', 'Education', 'Social Impact']
+  },
 ];
 
 /**
