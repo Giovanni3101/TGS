@@ -1,10 +1,10 @@
 import { ENV } from '../config/env'
 
-const getOpportunitiesUrl = () => {
-    const protocol = ENV.isDev ? "http" : "https";
-    const port = ENV.isDev ? `:${ENV.port}` : "";
-    return `${protocol}://opportunities.${ENV.rootDomain}${port}`;
-};
+// const getOpportunitiesUrl = () => {
+//     const protocol = ENV.isDev ? "http" : "https";
+//     const port = ENV.isDev ? `:${ENV.port}` : "";
+//     return `${protocol}://opportunities.${ENV.rootDomain}${port}`;
+// };
 
 const getTgsAcademyUrl = () => {
     const protocol = ENV.isDev ? "http" : "https";
@@ -18,12 +18,12 @@ const getTgsUrl = () => {
     return `${protocol}://${ENV.rootDomain}${port}`;
 };
 
-const opportunitiesUrl = getOpportunitiesUrl()
+// const opportunitiesUrl = getOpportunitiesUrl()
 const tgsAcademyUrl = getTgsAcademyUrl()
 const tgsUrl = getTgsUrl()
 
 export const URLS = {
-    opportunitiesUrl,
+    // opportunitiesUrl,
     tgsAcademyUrl,
     tgsUrl
 }
