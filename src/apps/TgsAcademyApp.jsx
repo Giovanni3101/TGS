@@ -15,7 +15,7 @@ import ConsultationsPage from '../pages/TGSConnect/services/ConsultationsPage'
 import GOAFPage from '../pages/TGSConnect/services/GOAFPage'
 import GSPPage from "../pages/TGSConnect/services/GSPPage";
 
-function OpportunitiesApp() {
+function TgsAcademyApp() {
     return (
         <Router>
             <ScrollToTop />
@@ -40,4 +40,4 @@ function OpportunitiesApp() {
     )
 }
 
-export default OpportunitiesApp
+export default TgsAcademyApp
