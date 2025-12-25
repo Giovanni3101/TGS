@@ -5,6 +5,10 @@ import {
   MapPin, Heart, ArrowRight, Sparkles, ChevronRight, CheckCircle,
   Play, Zap, Target as TargetIcon, Globe as GlobeIcon, Quote
 } from 'lucide-react';
+import { URLS } from '/home/alves/Desktop/TGS/src/utils/urls.js';
+
+
+
 
 const statsData = [
   { value: '100+', label: 'Youth Empowered', icon: <Users className="w-10 h-10" /> },
@@ -210,6 +214,7 @@ const Mission = () => {
       <motion.button
       whileHover={{ scale: 1.03, y: -2 }}
       whileTap={{ scale: 0.98 }}
+      onClick={() => window.open(URLS.opportunitiesUrl, '_blank')}
       className="bg-white text-sky-950 px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-2xl hover:shadow-white/20 transition-all duration-300 flex items-center justify-center gap-3"
       >
       Get Started
@@ -221,7 +226,7 @@ const Mission = () => {
     whileTap={{ scale: 0.98 }}
     className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/20 transition-all duration-300"
     >
-    Watch Video
+    Learn More
   </motion.button>
 </motion.div>
 </motion.div>
@@ -599,6 +604,7 @@ className="relative"
 whileHover={{ scale: 1.05, y: -3 }}
 whileTap={{ scale: 0.97 }}
 className="bg-white text-sky-950 px-10 sm:px-12 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg shadow-[0_20px_50px_-12px_rgba(255,255,255,0.3)] hover:shadow-[0_25px_60px_-12px_rgba(255,255,255,0.4)] transition-all duration-300 flex items-center justify-center gap-3 group"
+onClick={() => window.open(URLS.tgsAcademyUrl, '_blank')}
 >
 Get Involved
 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />

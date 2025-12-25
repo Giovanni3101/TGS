@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Building, Facebook, Linkedin, Instagram } from 'lucide-react';
 import contactBanner from '/home/alves/Desktop/TGS/src/assets/images/contact-banner.png'
+import {URLS} from '/home/alves/Desktop/TGS/src/utils/urls.js';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -52,6 +53,13 @@ export default function ContactSection() {
   };
 
   const handleSubmit = () => {
+    const { prenom, nom, email, message } = formData;
+    
+    if (!prenom || !nom || !email || !message) {
+      alert('Veuillez remplir tous les champs');
+      return;
+    }
+    
     console.log('Form submitted:', formData);
   };
 
