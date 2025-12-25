@@ -27,30 +27,29 @@ function HeroSection() {
                                 Your Gateway to Global Opportunities
                             </div> */}
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                                Unlock your future with{' '}
+                                Discover What's Holding You Back{' '}
                                 <span
                                     className="text-sky-600 text-6xl"
                                     style={{
                                         fontFamily: "Great vibes"
                                     }}
                                 >
-                                    Global Opportunities
+                                    And What Could Take You Global
                                 </span>
                             </h1>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Discover fully-funded scholarships, prestigious fellowships, international conferences,
-                                and life-changing volunteer programs. We connect ambitious youth with opportunities
-                                that transform dreams into reality.
+                                You have ambition. You have potential. But do you know exactly where you stand,
+                                what's slowing you down, and which opportunities truly fit your goals and passions?
                             </p>
                             <div className="flex flex-col items-center justify-center md:justify-start sm:flex-row gap-4">
-                                <Link to='/opportunities'>
+                                <Link to='/login'>
                                     <button className="cursor-pointer bg-sky-600 text-white px-8 py-2 rounded-full hover:bg-sky-700 transition-all font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center">
-                                        Explore Opportunities
+                                        Join the academy
                                     </button>
                                 </Link>
-                                <a href='#how-it-works'>
+                                <a href='/opportunities'>
                                     <button className="cursor-pointer border-2 border-sky-600 text-sky-600 px-8 py-2 rounded-full hover:bg-sky-50 transition-colors font-medium text-lg">
-                                        Learn More
+                                        Explore opportunities
                                     </button>
                                 </a>
                             </div>

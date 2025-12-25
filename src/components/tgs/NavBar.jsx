@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import gitu from '../../assets/images/tgs_logo_one-removebg-preview.png';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Menu, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
+import { X, Menu, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { URLS } from '../../utils/urls';
 
@@ -28,7 +29,7 @@ function Navbar() {
                 { name: 'Get in touch', href: '/contact' },
             ]
         },
-        { name: 'Opportunities' },
+        { name: 'Services', path: '/home#services' },
         { name: 'News', path: '/news' },
     ]
 
@@ -143,31 +144,30 @@ function Navbar() {
     // Composant récursif pour le menu desktop - version hover uniquement
     const renderDesktopMenuItem = (item, index) => {
         const isActive = location.pathname === item.path;
+        // console.log("Items en question:", item)
+        // console.log("Location pathname: ", location.pathname)
+        // console.log("Item pathname: ", item.path)
+        // console.log("Is activeee", isActive)
+
+        console.log("Items en question:", item)
+
         return (
             <li key={index} className="relative group space-x-2 px-3 py-6">
-                {item.name.toLowerCase() === "opportunities" ?
-                    <a
-                        href={URLS.opportunitiesUrl}
-                        className='border-b-3 transition-all duration-200 border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600'
-                        target='_blank'
-                    >
-
-                        {item.name}
-                    </a> :
-                    <Link
-                        to={item.path}
-                        className={`flex items-center space-x-2 border-b-3 transition-all duration-200
+                <HashLink
+                    smooth
+                    key={item.name}
+                    to={item.path}
+                    className={`flex items-center space-x-2 border-b-3 transition-all duration-200
                         ${isActive
-                                ? "border-sky-600 text-sky-700 font-semibold"
-                                : "border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600"
-                            }`}
-                    >
-                        <span>{item.name}</span>
-                        {item.submenu && <ChevronDown size={16} className="mt-[2px]" />}
-                    </Link>
-                }
+                            ? "border-sky-600 text-sky-700 font-semibold"
+                            : "border-transparent text-gray-700 hover:text-sky-600 hover:border-sky-600"
+                        }`}
+                >
+                    {item.name}
+                    {item.submenu && <ChevronDown size={16} className="mt-[2px]" />}
+                </HashLink>
                 {item.submenu && <DesktopSubMenu items={item.submenu} />}
-            </li>
+            </li >
         );
     };
 
@@ -187,15 +187,15 @@ function Navbar() {
                                 renderDesktopMenuItem(item, index)
                             )}
                         </ul>
-                        <div>
+                        <Link to={URLS.tgsAcademyUrl}>
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-sky-900 text-white w-[150px] py-4 rounded-full hover:bg-sky-600 md:ml-[1rem]"
                             >
-                                TGS CONNECT
+                                TGS ACADEMY
                             </motion.button>
-                        </div>
+                        </Link>
                     </nav>
 
                     {/* Bouton Menu Mobile */}

@@ -50,7 +50,7 @@ function FeaturedOpportunities() {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
                     <div>
                         <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                            Featured Opportunities
+                            Featured <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">Opportunities</span>
                         </h2>
                         <p className="text-gray-600">
                             Don't miss out on these trending opportunities

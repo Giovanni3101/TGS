@@ -6,7 +6,7 @@ function Steps() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-100 mb-4">
-                        How It Works
+                        How <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">It works</span>
                     </h2>
                     <p className="text-lg text-gray-100 max-w-2xl mx-auto">
                         Getting started is easy. Follow these simple steps to find your perfect opportunity
