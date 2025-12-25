@@ -50,7 +50,7 @@ export default function GrowthDiagnosisPage() {
 
             {/* Hero Section */}
             <div className="bg-sky-900 py-16">
-                <div className="max-w-7xll mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xll mx-auto px-4 sm:px-6 lg:px-32">
                     <div className="text-center text-white">
                         <div className="inline-block text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                             Your personalized roadmap to global readiness

@@ -134,7 +134,7 @@ export default function GSPPage() {
                 </div>
             </div>
 
-            <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="mx-auto px-4 sm:px-6 lg:px-32 py-12">
                 <div className="grid lg:grid-cols-3 gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-8">

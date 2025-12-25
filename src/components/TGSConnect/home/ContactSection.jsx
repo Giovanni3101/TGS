@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 function ContactSection() {
     return (
@@ -16,9 +17,11 @@ function ContactSection() {
                     Join thousands of young people who are already transforming their futures
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button className="bg-white text-sky-600 px-8 py-2 rounded-lg hover:bg-sky-50 transition-colors font-medium text-lg shadow-xl">
-                        Get Started Today
-                    </button>
+                    <Link>
+                        <button className="bg-white text-sky-600 px-8 py-2 rounded-lg hover:bg-sky-50 transition-colors font-medium text-lg shadow-xl">
+                            Get Started Today
+                        </button>
+                    </Link>
                     <button className="border-2 border-white text-white px-8 py-2 rounded-lg hover:bg-sky-600 transition-colors font-medium text-lg">
                         Contact Us
                     </button>
