@@ -16,28 +16,43 @@ import GOAFPage from '../pages/TGSConnect/services/GOAFPage'
 import GSPPage from "../pages/TGSConnect/services/GSPPage";
 import LoginSignIn from "../components/TGSConnect/LogIn";
 
+function DefaultLayout({ children }) {
+    return (
+        <div className="flex flex-col items-center min-h-screen">
+            <ScrollToTop />
+            <Navbar />
+            <main className="w-full">{children}</main>
+            <Footer />
+        </div>
+    );
+}
+
+function AuthLayout({ children }) {
+    return (
+        <div className="flex flex-col items-center min-h-screen">
+            <main className="w-full">{children}</main>
+        </div>
+    );
+}
+
 function TgsAcademyApp() {
     return (
         <Router>
-            <ScrollToTop />
-            <Navbar />
-            <div className='flex flex-col items-center min-h-screen'>
-                <main className='w-full'>
-                    <Routes>
-                        <Route path="/" element={<Navigate to="/home" replace />} />
-                        <Route path="/home" element={<HomeOpportunities />} />
-                        <Route path="/login" element={<LoginSignIn />} />
-                        <Route path="/opportunities" element={<OpportunitiesPage />} />
-                        <Route path="/:category/:slug" element={<OpportunityDetailPage />} />
-                        <Route path="/services/growth-diagnosis" element={<GrowthDiagnosisPage />} />
-                        <Route path="/services/consultations" element={<ConsultationsPage />} />
-                        <Route path="/academy/goaf" element={<GOAFPage />} />
-                        <Route path="/academy/gsp" element={<GSPPage />} />
-                        <Route path="*" element={<Navigate to="/home" replace />} />
-                    </Routes>
-                </main>
-                <Footer />
-            </div>
+            <Routes>
+                <Route path="/home" element={<DefaultLayout><HomeOpportunities /></DefaultLayout>} />
+                <Route path="/opportunities" element={<DefaultLayout><OpportunitiesPage /></DefaultLayout>} />
+                <Route path="/:category/:slug" element={<DefaultLayout><OpportunityDetailPage /></DefaultLayout>} />
+                <Route path="/services/growth-diagnosis" element={<DefaultLayout><GrowthDiagnosisPage /></DefaultLayout>} />
+                <Route path="/services/consultations" element={<DefaultLayout><ConsultationsPage /></DefaultLayout>} />
+                <Route path="/academy/goaf" element={<DefaultLayout><GOAFPage /></DefaultLayout>} />
+                <Route path="/academy/gsp" element={<DefaultLayout><GSPPage /></DefaultLayout>} />
+
+
+                <Route path="/login" element={<AuthLayout>  <LoginSignIn /> </AuthLayout>} />
+
+                <Route path="/" element={<Navigate to="/home" replace />} />
+                <Route path="*" element={<Navigate to="/home" replace />} />
+            </Routes>
         </Router>
     )
 }
