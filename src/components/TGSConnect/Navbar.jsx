@@ -12,6 +12,7 @@ const Navbar = () => {
         { label: 'Home', href: '/home#' },
         { label: 'How it works', href: '/home#how-it-works' },
         { label: 'Our services', href: '/home#services' },
+        { label: 'Opportunities', href: '/opportunities' },
     ];
 
     return (
@@ -82,22 +83,15 @@ const Navbar = () => {
                             ))}
                         </div>
                         <div className='md:flex items-center space-x-2'>
-                            <Link to="/opportunities">
+                            <Link to="/login">
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-sky-900 text-white w-[150px] py-4 rounded-xl hover:bg-sky-600"
+                                    className="bg-gray-100 text-gray-900 w-[100px] py-2 rounded-xl border-3 border-sky-900 hover:bg-sky-600"
                                 >
-                                    Opportunities
+                                    Sign in
                                 </motion.button>
                             </Link>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="text-sky-900 w-[150px] py-4 rounded-xl border-3 border-sky-900 hover:bg-sky-600"
-                            >
-                                TGS ACADEMY
-                            </motion.button>
                         </div>
                     </div>
 
@@ -124,22 +118,15 @@ const Navbar = () => {
                                 </a>
                             ))}
                             <div className='md:flex items-center space-x-2 px-4'>
-                                <Link to="/opportunities">
+                                <Link to="/login">
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="bg-gray-100 text-sky-900 w-[150px] py-4 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
+                                        className="bg-gray-100 text-sky-900 w-[100px] py-2 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
                                     >
-                                        Opportunities
+                                        Sign in
                                     </motion.button>
                                 </Link>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="text-gray-100 w-[150px] py-4 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
-                                >
-                                    TGS ACADEMY
-                                </motion.button>
                             </div>
                         </div>
                     </div>

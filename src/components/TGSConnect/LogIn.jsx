@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../contexts/AuthContext';
 import {
     Mail,
     Phone,
@@ -14,7 +13,6 @@ import {
     Key
 } from 'lucide-react';
 
-// Animations variants pour Framer Motion
 const pageVariants = {
     initial: { opacity: 0, x: 20 },
     in: { opacity: 1, x: 0 },
@@ -30,7 +28,6 @@ const pageTransition = {
 const LoginSignIn = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { signIn, signUp, loading: authLoading } = useAuth();
     const [currentView, setCurrentView] = useState('main');
     const [isLogin, setIsLogin] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +42,7 @@ const LoginSignIn = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [codeSent, setCodeSent] = useState(false);
 
-    // Redirection après connexion
+    // Redirect after login
     const from = location.state?.from?.pathname || '/user-dashboard';
 
     const handleInputChange = (e) => {
@@ -68,33 +65,33 @@ const LoginSignIn = () => {
 
         if (currentView === 'main') {
             if (!isLogin && !formData.name.trim()) {
-                newErrors.name = 'Le nom est requis';
+                newErrors.name = 'Full name is required';
             }
 
             if (!formData.email.trim()) {
-                newErrors.email = 'L\'email est requis';
+                newErrors.email = 'Email is required';
             } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-                newErrors.email = 'Format d\'email invalide';
+                newErrors.email = 'Invalid email format';
             }
 
             if (!formData.password) {
-                newErrors.password = 'Le mot de passe est requis';
+                newErrors.password = 'Password is required';
             } else if (formData.password.length < 6) {
-                newErrors.password = 'Le mot de passe doit contenir au moins 6 caractères';
+                newErrors.password = 'Password must be at least 6 characters';
             }
         } else if (currentView === 'phone') {
             if (!formData.phone.trim()) {
-                newErrors.phone = 'Le numéro de téléphone est requis';
+                newErrors.phone = 'Phone number is required';
             }
 
             if (codeSent && !formData.verificationCode.trim()) {
-                newErrors.verificationCode = 'Le code de vérification est requis';
+                newErrors.verificationCode = 'Verification code is required';
             }
         } else if (currentView === 'forgot') {
             if (!formData.email.trim()) {
-                newErrors.email = 'L\'email est requis';
+                newErrors.email = 'Email is required';
             } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-                newErrors.email = 'Format d\'email invalide';
+                newErrors.email = 'Invalid email format';
             }
         }
 
@@ -108,55 +105,14 @@ const LoginSignIn = () => {
         if (!validateForm()) return;
 
         setIsLoading(true);
-
-        try {
-            let result;
-
-            if (isLogin) {
-                result = await signIn(formData.email, formData.password);
-            } else {
-                result = await signUp(formData.email, formData.password, {
-                    full_name: formData.name,
-                    email: formData.email,
-                    role: 'user'
-                });
-            }
-
-            if (result.success) {
-                // Rediriger selon le rôle de l'utilisateur
-                if (result.data?.profile?.role === 'admin') {
-                    navigate('/control-room');
-                } else if (result.data?.profile?.role === 'agent') {
-                    navigate('/user-dashboard');
-                } else {
-                    navigate(from);
-                }
-            } else {
-                setErrors({ submit: result.error });
-            }
-
-        } catch (error) {
-            setErrors({ submit: error.message });
-        } finally {
-            setIsLoading(false);
-        }
+        setErrors({ submit: 'Authentication functionality not implemented' });
+        setIsLoading(false);
     };
 
     const handleGoogleAuth = async () => {
         setIsLoading(true);
-
-        try {
-            const result = await authService.signInWithGoogle();
-            if (result.success) {
-                // La redirection sera gérée par le callback OAuth
-            } else {
-                setErrors({ submit: result.error });
-            }
-
-        } catch (error) {
-            setErrors({ submit: error.message });
-            setIsLoading(false);
-        }
+        setErrors({ submit: 'Google authentication not implemented' });
+        setIsLoading(false);
     };
 
     const handlePhoneSubmit = async (e) => {
@@ -165,52 +121,8 @@ const LoginSignIn = () => {
         if (!validateForm()) return;
 
         setIsLoading(true);
-
-        try {
-            if (!codeSent) {
-                // LOGIQUE BACKEND - Envoi du code SMS
-                const response = await fetch('/api/auth/phone/send-code', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ phone: formData.phone }),
-                });
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(data.message || 'Erreur d\'envoi du code');
-                }
-
-                setCodeSent(true);
-            } else {
-                // LOGIQUE BACKEND - Vérification du code
-                const response = await fetch('/api/auth/phone/verify-code', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        phone: formData.phone,
-                        code: formData.verificationCode
-                    }),
-                });
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(data.message || 'Code invalide');
-                }
-
-                localStorage.setItem('authToken', data.token);
-                navigate('/dashboard');
-            }
-        } catch (error) {
-            setErrors({ submit: error.message });
-        } finally {
-            setIsLoading(false);
-        }
+        setErrors({ submit: 'Phone authentication not implemented' });
+        setIsLoading(false);
     };
 
     const handleForgotPassword = async (e) => {
@@ -219,32 +131,9 @@ const LoginSignIn = () => {
         if (!validateForm()) return;
 
         setIsLoading(true);
-
-        try {
-            // LOGIQUE BACKEND - Mot de passe oublié
-            const response = await fetch('/api/auth/forgot-password', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email: formData.email }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.message || 'Erreur d\'envoi d\'email');
-            }
-
-            alert('Un email de réinitialisation a été envoyé!');
-            setCurrentView('main');
-        } catch (error) {
-            setErrors({ submit: error.message });
-        } finally {
-            setIsLoading(false);
-        }
+        setErrors({ submit: 'Forgot password functionality not implemented' });
+        setIsLoading(false);
     };
-    // ==================== FIN BACKEND LOGIQUE ====================
 
     const handleBack = () => {
         if (currentView !== 'main') {
@@ -273,7 +162,7 @@ const LoginSignIn = () => {
                             <input
                                 type="text"
                                 name="name"
-                                placeholder="Nom complet"
+                                placeholder="Full name"
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.name ? 'border-red-500' : 'border-gray-300'
@@ -292,7 +181,7 @@ const LoginSignIn = () => {
                         <input
                             type="email"
                             name="email"
-                            placeholder="Adresse email"
+                            placeholder="Email address"
                             value={formData.email}
                             onChange={handleInputChange}
                             className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.email ? 'border-red-500' : 'border-gray-300'
@@ -310,7 +199,7 @@ const LoginSignIn = () => {
                         <input
                             type={showPassword ? "text" : "password"}
                             name="password"
-                            placeholder="Mot de passe"
+                            placeholder="Password"
                             value={formData.password}
                             onChange={handleInputChange}
                             className={`w-full pl-10 pr-10 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.password ? 'border-red-500' : 'border-gray-300'
@@ -336,7 +225,7 @@ const LoginSignIn = () => {
                             onClick={() => setCurrentView('forgot')}
                             className="text-xs text-blue-600 hover:text-blue-800 hover:underline"
                         >
-                            Mot de passe oublié?
+                            Forgot password?
                         </button>
                     </div>
                 )}
@@ -349,21 +238,21 @@ const LoginSignIn = () => {
 
                 <button
                     type="submit"
-                    disabled={isLoading || authLoading}
+                    disabled={isLoading}
                     className={`w-full py-2 px-4 rounded-lg text-white font-medium transition-colors ${isLoading
                         ? 'bg-blue-400 cursor-not-allowed'
                         : 'bg-blue-600 hover:bg-blue-700'
                         }`}
                 >
-                    {(isLoading || authLoading) ? (
+                    {isLoading ? (
                         <div className="flex items-center justify-center">
                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                            {isLogin ? 'Connexion...' : 'Inscription...'}
+                            {isLogin ? 'Signing in...' : 'Signing up...'}
                         </div>
                     ) : isLogin ? (
-                        'Se connecter'
+                        'Sign In'
                     ) : (
-                        "S'inscrire"
+                        'Sign Up'
                     )}
                 </button>
             </form>
@@ -373,14 +262,14 @@ const LoginSignIn = () => {
                     <div className="w-full border-t border-gray-300"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">Ou continuer avec</span>
+                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
                 </div>
             </div>
 
             <div className="space-y-3">
                 <button
                     onClick={handleGoogleAuth}
-                    disabled={isLoading || authLoading}
+                    disabled={isLoading}
                     className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors text-sm font-medium"
                 >
                     <svg className="w-4 h-4" viewBox="0 0 24 24">
@@ -394,28 +283,28 @@ const LoginSignIn = () => {
 
                 <button
                     onClick={() => setCurrentView('phone')}
-                    disabled={isLoading || authLoading}
+                    disabled={isLoading}
                     className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors text-sm font-medium"
                 >
                     <Phone size={16} />
-                    Numéro de téléphone
+                    Phone number
                 </button>
             </div>
 
             <div className="text-center mt-6 pt-4 border-t border-gray-200">
                 <p className="text-xs text-gray-600">
-                    {isLogin ? "Vous n'avez pas de compte?" : "Vous avez déjà un compte?"}
+                    {isLogin ? "Don't have an account?" : "Already have an account?"}
                     <button
                         type="button"
                         onClick={() => setIsLogin(!isLogin)}
                         className="ml-1 text-blue-600 hover:text-blue-800 hover:underline font-medium"
                     >
-                        {isLogin ? 'S\'inscrire' : 'Se connecter'}
+                        {isLogin ? 'Sign Up' : 'Sign In'}
                     </button>
                 </p>
 
                 <p className="text-[10px] text-gray-500 mt-3">
-                    En vous connectant, vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité.
+                    By signing in, you agree to our Terms of Use and Privacy Policy.
                 </p>
             </div>
         </motion.div>
@@ -435,11 +324,11 @@ const LoginSignIn = () => {
                     <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
                         <Phone className="text-blue-600" size={24} />
                     </div>
-                    <h3 className="text-lg font-semibold">Connexion par téléphone</h3>
+                    <h3 className="text-lg font-semibold">Phone Login</h3>
                     <p className="text-sm text-gray-600 mt-1">
                         {codeSent
-                            ? "Entrez le code reçu par SMS"
-                            : "Entrez votre numéro pour recevoir un code de vérification"
+                            ? "Enter the code received by SMS"
+                            : "Enter your phone number to receive a verification code"
                         }
                     </p>
                 </div>
@@ -451,7 +340,7 @@ const LoginSignIn = () => {
                             <input
                                 type="tel"
                                 name="phone"
-                                placeholder="Numéro de téléphone"
+                                placeholder="Phone number"
                                 value={formData.phone}
                                 onChange={handleInputChange}
                                 className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.phone ? 'border-red-500' : 'border-gray-300'
@@ -469,7 +358,7 @@ const LoginSignIn = () => {
                             <input
                                 type="text"
                                 name="verificationCode"
-                                placeholder="Code de vérification"
+                                placeholder="Verification code"
                                 value={formData.verificationCode}
                                 onChange={handleInputChange}
                                 className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.verificationCode ? 'border-red-500' : 'border-gray-300'
@@ -480,7 +369,7 @@ const LoginSignIn = () => {
                             <p className="text-red-500 text-xs mt-1">{errors.verificationCode}</p>
                         )}
                         <p className="text-xs text-gray-500 mt-2">
-                            Vous n'avez pas reçu le code? <button type="button" className="text-blue-600">Renvoyer</button>
+                            Didn't receive the code? <button type="button" className="text-blue-600">Resend</button>
                         </p>
                     </div>
                 )}
@@ -502,12 +391,12 @@ const LoginSignIn = () => {
                     {isLoading ? (
                         <div className="flex items-center justify-center">
                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                            {codeSent ? 'Vérification...' : 'Envoyer le code'}
+                            {codeSent ? 'Verifying...' : 'Sending code'}
                         </div>
                     ) : codeSent ? (
-                        'Vérifier le code'
+                        'Verify code'
                     ) : (
-                        'Envoyer le code'
+                        'Send code'
                     )}
                 </button>
             </form>
@@ -528,9 +417,9 @@ const LoginSignIn = () => {
                     <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
                         <Key className="text-blue-600" size={24} />
                     </div>
-                    <h3 className="text-lg font-semibold">Mot de passe oublié</h3>
+                    <h3 className="text-lg font-semibold">Forgot Password</h3>
                     <p className="text-sm text-gray-600 mt-1">
-                        Entrez votre email pour recevoir un lien de réinitialisation
+                        Enter your email to receive a reset link
                     </p>
                 </div>
 
@@ -540,7 +429,7 @@ const LoginSignIn = () => {
                         <input
                             type="email"
                             name="email"
-                            placeholder="Adresse email"
+                            placeholder="Email address"
                             value={formData.email}
                             onChange={handleInputChange}
                             className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.email ? 'border-red-500' : 'border-gray-300'
@@ -569,10 +458,10 @@ const LoginSignIn = () => {
                     {isLoading ? (
                         <div className="flex items-center justify-center">
                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                            Envoi en cours...
+                            Sending...
                         </div>
                     ) : (
-                        'Envoyer le lien de réinitialisation'
+                        'Send reset link'
                     )}
                 </button>
             </form>
@@ -592,14 +481,14 @@ const LoginSignIn = () => {
                     </button>
                     <h2 className="text-xl font-bold">
                         {currentView === 'phone'
-                            ? 'Connexion par téléphone'
+                            ? 'Phone Login'
                             : currentView === 'forgot'
-                                ? 'Mot de passe oublié'
-                                : isLogin ? 'Connexion' : 'Créer un compte'
+                                ? 'Forgot Password'
+                                : isLogin ? 'Sign In' : 'Create Account'
                         }
                     </h2>
                     <p className="text-sm opacity-90 mt-1">
-                        {currentView === 'main' && (isLogin ? 'Content de vous revoir!' : 'Rejoignez-nous dès aujourd\'hui')}
+                        {currentView === 'main' && (isLogin ? 'Welcome back!' : 'Join us today!')}
                     </p>
                 </div>
 

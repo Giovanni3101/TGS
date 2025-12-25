@@ -14,6 +14,7 @@ import GrowthDiagnosisPage from '../pages/TGSConnect/services/GrowthDiagnosisPag
 import ConsultationsPage from '../pages/TGSConnect/services/ConsultationsPage'
 import GOAFPage from '../pages/TGSConnect/services/GOAFPage'
 import GSPPage from "../pages/TGSConnect/services/GSPPage";
+import LoginSignIn from "../components/TGSConnect/LogIn";
 
 function TgsAcademyApp() {
     return (
@@ -25,6 +26,7 @@ function TgsAcademyApp() {
                     <Routes>
                         <Route path="/" element={<Navigate to="/home" replace />} />
                         <Route path="/home" element={<HomeOpportunities />} />
+                        <Route path="/login" element={<LoginSignIn />} />
                         <Route path="/opportunities" element={<OpportunitiesPage />} />
                         <Route path="/:category/:slug" element={<OpportunityDetailPage />} />
                         <Route path="/services/growth-diagnosis" element={<GrowthDiagnosisPage />} />
