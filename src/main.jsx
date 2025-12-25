@@ -19,6 +19,6 @@ switch (subdomain) {
 getAppTitle()
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AppToRender />
+    <TgsAcademyApp />
   </StrictMode>,
 )
