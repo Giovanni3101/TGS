@@ -165,7 +165,7 @@ const LoginSignIn = () => {
                                 placeholder="Full name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.name ? 'border-red-500' : 'border-gray-300'
+                                className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm ${errors.name ? 'border-red-500' : 'border-gray-300'
                                     }`}
                             />
                         </div>
@@ -184,7 +184,7 @@ const LoginSignIn = () => {
                             placeholder="Email address"
                             value={formData.email}
                             onChange={handleInputChange}
-                            className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.email ? 'border-red-500' : 'border-gray-300'
+                            className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm ${errors.email ? 'border-red-500' : 'border-gray-300'
                                 }`}
                         />
                     </div>
@@ -202,7 +202,7 @@ const LoginSignIn = () => {
                             placeholder="Password"
                             value={formData.password}
                             onChange={handleInputChange}
-                            className={`w-full pl-10 pr-10 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.password ? 'border-red-500' : 'border-gray-300'
+                            className={`w-full pl-10 pr-10 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm ${errors.password ? 'border-red-500' : 'border-gray-300'
                                 }`}
                         />
                         <button
@@ -223,7 +223,7 @@ const LoginSignIn = () => {
                         <button
                             type="button"
                             onClick={() => setCurrentView('forgot')}
-                            className="text-xs text-blue-600 hover:text-blue-800 hover:underline"
+                            className="text-xs text-sky-600 hover:text-sky-800 hover:underline"
                         >
                             Forgot password?
                         </button>
@@ -240,8 +240,8 @@ const LoginSignIn = () => {
                     type="submit"
                     disabled={isLoading}
                     className={`w-full py-2 px-4 rounded-lg text-white font-medium transition-colors ${isLoading
-                        ? 'bg-blue-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700'
+                        ? 'bg-sky-400 cursor-not-allowed'
+                        : 'bg-sky-600 hover:bg-sky-700'
                         }`}
                 >
                     {isLoading ? (
@@ -297,7 +297,7 @@ const LoginSignIn = () => {
                     <button
                         type="button"
                         onClick={() => setIsLogin(!isLogin)}
-                        className="ml-1 text-blue-600 hover:text-blue-800 hover:underline font-medium"
+                        className="ml-1 text-sky-600 hover:text-sky-800 hover:underline font-medium"
                     >
                         {isLogin ? 'Sign Up' : 'Sign In'}
                     </button>
@@ -321,8 +321,8 @@ const LoginSignIn = () => {
         >
             <form onSubmit={handlePhoneSubmit} className="space-y-4">
                 <div className="text-center mb-4">
-                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <Phone className="text-blue-600" size={24} />
+                    <div className="bg-sky-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Phone className="text-sky-600" size={24} />
                     </div>
                     <h3 className="text-lg font-semibold">Phone Login</h3>
                     <p className="text-sm text-gray-600 mt-1">
@@ -343,7 +343,7 @@ const LoginSignIn = () => {
                                 placeholder="Phone number"
                                 value={formData.phone}
                                 onChange={handleInputChange}
-                                className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                                className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm ${errors.phone ? 'border-red-500' : 'border-gray-300'
                                     }`}
                             />
                         </div>
@@ -361,7 +361,7 @@ const LoginSignIn = () => {
                                 placeholder="Verification code"
                                 value={formData.verificationCode}
                                 onChange={handleInputChange}
-                                className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.verificationCode ? 'border-red-500' : 'border-gray-300'
+                                className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm ${errors.verificationCode ? 'border-red-500' : 'border-gray-300'
                                     }`}
                             />
                         </div>
@@ -369,7 +369,7 @@ const LoginSignIn = () => {
                             <p className="text-red-500 text-xs mt-1">{errors.verificationCode}</p>
                         )}
                         <p className="text-xs text-gray-500 mt-2">
-                            Didn't receive the code? <button type="button" className="text-blue-600">Resend</button>
+                            Didn't receive the code? <button type="button" className="text-sky-600">Resend</button>
                         </p>
                     </div>
                 )}
@@ -384,8 +384,8 @@ const LoginSignIn = () => {
                     type="submit"
                     disabled={isLoading}
                     className={`w-full py-2 px-4 rounded-lg text-white font-medium transition-colors ${isLoading
-                        ? 'bg-blue-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700'
+                        ? 'bg-sky-400 cursor-not-allowed'
+                        : 'bg-sky-600 hover:bg-sky-700'
                         }`}
                 >
                     {isLoading ? (
@@ -414,8 +414,8 @@ const LoginSignIn = () => {
         >
             <form onSubmit={handleForgotPassword} className="space-y-4">
                 <div className="text-center mb-4">
-                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <Key className="text-blue-600" size={24} />
+                    <div className="bg-sky-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Key className="text-sky-600" size={24} />
                     </div>
                     <h3 className="text-lg font-semibold">Forgot Password</h3>
                     <p className="text-sm text-gray-600 mt-1">
@@ -432,7 +432,7 @@ const LoginSignIn = () => {
                             placeholder="Email address"
                             value={formData.email}
                             onChange={handleInputChange}
-                            className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${errors.email ? 'border-red-500' : 'border-gray-300'
+                            className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm ${errors.email ? 'border-red-500' : 'border-gray-300'
                                 }`}
                         />
                     </div>
@@ -451,8 +451,8 @@ const LoginSignIn = () => {
                     type="submit"
                     disabled={isLoading}
                     className={`w-full py-2 px-4 rounded-lg text-white font-medium transition-colors ${isLoading
-                        ? 'bg-blue-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700'
+                        ? 'bg-sky-400 cursor-not-allowed'
+                        : 'bg-sky-600 hover:bg-sky-700'
                         }`}
                 >
                     {isLoading ? (
@@ -469,13 +469,13 @@ const LoginSignIn = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-sky-50 to-indigo-100 flex items-center justify-center p-4">
             <div className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden relative">
 
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 text-center relative">
+                <div className="bg-gradient-to-r from-sky-500 to-sky-600 text-white p-5 text-center relative">
                     <button
                         onClick={handleBack}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-100 transition-colors"
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-sky-100 transition-colors"
                     >
                         <ChevronLeft size={20} />
                     </button>
