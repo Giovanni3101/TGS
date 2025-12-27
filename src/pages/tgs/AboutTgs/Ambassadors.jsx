@@ -5,6 +5,7 @@ import Mary from '/home/alves/Desktop/TGS/src/assets/images/Mary.jpeg';
 import Beatrice from '/home/alves/Desktop/TGS/src/assets/images/Beatrice.jpeg';
 import Gloria from '/home/alves/Desktop/TGS/src/assets/images/Gloria.jpeg';
 import GloriaS from '/home/alves/Desktop/TGS/src/assets/images/GloriaS.jpeg';
+import Taylor from '/home/alves/Desktop/TGS/src/assets/images/Taylor.jpeg';
 
 
 /**
@@ -44,7 +45,7 @@ const AmbassadorsMember = [
   {
     id: 3,
     name: 'Gloria Solomon',
-    role: 'TGS Ambassador ',
+    role: 'TGS Ambassador- Nigeria',
     fullDescription: ["Glory Y. Solomon is a Nigerian law graduate and legal influencer in the media space, actively creating relatable legal content online that reaches thousands of young people.",
 				"She is the team lead empowering over 300 female entrepreneurs across Africa with digital skills and financial literacy, in a partnership with IMPACTHER and Youth Making Impact.",
 				"She has volunteered with organizations such as Pannyword Foundation and Prevail Foundation, leading outreach programs in IDP camps and campaigns on justice, governance, and social inclusion.",
@@ -64,6 +65,18 @@ const AmbassadorsMember = [
                         "Gloria is passionate about fostering partnerships and developing initiatives that build skills, inspire innovation, and promote inclusive leadership. She firmly believes that young people from the Global South carry the resilience and creativity necessary to address today’s global challenges and is committed to ensuring their voices are heard on international platforms.",
                         ""],
     photo: GloriaS,
+    tags: ['Youth Empowerment', 'Inclusive Leadership', 'Community Development', 'Global Advocacy']
+  },
+  {
+    id: 5,
+    name: 'Taylor Locke',
+    role: 'TGS Ambassador - USA',
+    fullDescription: ["Taylor Locke is an award-winning mental health advocate and international public speaker, committed to advancing social justice and mental health equity both locally and globally.",
+                        "Before becoming involved with advocacy, Taylor was enrolled in a military scholarship program to work on U.S. Navy Nuclear Reactors, and graduated from Rensselaer Polytechnic Institute with honors in both mathematics and physics.",
+                        "They were medically discharged from continued military service due to a history with mental illness and PTSD, and transitioned into the mental health field.  While still in college, they founded New York State Mental Health Week – a student-led initiative that united 11 universities and over 100 organizations to host more than 65 individual events across the state.",
+                        ""],
+   
+    photo: Taylor,
     tags: ['Youth Empowerment', 'Inclusive Leadership', 'Community Development', 'Global Advocacy']
   },
 ];
@@ -149,7 +162,7 @@ function ProfilePopup({ member, isVisible, position, onClose }) {
             style={getPopupPosition()}
             className="fixed z-50 w-full max-w-sm md:max-w-md"
           >
-            <div className="relative bg-white rounded-2xl shadow-2xl shadow-sky-100/50 border border-sky-200/50 overflow-hidden">
+            <div className="relative bg-white rounded-2xl shadow-2xl shadow-sky-100/50 border border-sky-200/50 overflow-hidden max-h-[80vh]">
               {/* Gradient Header */}
               <div className="absolute inset-0 bg-gradient-to-br from-sky-50/30 via-white to-sky-50/20" />
               
@@ -162,7 +175,7 @@ function ProfilePopup({ member, isVisible, position, onClose }) {
                 <X className="w-4 h-4 text-slate-600" />
               </button>
               
-              <div className="relative p-6">
+              <div className="relative p-6 max-h-[75vh] overflow-y-auto">
                 {/* Profile Header */}
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative flex-shrink-0">
@@ -225,55 +238,25 @@ function ProfilePopup({ member, isVisible, position, onClose }) {
 
 /**
  * ENHANCED BOARD MEMBER CARD COMPONENT
- * Now includes hover popup functionality
+ * Now includes click popup functionality
  */
 function BoardCard({ member, index }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [popupPosition, setPopupPosition] = useState(null);
   const cardRef = useRef(null);
-  let hoverTimeout;
 
-  // Handle hover events with delay for smooth UX
-  const handleMouseEnter = () => {
-    if (window.innerWidth >= 768) { // Desktop only
-      hoverTimeout = setTimeout(() => {
-        if (cardRef.current) {
-          const rect = cardRef.current.getBoundingClientRect();
-          setPopupPosition({
-            x: rect.left,
-            y: rect.top,
-            width: rect.width,
-            height: rect.height
-          });
-          setIsPopupVisible(true);
-        }
-      }, 300); // 300ms delay for intentional hover
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
-    }
-    if (window.innerWidth >= 768) {
-      setIsPopupVisible(false);
-    }
-  };
-
-  // Handle click for mobile
+  // Handle click for all devices
   const handleClick = () => {
-    if (window.innerWidth < 768) {
-      if (cardRef.current) {
-        const rect = cardRef.current.getBoundingClientRect();
-        setPopupPosition({
-          x: rect.left,
-          y: rect.top,
-          width: rect.width,
-          height: rect.height
-        });
-      }
-      setIsPopupVisible(!isPopupVisible);
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      setPopupPosition({
+        x: rect.left,
+        y: rect.top,
+        width: rect.width,
+        height: rect.height
+      });
     }
+    setIsPopupVisible(!isPopupVisible);
   };
 
   return (
@@ -285,17 +268,15 @@ function BoardCard({ member, index }) {
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         className="group relative"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={handleClick}
       >
         {/* Card Container */}
         <div className="relative bg-white rounded-2xl overflow-hidden border border-slate-200/60 hover:border-sky-300 transition-all duration-500 hover:shadow-xl hover:shadow-sky-100/50 cursor-pointer">
           {/* Gradient Accent on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-sky-50/0 to-sky-100/0 group-hover:from-sky-50/50 group-hover:to-sky-100/30 transition-all duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-sky-50/0 to-sky-100/0 transition-all duration-500" />
           
-          {/* Hover Indicator */}
-          <div className={`absolute top-4 right-4 w-2 h-2 rounded-full transition-all duration-300 ${isPopupVisible ? 'bg-sky-500' : 'bg-slate-300 group-hover:bg-sky-400'}`} />
+          {/* Click Indicator */}
+          <div className={`absolute top-4 right-4 w-2 h-2 rounded-full transition-all duration-300 ${isPopupVisible ? 'bg-sky-500' : 'bg-slate-300'}`} />
 
           <div className="relative p-8">
             {/* Profile Photo */}
@@ -309,7 +290,7 @@ function BoardCard({ member, index }) {
                   <motion.img
                     src={member.photo}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    className="w-full h-full object-cover grayscale-[30%] transition-all duration-500"
                     whileHover={{ scale: 1.05 }}
                   />
                 </div>
@@ -319,20 +300,19 @@ function BoardCard({ member, index }) {
             {/* Member Info */}
             <div className="text-center space-y-3">
               {/* Name */}
-              <h3 className="text-lg md:text-xl text-slate-900 transition-colors duration-300 group-hover:text-sky-700">
+              <h3 className="text-lg md:text-xl text-slate-900 transition-colors duration-300">
                 {member.name}
               </h3>
 
               {/* Role */}
-              <div className="inline-block px-4 py-1.5 bg-sky-50 text-sky-700 rounded-full text-base transition-all duration-300 group-hover:bg-sky-100">
+              <div className="inline-block px-4 py-1.5 bg-sky-50 text-sky-700 rounded-full text-base transition-all duration-300">
                 {member.role}
               </div>
 
               {/* View More Hint */}
               <div className="pt-2">
-                <span className="inline-flex items-center gap-1 text-sm text-sky-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="md:hidden">Tap to view</span>
-                  <span className="hidden md:inline">Hover to view</span>
+                <span className="inline-flex items-center gap-1 text-sm text-sky-600 opacity-100 transition-opacity duration-300">
+                  <span>Click to view</span>
                   <span className="text-sky-400">→</span>
                 </span>
               </div>
@@ -408,7 +388,7 @@ export default function Board() {
             >
               Our ambassadors are dedicated advocates who champion the voices of the Global South, fostering connections, driving impactful initiatives, and inspiring positive change through mentorship and community engagement.
               <span className="block mt-2 text-sm text-sky-600">
-                Hover over cards or tap on mobile to view detailed profiles
+                Click on cards to view detailed profiles
               </span>
             </motion.p>
           </div>
