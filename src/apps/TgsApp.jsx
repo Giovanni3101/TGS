@@ -17,6 +17,7 @@ import Story from '../pages/tgs/AboutTgs/Story';
 import Board from '../pages/tgs/AboutTgs/Board';
 import Ambassadors from '../pages/tgs/AboutTgs/Ambassadors';
 import Footer from '../components/tgs/Footer';
+import Contact from '../pages/tgs/AboutTgs/Contact';
 
 function TgsApp() {
   return (
@@ -37,6 +38,7 @@ function TgsApp() {
             <Route path="/our_team" element={<Navigate to="/board" replace />} />
             <Route path="/board" element={<Board />} />
             <Route path="/ambassadors" element={<Ambassadors />} />
+            <Route path="/contact" element={<Contact />} />
 
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/home" replace />} />
