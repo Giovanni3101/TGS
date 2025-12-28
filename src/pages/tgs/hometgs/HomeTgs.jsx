@@ -6,7 +6,7 @@ import ProjectsSection from '../../../components/tgs/home/ProjectsSection';
 import PartenerSection from '../../../components/tgs/home/PartenerSection';
 import Testimony from '../../../components/tgs/home/Testimony';
 import TextBanner from '../../../components/tgs/home/TextBanner';
-import ServicesSection from '../../../components/tgs/home/ServicesSection';
+import ServicesSection from '../../../components/ServicesSection';
 
 function HomeTgs() {
     return (
