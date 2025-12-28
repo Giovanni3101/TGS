@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, X, ExternalLink } from 'lucide-react';
-import Mary from '/home/alves/Desktop/TGS/src/assets/images/Mary.jpeg';
-import Beatrice from '/home/alves/Desktop/TGS/src/assets/images/Beatrice.jpeg';
-import Gloria from '/home/alves/Desktop/TGS/src/assets/images/Gloria.jpeg';
-import GloriaS from '/home/alves/Desktop/TGS/src/assets/images/GloriaS.jpeg';
-import Taylor from '/home/alves/Desktop/TGS/src/assets/images/Taylor.jpeg';
+import Mary from '../../../assets/images/Mary.jpeg';
+import Beatrice from '../../../assets/images/Beatrice.jpeg';
+import Gloria from '../../../assets/images/Gloria.jpeg';
+import GloriaS from '../../../assets/images/GloriaS.jpeg';
+import Taylor from '../../../assets/images/Taylor.jpeg';
 
 
 /**

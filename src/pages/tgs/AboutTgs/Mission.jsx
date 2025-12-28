@@ -5,7 +5,7 @@ import {
   MapPin, Heart, ArrowRight, Sparkles, ChevronRight, CheckCircle,
   Play, Zap, Target as TargetIcon, Globe as GlobeIcon, Quote
 } from 'lucide-react';
-import { URLS } from '/home/alves/Desktop/TGS/src/utils/urls.js';
+import { URLS } from '../../../utils/urls.js';
 
 
 
@@ -20,8 +20,8 @@ const statsData = [
 const impactMetrics = [
   { number: "32", label: "Months of Operation", description: "Serving youth since 2022" },
   { number: "1500+", label: "Hours of Training", description: "Professional development" },
-  { number: "98%", label: "Satisfaction Rate", description: "From program participants" },
-  { number: "45", label: "Partner Organizations", description: "Global collaborations" }
+  { number: "85%", label: "Satisfaction Rate", description: "From program participants" },
+  { number: "10+", label: "Partner Organizations", description: "Global collaborations" }
 ];
 const images = [
   {
