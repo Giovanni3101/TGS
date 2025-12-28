@@ -56,7 +56,7 @@ export default function ContactSection() {
     const { prenom, nom, email, message } = formData;
     
     if (!prenom || !nom || !email || !message) {
-      alert('Veuillez remplir tous les champs');
+      alert('Please fill in all fields');
       return;
     }
     
@@ -64,10 +64,10 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="min-h-screen bg-sky-50 flex items-center justify-center p-4 md:p-8 lg:p-20 pb-0">
+    <div className="min-h-screen bg-sky-50 flex items-center justify-center pt-32 pb-16 px-4 md:pl-20 lg:pb-0">
       <div className="w-full relative overflow-hidden">
         <div 
-          className="flex lg:grid lg:grid-cols-2 lg:gap-16 transition-transform duration-300" 
+          className="flex space-x-4 transition-transform duration-300" 
           style={{ transform: isMobile ? `translateX(-${currentSlide * 50}%)` : 'none' }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -75,75 +75,74 @@ export default function ContactSection() {
         >
           
           {/* Left Column - Form Section */}
-          <div className="w-1/2 lg:w-full space-y-8">
+          <div className="max-w-3xl flex-1 lg:w-full space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-10 lg:min-w-0 px-4 sm:px-0">
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-              Contactez-nous!
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+              Contact Us!
             </h1>
             
             {/* Subtitle */}
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Une question, une suggestion ou besoin d'assistance ? Notre équipe est à votre 
-              écoute. Remplissez le formulaire ou utilisez les informations ci-dessous pour nous 
-              joindre. Nous vous répondrons dans les plus brefs délais.
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              Have a question, suggestion or need assistance? Our team is here to listen. 
+              Fill out the form or use the information below to reach us. We'll respond as soon as possible.
             </p>
             
             {/* Contact Info Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
               {/* Email */}
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-sky-500" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Contact Rapide</h3>
-                  <p className="text-gray-600 text-sm">info@thegrowthsphere.org</p>
+                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Quick Contact</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">info@thegrowthsphere.org</p>
                 </div>
               </div>
               
               {/* Phone */}
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-sky-500" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Numéro Tél.</h3>
-                  <p className="text-gray-600 text-sm">+243 895 579 454</p>
+                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Phone Number</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">+243 895 579 454</p>
                 </div>
               </div>
               
               {/* Address */}
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center flex-shrink-0">
-                  <Building className="w-6 h-6 text-sky-500" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center flex-shrink-0">
+                  <Building className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Adresse Physique</h3>
-                  <p className="text-gray-600 text-sm">Nairobi, Kenya</p>
+                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Physical Address</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">Nairobi, Kenya</p>
                 </div>
               </div>
             </div>
             
             {/* Social Media Icons */}
-            <div className="flex justify-center space-x-4 md:space-x-6 mt-8">
-              <a href="https://www.facebook.com/people/The-Growth-Sphere-TGS-En/61581261688760/ " className="w-12 h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors duration-200">
-                <Facebook className="w-6 h-6 text-sky-500 hover:text-white" />
+            <div className="flex justify-center sm:justify-start space-x-4 sm:space-x-5 md:space-x-6 mt-6 sm:mt-8">
+              <a href="https://www.facebook.com/people/The-Growth-Sphere-TGS-En/61581261688760/" className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors duration-200">
+                <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500 hover:text-white" />
               </a>
-              <a href="https://www.linkedin.com/company/the-growth-sphere-tgs/ " className="w-12 h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors duration-200">
-                <Linkedin className="w-6 h-6 text-sky-500 hover:text-white" />
+              <a href="https://www.linkedin.com/company/the-growth-sphere-tgs/" className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors duration-200">
+                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500 hover:text-white" />
               </a>
-              <a href="https://www.instagram.com/tgs2.025?igsh=YXdvcDNjemJlMnFu " className="w-12 h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors duration-200">
-                <Instagram className="w-6 h-6 text-sky-500 hover:text-white" />
+              <a href="https://www.instagram.com/tgs2.025?igsh=YXdvcDNjemJlMnFu" className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors duration-200">
+                <Instagram className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500 hover:text-white" />
               </a>
             </div>
             
             {/* Form Fields */}
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               {/* First Name and Last Name - Two columns */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label htmlFor="prenom" className="block text-gray-900 font-medium mb-2">
-                    Prénom
+                  <label htmlFor="prenom" className="block text-gray-900 font-medium mb-2 text-sm sm:text-base">
+                    First Name
                   </label>
                   <input
                     type="text"
@@ -151,13 +150,13 @@ export default function ContactSection() {
                     name="prenom"
                     value={formData.prenom}
                     onChange={handleChange}
-                    placeholder="Prénom"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                    placeholder="First Name"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm sm:text-base"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="nom" className="block text-gray-900 font-medium mb-2">
+                  <label htmlFor="nom" className="block text-gray-900 font-medium mb-2 text-sm sm:text-base">
                     Last Name
                   </label>
                   <input
@@ -166,15 +165,15 @@ export default function ContactSection() {
                     name="nom"
                     value={formData.nom}
                     onChange={handleChange}
-                    placeholder="Nom"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                    placeholder="Last Name"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm sm:text-base"
                   />
                 </div>
               </div>
               
               {/* Email - Full width */}
               <div>
-                <label htmlFor="email" className="block text-gray-900 font-medium mb-2">
+                <label htmlFor="email" className="block text-gray-900 font-medium mb-2 text-sm sm:text-base">
                   Email
                 </label>
                 <input
@@ -183,14 +182,14 @@ export default function ContactSection() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="E-mail"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                  placeholder="Email"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm sm:text-base"
                 />
               </div>
               
               {/* Message - Textarea */}
               <div>
-                <label htmlFor="message" className="block text-gray-900 font-medium mb-2">
+                <label htmlFor="message" className="block text-gray-900 font-medium mb-2 text-sm sm:text-base">
                   Message
                 </label>
                 <textarea
@@ -198,41 +197,41 @@ export default function ContactSection() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Votre message..."
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none"
+                  placeholder="Your message..."
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none text-sm sm:text-base"
                 />
               </div>
               
               {/* Submit Button */}
-              <div className="pt-4">
+              <div className="pt-3 sm:pt-4">
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="w-full px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors duration-200"
+                  className="w-full px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors duration-200 text-sm sm:text-base"
                 >
-                  Envoyer le message
+                  Send Message
                 </button>
               </div>
             </div>
           </div>
           
           {/* Right Column - Image */}
-          <div className="w-1/2 lg:w-full flex items-center justify-center pb-0">
-            <div className="w-full h-full min-h-[600px] rounded-2xl overflow-hidden pb-0">
+          <div className="w-full flex-1 lg:w-full flex items-center justify-center pb-0 hidden lg:flex">
+            {/* <div className="w-full h-fit rounded-2xl overflow-hidden pb-0"> */}
               <img
                 src={contactBanner}
                 alt="Contact support - man in denim jacket making call gesture"
                 className="w-full h-full object-cover"
               />
-            </div>
+            {/* </div> */}
           </div>
           
         </div>
         
         {/* Slide Indicators for Mobile */}
         {isMobile && (
-          <div className="flex justify-center space-x-2 mt-4">
+          <div className="flex justify-center space-x-2 mt-6">
             <div className={`w-2 h-2 rounded-full ${currentSlide === 0 ? 'bg-sky-500' : 'bg-gray-300'}`}></div>
             <div className={`w-2 h-2 rounded-full ${currentSlide === 1 ? 'bg-sky-500' : 'bg-gray-300'}`}></div>
           </div>
