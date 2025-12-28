@@ -1,9 +1,13 @@
 import React from 'react'
-import { Search, Users, Award, Target, Link as LinkIcon, ArrowBigRight, ArrowRight } from 'lucide-react'
-import { Link } from 'react-router'
-import { motion } from 'framer-motion'
-import { itemVariants, containerVariants } from '../../animation/Animation';
-import { URLS } from '../../../utils/urls'
+import { Search, Users, Award, Target, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router';
+import { motion } from 'framer-motion';
+import { itemVariants, containerVariants } from './animation/Animation';
+import { URLS } from '../utils/urls'
+import tgsdiagnosis from '../assets/images/services/tgsdiagnosis.jpeg'
+import tgsconsultation from '../assets/images/services/consultation.jpeg'
+import tgsglobal from '../assets/images/services/tgsglobal.jpeg'
+import tgsopp from '../assets/images/services/tgsopp.jpeg'
 
 function ServicesSection() {
 
@@ -14,7 +18,8 @@ function ServicesSection() {
             description: 'Discover what\'s holding you back and what could take you global',
             price: 'USD 10',
             color: 'bg-blue-100',
-            link: `${URLS.tgsAcademyUrl}/services/growth-diagnosis`
+            link: `${URLS.tgsAcademyUrl}/services/growth-diagnosis`,
+            image: tgsdiagnosis
         },
         {
             icon: Users,
@@ -22,7 +27,8 @@ function ServicesSection() {
             description: 'Expert guidance tailored to you - because global opportunities are not won by guesswork',
             price: 'USD 10-15',
             color: 'bg-green-100',
-            link: `${URLS.tgsAcademyUrl}/services/consultations`
+            link: `${URLS.tgsAcademyUrl}/services/consultations`,
+            image: tgsconsultation
         },
         {
             icon: Award,
@@ -30,7 +36,8 @@ function ServicesSection() {
             description: 'Your fast-track into global fellowships, internships & conferences',
             price: 'USD 50/month',
             color: 'bg-purple-100',
-            link: `${URLS.tgsAcademyUrl}/academy/goaf`
+            link: `${URLS.tgsAcademyUrl}/academy/goaf`,
+            image: tgsglobal
         },
         {
             icon: Target,
@@ -38,7 +45,8 @@ function ServicesSection() {
             description: 'Preparing the next generation of global scholars and leaders',
             price: 'USD 15/month',
             color: 'bg-orange-100',
-            link: `${URLS.tgsAcademyUrl}/academy/gsp`
+            link: `${URLS.tgsAcademyUrl}/academy/gsp`,
+            image: tgsopp
         }
     ];
 
@@ -109,23 +117,29 @@ function ServicesSection() {
                                 <motion.div
                                     variants={itemVariants}
                                     key={index}
-                                    className="bg-white relative rounded-xll p-4 h-56 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer border border-gray-100"
+                                    className="bg-white relative rounded-xll  shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer border border-gray-100"
                                 >
-                                    <div className="bg-sky-300 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                                        <Icon className="w-7 h-7 text-sky-800" />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 break-words max-w-full">
-                                        {service.title}
-                                    </h3>
-                                    <p className="text-gray-600 leading-relaxed mb-6 line-clamp-2">
-                                        {service.description}
-                                    </p>
-                                    <div className='absolute right-4 bottom-8'>
-                                        <button className="w-fit bg-sky-900 text-white py-2 px-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all font-medium">
-                                            <Link to={service.link} className="block w-full">
-                                                <ArrowRight />
-                                            </Link>
-                                        </button>
+                                    {service.image ? (
+                                        <img src={service.image} className='object-cover w-full h-32'></img>
+                                    ) : (
+                                        <div className="bg-sky-300 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                                            <Icon className="w-7 h-7 text-sky-800" />
+                                        </div>
+                                    )}
+                                    <div className='p-4'>
+                                        <h3 className="text-xl font-bold text-gray-900 break-words max-w-full truncate">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed mb-6 line-clamp-2">
+                                            {service.description}
+                                        </p>
+                                        <div className='absolute right-4 bottom-8'>
+                                            <button className="w-fit bg-sky-900 text-white py-2 px-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all font-medium">
+                                                <Link to={service.link} className="block w-full">
+                                                    <ArrowRight />
+                                                </Link>
+                                            </button>
+                                        </div>
                                     </div>
                                 </motion.div>
                             </Link>
