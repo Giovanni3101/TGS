@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Building, Facebook, Linkedin, Instagram } from 'lucide-react';
-import contactBanner from '/home/alves/Desktop/TGS/src/assets/images/contact-banner.png'
-import {URLS} from '/home/alves/Desktop/TGS/src/utils/urls.js';
+import contactBanner from '../../../assets/images/contact-banner.png'
+import {URLS} from '../../../utils/urls.js';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
