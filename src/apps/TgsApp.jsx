@@ -18,6 +18,7 @@ import Board from '../pages/tgs/AboutTgs/Board';
 import Ambassadors from '../pages/tgs/AboutTgs/Ambassadors';
 import Footer from '../components/tgs/Footer';
 import Contact from '../pages/tgs/AboutTgs/Contact';
+import ArticleDetail from '../components/tgs/news/Pages/ArticleDetail';
 
 function TgsApp() {
   return (
@@ -30,6 +31,7 @@ function TgsApp() {
             <Route path="/home" element={<HomeTgs />} />
             {/* <Route path="/opportunities" element={<Opportunities />} /> */}
             <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<ArticleDetail />} />
 
             {/* About & subpages */}
             <Route path="/about" element={<Navigate to="/our_mission" replace />} />
