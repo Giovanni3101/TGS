@@ -1,5 +1,6 @@
 // src/pages/BlogLanding.jsx
 import React, { useState, useEffect } from 'react';
+import SeoHead from '../../../../components/SeoHead.jsx';
 import BlogCard from '../Components/Blog/BlogCard.jsx';
 import CategoryFilter from '../Components/Blog/CategoryFilter.jsx';
 import BlogSidebar from '../Components/Blog/BlogSideBar.jsx';
@@ -77,7 +78,15 @@ const BlogLanding = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 font-['Raleway',sans-serif]">
+    <>
+      <SeoHead
+        title="Blog | The Growth Sphere"
+        description="Explore articles and perspectives from The Growth Sphere on leadership, rights, and innovation."
+        ogTitle="Blog | The Growth Sphere"
+        ogDescription="Explore articles and perspectives from The Growth Sphere on leadership, rights, and innovation."
+        ogImage="/tgs1.png"
+      />
+      <div className="min-h-screen bg-gray-50 font-['Raleway',sans-serif]">
       {/* Hero Header Section */}
       <header className="bg-gradient-to-br from-sky-900 via-sky-600 to-sky-900 text-white py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
@@ -197,6 +206,7 @@ const BlogLanding = () => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 

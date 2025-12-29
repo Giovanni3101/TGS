@@ -1,5 +1,16 @@
 // src/pages/ArticleDetail.jsx
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import SeoHead from '../../../../components/SeoHead.jsx';
+
+function slugify(str) {
+  return String(str || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
 import { 
   Calendar, Clock, Eye, Bookmark, ChevronLeft, 
   Facebook, Twitter, Linkedin, Link2, Check,
@@ -13,13 +24,20 @@ import { articleDetailData, blogContent } from '../Data/Blogdata.jsx';
  * 
  * @param {number} articleId - Article ID to display (in real app, from URL params)
  */
-const ArticleDetail = ({ articleId = 1 }) => {
+const ArticleDetail = ({ articleId: propArticleId }) => {
+  const params = useParams();
+  const param = params.id; // can be slug or numeric ID
+
+  // Resolve article by slug or fallback to numeric
+  const byId = Number.isFinite(Number(param)) ? articleDetailData[Number(param)] : undefined;
+  const bySlug = !byId ? Object.values(articleDetailData).find(a => slugify(a.title) === String(param)) : undefined;
+  const article = byId || bySlug || (propArticleId ? articleDetailData[propArticleId] : undefined);
+
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [copied, setCopied] = useState(false);
 
-  // Get article data
-  const article = articleDetailData[articleId];
+  // Get related data
   const relatedArticles = article?.relatedArticles?.map(id => 
     blogContent.find(post => post.id === id)
   ).filter(Boolean) || [];
@@ -42,6 +60,17 @@ const ArticleDetail = ({ articleId = 1 }) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Replace numeric URL with slug for consistency
+  useEffect(() => {
+    if (article && Number.isFinite(Number(param))) {
+      const slug = slugify(article.title);
+      const newUrl = `/news/${slug}`;
+      if (window.location.pathname !== newUrl) {
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+  }, [article, param]);
+
   if (!article) {
     return (
       <div className="min-h-screen flex  justify-center bg-gray-50">
@@ -54,7 +83,15 @@ const ArticleDetail = ({ articleId = 1 }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 font-['Raleway',sans-serif] max-w-7xl mx-auto relative">
+    <>
+      <SeoHead
+        title={(article?.title ? `${article.title} | The Growth Sphere` : 'News | The Growth Sphere')}
+        description={article?.subtitle || 'In-depth analysis and stories from The Growth Sphere.'}
+        ogTitle={article?.title || 'News | The Growth Sphere'}
+        ogDescription={article?.subtitle || 'In-depth analysis and stories from The Growth Sphere.'}
+        ogImage={article?.coverImage || '/tgs1.png'}
+      />
+      <div className="min-h-screen bg-gray-50 font-['Raleway',sans-serif] max-w-7xl mx-auto relative">
       {/* Skip to content - Accessibility */}
       <a 
         href="#main-content" 
@@ -299,7 +336,7 @@ const ArticleDetail = ({ articleId = 1 }) => {
                 {relatedArticles.map((relatedArticle) => (
                   <a
                     key={relatedArticle.id}
-                    href={`/news/${relatedArticle.id}`}
+                    href={`/news/${slugify(relatedArticle.title)}`}
                     className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-sky-200 cursor-pointer block"
                   >
                     <img 
@@ -330,6 +367,7 @@ const ArticleDetail = ({ articleId = 1 }) => {
         </main>
       </article>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import SeoHead from '../../../components/SeoHead.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, X, ExternalLink } from 'lucide-react';
 import Mary from '../../../assets/images/Mary.jpeg';
@@ -337,7 +338,15 @@ function BoardCard({ member, index }) {
  */
 export default function Board() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50/30 to-slate-50">
+    <>
+      <SeoHead
+        title="Ambassadors | The Growth Sphere"
+        description="Explore The Growth Sphere’s ambassadors championing youth empowerment and community impact globally."
+        ogTitle="Ambassadors | The Growth Sphere"
+        ogDescription="Explore The Growth Sphere’s ambassadors championing youth empowerment and community impact globally."
+        ogImage="/tgs1.png"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50/30 to-slate-50">
       {/* Subtle Background Pattern */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -407,5 +416,6 @@ export default function Board() {
 
       </div>
     </div>
+    </>
   );
 }

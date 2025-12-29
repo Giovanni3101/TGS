@@ -7,10 +7,19 @@ import PartenerSection from '../../../components/tgs/home/PartenerSection';
 import Testimony from '../../../components/tgs/home/Testimony';
 import TextBanner from '../../../components/tgs/home/TextBanner';
 import ServicesSection from '../../../components/ServicesSection';
+import SeoHead from '../../../components/SeoHead.jsx';
 
 function HomeTgs() {
     return (
-        <div className="w-full min-h-screen bg-white">
+        <>
+            <SeoHead
+                title="TGS | The Growth Sphere"
+                description="Discover The Growth Sphere’s initiatives, opportunities, and impact stories empowering communities across Africa."
+                ogTitle="TGS | The Growth Sphere"
+                ogDescription="Discover The Growth Sphere’s initiatives, opportunities, and impact stories empowering communities across Africa."
+                ogImage="/tgs1.png"
+            />
+            <div className="w-full min-h-screen bg-white">
             <HeroSection />
             <AboutSection />
             <ServicesSection />
@@ -23,6 +32,7 @@ function HomeTgs() {
                 <ContactBanner />
             </div>
         </div>
+        </>
     );
 }
 

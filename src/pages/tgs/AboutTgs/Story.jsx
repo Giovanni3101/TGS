@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import SeoHead from '../../../components/SeoHead.jsx';
 import { Calendar, Users, Globe, Award, TrendingUp, MapPin } from 'lucide-react';
 import History1 from '../../../assets/images/history1.jpeg';
 import History2 from '../../../assets/images/history2.jpeg';
@@ -33,7 +34,15 @@ const Story = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SeoHead
+        title="Our Story | The Growth Sphere"
+        description="Learn about The Growth Sphere’s mission, origins, and the values driving our work across Africa."
+        ogTitle="Our Story | The Growth Sphere"
+        ogDescription="Learn about The Growth Sphere’s mission, origins, and the values driving our work across Africa."
+        ogImage="/tgs1.png"
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sky-50 via-white to-sky-50 py-24 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2"></div>
@@ -326,6 +335,7 @@ const Story = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
