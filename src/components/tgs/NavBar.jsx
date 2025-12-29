@@ -247,8 +247,8 @@ function Navbar() {
                                     </ul>
 
                                     {/* Boutons */}
-                                    <div className="flex flex-col items-center space-y-4 mt-6">
-                                        <Link to={URLS.tgsAcademyUrl}>
+                                    <Link to={URLS.tgsAcademyUrl}>
+                                        <div className="flex flex-col items-center space-y-4 mt-6">
                                             <motion.button
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
@@ -257,8 +257,8 @@ function Navbar() {
                                             >
                                                 TGS ACADEMY
                                             </motion.button>
-                                        </Link>
-                                    </div>
+                                        </div>
+                                    </Link>
 
                                     {/* Footer */}
                                     <div className="absolute bottom-4 left-0 w-full flex justify-center">
