@@ -1,7 +1,7 @@
 // src/components/blog/BlogSidebar.jsx
 import React from 'react';
 import { TrendingUp, Tag, Calendar, Clock } from 'lucide-react';
-import NewsletterCTA from '/home/alves/Desktop/TGS/src/components/tgs/news/Components/Blog/NewsLetterCTA.jsx';
+import NewsletterCTA from './NewsLetterCTA.jsx';
 
 /**
  * BlogSidebar Component
