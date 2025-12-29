@@ -1,16 +1,17 @@
-import React from 'react';
-import { Mail, Phone, Menu, X, FacebookIcon, InstagramIcon, TwitterIcon, LinkedinIcon } from 'lucide-react';
-import tgsConnect from '../../assets/images/tgs-connect-removebg-preview.png'
+import React, { useState } from 'react';
+import { Mail, Phone, Menu, X, CircleUserRound } from 'lucide-react';
 import { FacebookFilled, InstagramFilled, LinkedinFilled, TikTokFilled, WhatsAppOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion'
 import { Link } from 'react-router';
+import { HashLink } from 'react-router-hash-link';
+import tgsConnect from '../../assets/images/tgs-connect-removebg-preview.png'
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
         { label: 'Home', href: '/home#' },
-        { label: 'How it works', href: '/home#how-it-works' },
+        // { label: 'How it works', href: '/home#how-it-works' },
         { label: 'Our services', href: '/home#services' },
         { label: 'Opportunities', href: '/opportunities' },
     ];
@@ -23,41 +24,33 @@ const Navbar = () => {
                         <div className="flex items-center gap-2 mb-2 sm:mb-0">
                             <Phone size={16} className="" />
                             <a
-                                href="tel: +254116701163"
+                                href="tel: +254 797 427 649"
                                 className="hover:text-sky-600 transition-colors"
                             >
-                                +254 116 701 163
+                                +254 797 427 649
                             </a>
                         </div>
 
                         <div className="flex items-center gap-2">
                             <Mail size={16} className="" />
                             <a
-                                href="mailto:connect@thegrowthsphere.com"
+                                href="mailto:info@thegrowthsphere.org"
                                 className="hover:text-sky-600 transition-colors"
                             >
-                                connect@thegrowthsphere.com
+                                info@thegrowthsphere.org
                             </a>
                         </div>
                     </div>
-                    {/* <div className='flex space-x-6'>
-                        <div className='text-gray-100'>
-                            <FacebookIcon size={20} />
-                        </div>
-                        <div className='text-gray-100'>
-                            <LinkedinIcon size={20} />
-                        </div>
-                        <div className='text-gray-100'>
-                            <TwitterIcon size={20} />
-                        </div>
-                        <div className='text-gray-100'>
-                            <InstagramIcon size={20} />
-                        </div>
-                    </div> */}
                     <div className='flex space-x-4 text-white'>
-                        <FacebookFilled className='text-2xl' />
-                        <InstagramFilled className='text-2xl' />
-                        <LinkedinFilled className='text-2xl' />
+                        <a href="https://www.facebook.com/people/The-Growth-Sphere-TGS-En/61581261688760/">
+                            <FacebookFilled className='text-2xl' />
+                        </a>
+                        <a href="https://www.linkedin.com/company/the-growth-sphere-tgs/">
+                            <LinkedinFilled className='text-2xl' />
+                        </a>
+                        <a href="https://www.instagram.com/tgs2.025?igsh=YXdvcDNjemJlMnFu">
+                            <InstagramFilled className='text-2xl' />
+                        </a>
                         <TikTokFilled className='text-2xl' />
                         <WhatsAppOutlined className='text-2xl' />
                     </div>
@@ -73,13 +66,13 @@ const Navbar = () => {
                     <div className="hidden md:flex items-center space-x-8">
                         <div className='md:flex items-center space-x-8'>
                             {navItems.map((item) => (
-                                <a
+                                <HashLink
                                     key={item.label}
-                                    href={item.href}
+                                    to={item.href}
                                     className="hover:text-blue-600 font-medium transition-colors"
                                 >
                                     {item.label}
-                                </a>
+                                </HashLink>
                             ))}
                         </div>
                         <div className='md:flex items-center space-x-2'>
@@ -87,9 +80,10 @@ const Navbar = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-gray-100 text-gray-900 w-[100px] py-2 rounded-xl border-3 border-sky-900 hover:bg-sky-600"
+                                    className="flex items-center justify-between space-x-2 px-4 bg-gray-100 text-gray-900 py-2 rounded-full border-3 border-sky-900 hover:bg-sky-600"
                                 >
-                                    Sign in
+                                    <CircleUserRound />
+                                    <p>Log in</p>
                                 </motion.button>
                             </Link>
                         </div>
@@ -122,9 +116,10 @@ const Navbar = () => {
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="bg-gray-100 text-sky-900 w-[100px] py-2 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
+                                        className="w-full flex items-center items-center justify-center space-x-2 px-4 bg-gray-100 text-gray-900 py-2 rounded-full border-3 border-sky-900 hover:bg-sky-600"
                                     >
-                                        Sign in
+                                        <CircleUserRound />
+                                        <p>Log in</p>
                                     </motion.button>
                                 </Link>
                             </div>

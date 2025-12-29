@@ -16,7 +16,7 @@ function HomeOpportunities() {
             <AcadmySection />
             <Testimony />
             <TypeOppSection />
-            <Steps />
+            {/* <Steps /> */}
             <FeaturedOpportunities />
             <ContactSection />
         </div>

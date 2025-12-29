@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { URLS } from '../../../utils/urls'
 
 function ContactSection() {
     return (
@@ -17,14 +18,16 @@ function ContactSection() {
                     Join thousands of young people who are already transforming their futures
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link>
-                        <button className="bg-white text-sky-600 px-8 py-2 rounded-lg hover:bg-sky-50 transition-colors font-medium text-lg shadow-xl">
+                    <Link to='/login'>
+                        <button className="bg-white min-w-[250px] text-sky-600 px-8 py-2 rounded-lg hover:bg-sky-50 transition-colors font-medium text-lg shadow-xl">
                             Get Started Today
                         </button>
                     </Link>
-                    <button className="border-2 border-white text-white px-8 py-2 rounded-lg hover:bg-sky-600 transition-colors font-medium text-lg">
-                        Contact Us
-                    </button>
+                    <Link to={`${URLS.tgsUrl}/contact`}>
+                        <button className="border-2 min-w-[250px] border-white text-white px-8 py-2 rounded-lg hover:bg-sky-600 transition-colors font-medium text-lg">
+                            Contact Us
+                        </button>
+                    </Link>
                 </div>
             </div>
         </section>

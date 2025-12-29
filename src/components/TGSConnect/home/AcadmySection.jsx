@@ -1,5 +1,6 @@
 import React from 'react'
 import { CheckCircle } from 'lucide-react'
+import { Link } from 'react-router'
 
 function AcadmySection() {
     return (
@@ -36,9 +37,11 @@ function AcadmySection() {
                             ))}
                         </div>
                         <div className="mt-8">
-                            <button className="cursor-pointer bg-sky-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-sky-300 hover:to-purple-700 transition-all font-medium">
-                                Join Academy
-                            </button>
+                            <Link to='/login'>
+                                <button className="cursor-pointer bg-sky-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-sky-300 hover:to-purple-700 transition-all font-medium">
+                                    Join Academy
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div>

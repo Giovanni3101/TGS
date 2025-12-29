@@ -21,28 +21,35 @@ import Contact from '../pages/tgs/AboutTgs/Contact';
 import ArticleDetail from '../components/tgs/news/Pages/ArticleDetail';
 import { ScrollToTop } from '../ScrollToTop';
 
+function LayoutTop({ children }) {
+  return (
+    <>
+      <ScrollToTop />
+      {children}
+    </>
+  )
+}
+
 function TgsApp() {
   return (
     <Router>
       <div className='flex flex-col items-center min-h-screen'>
-        <ScrollToTop />
         <Navbar />
         <main className='w-full'>
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<HomeTgs />} />
-            {/* <Route path="/opportunities" element={<Opportunities />} /> */}
-            <Route path="/news" element={<News />} />
-            <Route path="/news/:id" element={<ArticleDetail />} />
+            <Route path="/news" element={<LayoutTop><News /></LayoutTop>} />
+            <Route path="/news/:id" element={<LayoutTop><ArticleDetail /></LayoutTop>} />
 
             {/* About & subpages */}
             <Route path="/about" element={<Navigate to="/our_mission" replace />} />
-            <Route path="/our_mission" element={<Mission />} />
-            <Route path="/our_story" element={<Story />} />
+            <Route path="/our_mission" element={<LayoutTop><Mission /></LayoutTop>} />
+            <Route path="/our_story" element={<LayoutTop><Story /></LayoutTop>} />
             <Route path="/our_team" element={<Navigate to="/board" replace />} />
-            <Route path="/board" element={<Board />} />
-            <Route path="/ambassadors" element={<Ambassadors />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/board" element={<LayoutTop><Board /></LayoutTop>} />
+            <Route path="/ambassadors" element={<LayoutTop><Ambassadors /></LayoutTop>} />
+            <Route path="/contact" element={<LayoutTop><Contact /></LayoutTop>} />
 
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/home" replace />} />

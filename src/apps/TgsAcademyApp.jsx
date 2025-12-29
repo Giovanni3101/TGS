@@ -28,9 +28,20 @@ function DefaultLayout({ children }) {
     );
 }
 
+function HomeLayout({ children }) {
+    return (
+        <div className="flex flex-col items-center min-h-screen">
+            <Navbar />
+            <main className="w-full">{children}</main>
+            <Footer />
+        </div>
+    )
+}
+
 function AuthLayout({ children }) {
     return (
         <div className="flex flex-col items-center min-h-screen">
+            <ScrollToTop />
             <main className="w-full">{children}</main>
         </div>
     );
@@ -40,7 +51,7 @@ function TgsAcademyApp() {
     return (
         <Router>
             <Routes>
-                <Route path="/home" element={<DefaultLayout><HomeOpportunities /></DefaultLayout>} />
+                <Route path="/home" element={<HomeLayout><HomeOpportunities /></HomeLayout>} />
                 <Route path="/opportunities" element={<DefaultLayout><OpportunitiesPage /></DefaultLayout>} />
                 <Route path="/:category/:slug" element={<DefaultLayout><OpportunityDetailPage /></DefaultLayout>} />
                 <Route path="/services/growth-diagnosis" element={<DefaultLayout><GrowthDiagnosisPage /></DefaultLayout>} />

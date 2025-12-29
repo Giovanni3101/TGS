@@ -3,6 +3,7 @@ import { Globe, ArrowRight } from 'lucide-react'
 import TGSConnect from '../../assets/images/tgs-connect-removebg-preview.png'
 import { motion } from 'framer-motion'
 import { FacebookFilled, InstagramFilled, LinkedinFilled, TikTokFilled, WhatsAppOutlined } from '@ant-design/icons';
+import { HashLink } from 'react-router-hash-link';
 
 
 function Footer() {
@@ -18,9 +19,15 @@ function Footer() {
                                 Empowering youth with global opportunities since 2024.
                             </p>
                             <div className='flex space-x-4 text-white'>
-                                <FacebookFilled className='text-2xl' />
-                                <InstagramFilled className='text-2xl' />
-                                <LinkedinFilled className='text-2xl' />
+                                <a href="https://www.facebook.com/people/The-Growth-Sphere-TGS-En/61581261688760/">
+                                    <FacebookFilled className='text-2xl' />
+                                </a>
+                                <a href="https://www.linkedin.com/company/the-growth-sphere-tgs/">
+                                    <LinkedinFilled className='text-2xl' />
+                                </a>
+                                <a href="https://www.instagram.com/tgs2.025?igsh=YXdvcDNjemJlMnFu">
+                                    <InstagramFilled className='text-2xl' />
+                                </a>
                                 <TikTokFilled className='text-2xl' />
                                 <WhatsAppOutlined className='text-2xl' />
                             </div>
@@ -29,20 +36,20 @@ function Footer() {
                         <div>
                             <h4 className="text-white font-bold mb-4">Quick Links</h4>
                             <ul className="space-y-2">
-                                <li><a href="#home" className="hover:text-sky-400 transition-colors">Home</a></li>
-                                <li><a href="#opportunities" className="hover:text-sky-400 transition-colors">Opportunities</a></li>
-                                <li><a href="#blog" className="hover:text-sky-400 transition-colors">Blog</a></li>
-                                <li><a href="#about" className="hover:text-sky-400 transition-colors">About Us</a></li>
+                                <li><a href="/home" className="hover:text-sky-400 transition-colors">Home</a></li>
+                                <li><HashLink to="/home#services" className="hover:text-sky-400 transition-colors">Services</HashLink></li>
+                                <li><a href="/opportunities" className="hover:text-sky-400 transition-colors">Opportunities</a></li>
+                                <li><a href="/login" className="hover:text-sky-400 transition-colors">Login</a></li>
                             </ul>
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-4">Categories</h4>
+                            <h4 className="text-white font-bold mb-4">Services</h4>
                             <ul className="space-y-2">
-                                <li><a href="#" className="hover:text-sky-400 transition-colors">Scholarships</a></li>
-                                <li><a href="#" className="hover:text-sky-400 transition-colors">Fellowships</a></li>
-                                <li><a href="#" className="hover:text-sky-400 transition-colors">Conferences</a></li>
-                                <li><a href="#" className="hover:text-sky-400 transition-colors">Volunteering</a></li>
+                                <li><a href="/services/growth-diagnosis" className="hover:text-sky-400 transition-colors">Growth Diagnosis</a></li>
+                                <li><a href="/services/consultations" className="hover:text-sky-400 transition-colors">Consultations</a></li>
+                                <li><a href="/academy/goaf" className="hover:text-sky-400 transition-colors">GOAF</a></li>
+                                <li><a href="/academygsp" className="hover:text-sky-400 transition-colors">GSP</a></li>
                             </ul>
                         </div>
 
@@ -50,14 +57,6 @@ function Footer() {
                             <h4 className="text-white font-bold mb-4">Stay Updated</h4>
                             <p className="text-gray-100 mb-4">Get the latest opportunities in your inbox</p>
                             <div className="flex">
-                                {/* <input
-                                    type="email"
-                                    placeholder="Your email"
-                                    className="input flex-1 px-4 py-2 rounded-l-lg focus:outline-none text-gray-900"
-                                />
-                                <button className="bg-sky-600 px-4 py-2 rounded-r-lg hover:bg-sky-700 transition-colors">
-                                    <ArrowRight className="w-5 h-5" />
-                                </button> */}
                                 <motion.div
                                     className="relative w-full md:w-[400px]"
                                 >
