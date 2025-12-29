@@ -9,6 +9,14 @@ import Idris from '../../../assets/images/idris.jpeg';
 import Jubilant from '../../../assets/images/jubilant.jpeg';
 import Benjamin from '../../../assets/images/Benjamin.jpg';
 import Sophia from '../../../assets/images/Sophia.jpeg';
+import Abel from '../../../assets/images/Abel.jpeg';
+import BerniceS from '../../../assets/images/BerniceS.jpeg';
+import Elsie from '../../../assets/images/Elsie.jpeg';
+import FrancisK from '../../../assets/images/FrancisK.jpeg';
+import Georges from '../../../assets/images/Georges.jpeg';
+import Hariet from '../../../assets/images/Hariet.jpeg';
+import Marthe from '../../../assets/images/Marthe.jpeg';
+import Stephanie from '../../../assets/images/Stephanie.jpeg';
 
 /**
  * EXTENDED BOARD MEMBER DATA STRUCTURE
@@ -112,8 +120,8 @@ const teamMembers = [
     name: 'Stephanie Andriamora',
     role: 'HR & Partnerships Manager',
     shortBio: 'Relationship builder connecting organizations with strategic partners.',
-    fullDescription: 'Relationship builder connecting organizations with strategic partners. Dedicated to cultivating meaningful collaborations and talent acquisition. Experienced in developing partnerships that drive organizational growth and impact.',
-    photo: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2NjM4NzQxMHww&ixlib=rb-4.1.0&q=80&w=1080',
+    fullDescription: ["Andriamoranantenaina Felantsoa Stéphanie is an accomplished professional in human resources and partnerships, currently serving as HR & Partnerships Manager. She brings extensive experience in organizational leadership, stakeholder engagement, and strategic relationship management. Stéphanie has a strong background in public law and political sciences and has held leadership positions, including President of the FONGOTRA UCM Club. She has also contributed as a public relations officer at FALAS Madagascar, and is an alumna of the Apire Leaders Program. As an ambassador for African Rebirth (2024–2025) and an active climate advocate, she combines professional expertise with a commitment to social impact and sustainable development."],
+    photo: Stephanie,
     linkedin: 'https://linkedin.com',
     email: 'stephanie@organization.org',
     tags: ['HR', 'Partnerships', 'Talent Acquisition']
@@ -130,6 +138,83 @@ const teamMembers = [
     email: 'sophia@organization.org',
     tags: ['Legal Advocacy', 'Education', 'Social Impact']
   },
+   {
+    id: 11,
+    name: 'Abel Masirika',
+    role: 'Program Research Assistant',
+    shortBio: 'Research assistant focused on data-driven program evaluation and stakeholder insights.',
+    fullDescription: 'Abel Masirika is a dedicated research assistant with a strong background in program evaluation and data analysis. He has contributed to various research projects, focusing on impact assessment and stakeholder engagement. His work involves supporting program development and ensuring effective implementation of initiatives.',
+    photo: Abel,
+    linkedin: 'https://linkedin.com',
+    email: 'abel@organization.org',
+    tags: ['Research', 'Data Analysis', 'Impact Assessment', 'Stakeholder Engagement']
+  },
+   {
+    id: 12,
+    name: 'Bernice Aunita',
+    role: 'Deputy Head of Project',
+    shortBio: 'Finance professional supporting budgeting, compliance, and transparent program delivery.',
+    fullDescription: 'Bernice Aunita is a finance professional with experience in nonprofit and humanitarian organizations, supporting financial management, budgeting, reporting, and compliance for impact-driven programs. Her work is closely aligned with human rights advocacy, climate change action, and community-focused development initiatives. She holds a Bachelor’s degree in Finance and has a strong interest in development finance, climate justice, governance, and the role of sound financial systems in advancing social and environmental accountability. Her professional focus centers on ensuring transparency, sustainability, and ethical stewardship of resources within advocacy and development organizations.',
+    photo: BerniceS,
+    linkedin: 'https://linkedin.com',
+    email: 'sophia@organization.org',
+    tags: ['Finance', 'Compliance', 'Development Finance', 'Climate Justice']
+  },
+   {
+    id: 13,
+    name: 'Muchai Hariet',
+    role: 'Social Media Manager',
+    shortBio: 'Digital communicator crafting impactful narratives across social platforms.',
+    fullDescription: 'Muchai Hariet is a passionate advocate for justice, education, and social impact. Through participation in multiple moot court competitions, she has refined her legal reasoning, advocacy, and research skills. Based in Kenya, Sophia strives to advance access to education, empowerment, and equality, driving meaningful change within her community and beyond.',
+    photo: Hariet,
+    linkedin: 'https://linkedin.com',
+    email: 'sophia@organization.org',
+    tags: ['Social Media', 'Content Strategy', 'Digital Advocacy']
+  },
+   {
+    id: 14,
+    name: 'Kedibone Elsie',
+    role: 'Events Cordinator',
+    shortBio: 'Organizes high-impact events with strong coordination and stakeholder management.',
+    fullDescription: 'Elsie is a dedicated legal professional pursuing an LLB, specializing in Education Law and International Human Rights Law. She possesses strong expertise in communication, problem-solving, and time management, with proficiency in Microsoft Office (Word, Excel, PowerPoint) and a proven ability to build effective interpersonal relationships. Highly adaptable and organized, she is committed to delivering quality outcomes while ensuring compliance with relevant regulations. Elsie plans to further her expertise through a Master’s in Labour Law.',
+    photo: Elsie,
+    linkedin: 'https://linkedin.com',
+    email: 'sophia@organization.org',
+    tags: ['Event Management', 'Stakeholder Engagement', 'Communication']
+  },
+   {
+    id: 15,
+    name: 'Georges Bush ',
+    role: 'Deputy Director of Marketing & Communication',
+    shortBio: 'Marketing and design lead driving brand storytelling and campaign strategy.',
+    fullDescription: 'George Bush Nyakundi is a Kenyan law trainee at the Catholic University of Eastern Africa and a passionate human rights advocate with a growing interest in technology and digital rights. He is part of the Jua Terms Campaign, an initiative focused on promoting simpler, clearer, and more transparent digital terms and conditions. Beyond law, George has strong skills in marketing and design, having played a key role in leading the campaign’s branding, content design, and marketing strategy. With experience both locally and internationally, he has worked with law firms in Kenya and served as a legal assistant and legal intern. George remains committed to advancing justice, innovation, and meaningful impact through law, advocacy, and creative communication.',
+    photo: Georges,
+    linkedin: 'https://linkedin.com',
+    email: 'sophia@organization.org',
+    tags: ['Marketing', 'Brand Design', 'Digital Rights']
+  },
+   {
+    id: 16,
+    name: 'Mwenge Marthe',
+    role: 'Project Officer',
+    shortBio: 'Project officer integrating law, technology, and community engagement for impact.',
+    fullDescription: 'Mwenge Tussi Marthe is a Public International Law lawyer dedicated to social justice, protection of vulnerable communities, and the intersection of law and emerging technologies. She has extensive experience in legal research, advocacy, and community engagement, integrating cultural diplomacy and artistic initiatives to promote collective memory and resilience. Mwenge has participated in international programs on climate, cybersecurity, and humanitarian law, and serves as founder of the “MÉMOIRE” Art Project. She combines expertise in law, project management, and intercultural communication with a strong commitment to inclusion, youth empowerment, and sustainable development.',
+    photo: Marthe,
+    linkedin: 'https://linkedin.com',
+    email: 'sophia@organization.org',
+    tags: ['Project Management', 'Digital Rights', 'Community Engagement']
+  },
+   {
+    id: 17,
+    name: 'Francis Kamau',
+    role: 'Research Associate',
+    shortBio: 'Research associate supporting data collection, analysis, and knowledge outputs.',
+    fullDescription: 'Research associate supporting data collection, analysis, and knowledge outputs for policy and program learning across teams.',
+    photo: FrancisK,
+    linkedin: 'https://linkedin.com',
+    email: 'sophia@organization.org',
+    tags: ['Research', 'Data Collection', 'Policy Analysis']
+  },
 ];
 
 /**
@@ -139,7 +224,7 @@ const teamMembers = [
 function ProfilePopup({ member, isVisible, position, onClose }) {
   const popupRef = useRef(null);
 
-  // Handle click outside to close (for mobile)
+  // Handle click outside to close (desktop & mobile)
   useEffect(() => {
     function handleClickOutside(event) {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -225,7 +310,7 @@ function ProfilePopup({ member, isVisible, position, onClose }) {
                 <X className="w-4 h-4 text-slate-600" />
               </button>
               
-              <div className="relative p-6">
+              <div className="relative p-6 max-h-[75vh] overflow-y-auto">
                 {/* Profile Header */}
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative flex-shrink-0">
@@ -274,33 +359,7 @@ function ProfilePopup({ member, isVisible, position, onClose }) {
                   </p>
                 </div>
                 
-                {/* Contact & Social Links */}
-                <div className="pt-6 border-t border-slate-100">
-                  <h4 className="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">
-                    Contact & Links
-                  </h4>
-                  <div className="flex items-center gap-4">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded-lg transition-all duration-200 group/link"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                      <span className="text-sm font-medium">LinkedIn</span>
-                      <ExternalLink className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity" />
-                    </a>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="flex items-center gap-2 px-4 py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-lg transition-all duration-200 group/link"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span className="text-sm font-medium">Email</span>
-                      <ExternalLink className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+                              </div>
               
               {/* Decorative Bottom Gradient */}
               <div className="h-1 bg-gradient-to-r from-sky-400 via-blue-400 to-sky-400" />
@@ -314,55 +373,25 @@ function ProfilePopup({ member, isVisible, position, onClose }) {
 
 /**
  * ENHANCED BOARD MEMBER CARD COMPONENT
- * Now includes hover popup functionality
+ * Now includes click popup functionality
  */
 function BoardCard({ member, index }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [popupPosition, setPopupPosition] = useState(null);
   const cardRef = useRef(null);
-  let hoverTimeout;
 
-  // Handle hover events with delay for smooth UX
-  const handleMouseEnter = () => {
-    if (window.innerWidth >= 768) { // Desktop only
-      hoverTimeout = setTimeout(() => {
-        if (cardRef.current) {
-          const rect = cardRef.current.getBoundingClientRect();
-          setPopupPosition({
-            x: rect.left,
-            y: rect.top,
-            width: rect.width,
-            height: rect.height
-          });
-          setIsPopupVisible(true);
-        }
-      }, 300); // 300ms delay for intentional hover
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
-    }
-    if (window.innerWidth >= 768) {
-      setIsPopupVisible(false);
-    }
-  };
-
-  // Handle click for mobile
+  // Handle click for all devices
   const handleClick = () => {
-    if (window.innerWidth < 768) {
-      if (cardRef.current) {
-        const rect = cardRef.current.getBoundingClientRect();
-        setPopupPosition({
-          x: rect.left,
-          y: rect.top,
-          width: rect.width,
-          height: rect.height
-        });
-      }
-      setIsPopupVisible(!isPopupVisible);
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      setPopupPosition({
+        x: rect.left,
+        y: rect.top,
+        width: rect.width,
+        height: rect.height
+      });
     }
+    setIsPopupVisible(!isPopupVisible);
   };
 
   return (
@@ -374,17 +403,15 @@ function BoardCard({ member, index }) {
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         className="group relative"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={handleClick}
       >
         {/* Card Container */}
         <div className="relative bg-white rounded-2xl overflow-hidden border border-slate-200/60 hover:border-sky-300 transition-all duration-500 hover:shadow-xl hover:shadow-sky-100/50 cursor-pointer">
           {/* Gradient Accent on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-sky-50/0 to-sky-100/0 group-hover:from-sky-50/50 group-hover:to-sky-100/30 transition-all duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-sky-50/0 to-sky-100/0 transition-all duration-500" />
           
-          {/* Hover Indicator */}
-          <div className={`absolute top-4 right-4 w-2 h-2 rounded-full transition-all duration-300 ${isPopupVisible ? 'bg-sky-500' : 'bg-slate-300 group-hover:bg-sky-400'}`} />
+          {/* Click Indicator */}
+          <div className={`absolute top-4 right-4 w-2 h-2 rounded-full transition-all duration-300 ${isPopupVisible ? 'bg-sky-500' : 'bg-slate-300'}`} />
 
           <div className="relative p-8">
             {/* Profile Photo */}
@@ -398,7 +425,7 @@ function BoardCard({ member, index }) {
                   <motion.img
                     src={member.photo}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    className="w-full h-full object-cover grayscale-[30%] transition-all duration-500"
                     whileHover={{ scale: 1.05 }}
                   />
                 </div>
@@ -424,35 +451,10 @@ function BoardCard({ member, index }) {
 
               {/* View More Hint */}
               <div className="pt-2">
-                <span className="inline-flex items-center gap-1 text-sm text-sky-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="md:hidden">Tap to view</span>
-                  <span className="hidden md:inline">Hover to view</span>
+                <span className="inline-flex items-center gap-1 text-sm text-sky-600 opacity-100 transition-opacity duration-300">
+                  <span>Click to view</span>
                   <span className="text-sky-400">→</span>
                 </span>
-              </div>
-
-              {/* Social Links */}
-              <div className="flex items-center justify-center gap-3 pt-4">
-                <motion.a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-sky-500 flex items-center justify-center transition-all duration-300 group/link"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Linkedin className="w-4 h-4 text-slate-600 group-hover/link:text-white transition-colors" />
-                </motion.a>
-                <motion.a
-                  href={`mailto:${member.email}`}
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-sky-500 flex items-center justify-center transition-all duration-300 group/link"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Mail className="w-4 h-4 text-slate-600 group-hover/link:text-white transition-colors" />
-                </motion.a>
               </div>
             </div>
           </div>
@@ -527,7 +529,7 @@ export default function Board() {
               Our board comprises visionary leaders dedicated to advancing our mission through strategic oversight, 
               ethical governance, and unwavering commitment to creating lasting positive impact.
               <span className="block mt-2 text-sm text-sky-600">
-                Hover over cards or tap on mobile to view detailed profiles
+                Click on cards to view detailed profiles
               </span>
             </motion.p>
           </div>
@@ -569,7 +571,7 @@ export default function Board() {
         {/* Team Members Grid */}
         <section className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {teamMembers.map((member, index) => (
                 <BoardCard key={member.id} member={member} index={index} />
               ))}

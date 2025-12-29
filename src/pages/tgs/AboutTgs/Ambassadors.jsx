@@ -386,7 +386,7 @@ export default function Board() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Our ambassadors are dedicated advocates who champion the voices of the Global South, fostering connections, driving impactful initiatives, and inspiring positive change through mentorship and community engagement.
+              Our ambassadors are young leaders driving change within their communities, championing youth voices and human rights on international platforms such as conferences and fellowships, while fostering local connections, mentoring peers, and leading impactful initiatives that inspire positive, sustainable change.
               <span className="block mt-2 text-sm text-sky-600">
                 Click on cards to view detailed profiles
               </span>
