@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star, Quote, Sparkles, Users, Globe, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
 import { itemVariants } from '../../animation/Animation';
 
 function Testimony() {
-    const [activeTestimonial, setActiveTestimonial] = useState(0);
 
     const testimonials = [
         {
@@ -68,13 +67,6 @@ function Testimony() {
     const evenTestimonials = testimonials.filter((_, index) => index % 2 === 0);
     const oddTestimonials = testimonials.filter((_, index) => index % 2 !== 0);
 
-    const nextTestimonial = () => {
-        setActiveTestimonial((prev) => (prev + 3) % testimonials.length);
-    };
-
-    const prevTestimonial = () => {
-        setActiveTestimonial((prev) => (prev - 3 + testimonials.length) % testimonials.length);
-    };
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -89,88 +81,86 @@ function Testimony() {
 
     return (
         <section className="pb-20 bg-gradient-to-b from-white to-sky-50 overflow-hidden">
-            {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
-                {/* <div className="flex flex-col lg:flex-row gap-8 lg:gap-12"> */}
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                className=""
+            >
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    className="relative overflow-hidden"
+                >
                     <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className=""
+                        variants={itemVariants}
+                        className="wrap_testimony_left gap-8 ml-32"
                     >
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.1 }}
-                            className="relative overflow-hidden"
-                        >
+                        {[...evenTestimonials, ...evenTestimonials].map((testimonial, index) => (
                             <motion.div
-                                variants={itemVariants}
-                                className="wrap_testimony_left gap-8 ml-32"
+                                key={index}
+                                // variants={cardVariants}
+                                // whileHover={{ y: -5, scale: 1.02 }}
+                                className="bg-gray-50 border-[1px] border-gray-300 rounded-tl-[50px] rounded-br-[50px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-sky-200/50 transition-all duration-300"
                             >
-                                {[...evenTestimonials, ...evenTestimonials].map((testimonial, index) => (
-                                    <motion.div
-                                        key={index}
-                                        // variants={cardVariants}
-                                        // whileHover={{ y: -5, scale: 1.02 }}
-                                        className="bg-gray-50 border-[1px] border-gray-300 rounded-tl-[50px] rounded-br-[50px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-sky-200/50 transition-all duration-300"
-                                    >
-                                        <div className="p-6">
-                                            <p className="text-gray-600 mb-2 line-clamp-4">
-                                                "{testimonial.quote}"
-                                            </p>
-                                            <div className="flex gap-1 mb-1">
-                                                {[...Array(testimonial.rating)].map((_, i) => (
-                                                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                                                ))}
-                                            </div>
-                                            <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
-                                                <div>
-                                                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                                                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                                                </div>
-                                            </div>
+                                <div className="p-6">
+                                    <p className="text-gray-600 mb-2 line-clamp-4">
+                                        "{testimonial.quote}"
+                                    </p>
+                                    <div className="flex gap-1 mb-1">
+                                        {[...Array(testimonial.rating)].map((_, i) => (
+                                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                                        ))}
+                                    </div>
+                                    <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
+                                        <div>
+                                            <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                                            <p className="text-sm text-gray-600">{testimonial.role}</p>
                                         </div>
-                                    </motion.div>
-                                ))}
+                                    </div>
+                                </div>
                             </motion.div>
-
-                            <motion.div
-                                variants={itemVariants}
-                                className="wrap_testimony_left gap-8 mt-6"
-                            >
-                                {[...oddTestimonials, ...oddTestimonials].map((testimonial, index) => (
-                                    <motion.div
-                                        key={index}
-                                        // variants={cardVariants}
-                                        // whileHover={{ y: -5, scale: 1.02 }}
-                                        className="bg-gray-50 border-[1px] border-gray-300 rounded-tl-[50px] rounded-br-[50px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-sky-200/50 transition-all duration-300"
-                                    >
-                                        <div className="p-6">
-                                            <p className="text-gray-600 mb-2 line-clamp-4">
-                                                "{testimonial.quote}"
-                                            </p>
-                                            <div className="flex gap-1 mb-1">
-                                                {[...Array(testimonial.rating)].map((_, i) => (
-                                                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                                                ))}
-                                            </div>
-                                            <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
-                                                <div>
-                                                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                                                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                            <div className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-white to-transparent" />
-                            <div className="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-white to-transparent" />
-                        </motion.div>
+                        ))}
                     </motion.div>
-                {/* </div> */}
+
+                    <motion.div
+                        variants={itemVariants}
+                        className="wrap_testimony_left gap-8 mt-6"
+                    >
+                        {[...oddTestimonials, ...oddTestimonials].map((testimonial, index) => (
+                            <motion.div
+                                key={index}
+                                // variants={cardVariants}
+                                // whileHover={{ y: -5, scale: 1.02 }}
+                                className="bg-gray-50 border-[1px] border-gray-300 rounded-tl-[50px] rounded-br-[50px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-sky-200/50 transition-all duration-300"
+                            >
+                                <div className="p-6">
+                                    <p className="text-gray-600 mb-2 line-clamp-4">
+                                        "{testimonial.quote}"
+                                    </p>
+                                    <div className="flex gap-1 mb-1">
+                                        {[...Array(testimonial.rating)].map((_, i) => (
+                                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                                        ))}
+                                    </div>
+                                    <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
+                                        <div>
+                                            <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                                            <p className="text-sm text-gray-600">{testimonial.role}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                    <div className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-white to-transparent" />
+                    <div className="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-white to-transparent" />
+                </motion.div>
+            </motion.div>
+            {/* </div> */}
             {/* </div > */}
         </section >
     );
