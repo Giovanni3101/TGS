@@ -8,7 +8,7 @@ import { FacebookFilled, InstagramFilled, LinkedinFilled, TikTokFilled, WhatsApp
 function Footer() {
     const year = new Date().getFullYear()
     return (
-        <footer className="bg-sky-900 text-gray-100 py-12">
+        <footer className="w-full bg-sky-900 text-gray-100 py-12">
             <div className="mx-auto sm:px-6 lg:px-8">
                 <div className='md:px-20 px-5'>
                     <div className="grid md:grid-cols-4 gap-8 mb-8">
@@ -82,7 +82,7 @@ function Footer() {
                         </div>
                     </div>
 
-                    <div className="border-t border-gray-400 pt-3 text-center text-gray-300">
+                    <div className="border-t border-gray-500 pt-3 text-center text-gray-300">
                         <div className='md:flex justify-between items-center'>
                             {/* <p>&copy; {year} TGS Connect. All rights reserved.</p> */}
                             <p>&copy; {year} Powered by <a href='https://gitutechnology.onreder.com'>Gitu technology</a></p>

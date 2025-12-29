@@ -3,14 +3,16 @@ import { Mail, Phone, Menu, X, FacebookIcon, InstagramIcon, TwitterIcon, Linkedi
 import tgsConnect from '../../assets/images/tgs-connect-removebg-preview.png'
 import { FacebookFilled, InstagramFilled, LinkedinFilled, TikTokFilled, WhatsAppOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion'
+import { Link } from 'react-router';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     const navItems = [
-        { label: 'Home', href: '#' },
-        { label: 'How it works', href: '#' },
-        { label: 'Blog', href: '#' },
+        { label: 'Home', href: '/home#' },
+        { label: 'How it works', href: '/home#how-it-works' },
+        { label: 'Our services', href: '/home#services' },
+        { label: 'Opportunities', href: '/opportunities' },
     ];
 
     return (
@@ -81,20 +83,15 @@ const Navbar = () => {
                             ))}
                         </div>
                         <div className='md:flex items-center space-x-2'>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-sky-900 text-white w-[150px] py-4 rounded-xl hover:bg-sky-600"
-                            >
-                                Opportunities
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="text-sky-900 w-[150px] py-4 rounded-xl border-3 border-sky-900 hover:bg-sky-600"
-                            >
-                                TGS ACADEMY
-                            </motion.button>
+                            <Link to="/login">
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-gray-100 text-gray-900 w-[100px] py-2 rounded-xl border-3 border-sky-900 hover:bg-sky-600"
+                                >
+                                    Sign in
+                                </motion.button>
+                            </Link>
                         </div>
                     </div>
 
@@ -121,20 +118,15 @@ const Navbar = () => {
                                 </a>
                             ))}
                             <div className='md:flex items-center space-x-2 px-4'>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-gray-100 text-sky-900 w-[150px] py-4 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
-                                >
-                                    Opportunities
-                                </motion.button>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="text-gray-100 w-[150px] py-4 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
-                                >
-                                    TGS ACADEMY
-                                </motion.button>
+                                <Link to="/login">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="bg-gray-100 text-sky-900 w-[100px] py-2 rounded-xl border-3 border-gray-100 hover:bg-sky-600"
+                                    >
+                                        Sign in
+                                    </motion.button>
+                                </Link>
                             </div>
                         </div>
                     </div>

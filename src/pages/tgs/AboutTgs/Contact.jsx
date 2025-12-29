@@ -228,14 +228,6 @@ export default function ContactSection() {
           </div>
           
         </div>
-        
-        {/* Slide Indicators for Mobile */}
-        {isMobile && (
-          <div className="flex justify-center space-x-2 mt-6">
-            <div className={`w-2 h-2 rounded-full ${currentSlide === 0 ? 'bg-sky-500' : 'bg-gray-300'}`}></div>
-            <div className={`w-2 h-2 rounded-full ${currentSlide === 1 ? 'bg-sky-500' : 'bg-gray-300'}`}></div>
-          </div>
-        )}
       </div>
     </div>
   );

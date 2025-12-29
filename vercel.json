@@ -1,0 +1,48 @@
+{
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/robots.txt",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.thegrowthsphere.co"
+                }
+            ],
+            "destination": "/robots-www.txt"
+        },
+        {
+            "source": "/robots.txt",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "academy.thegrowthsphere.co"
+                }
+            ],
+            "destination": "/robots-academy.txt"
+        },
+        {
+            "source": "/sitemap.xml",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.thegrowthsphere.co"
+                }
+            ],
+            "destination": "/sitemap-www.xml"
+        },
+        {
+            "source": "/sitemap.xml",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "academy.thegrowthsphere.co"
+                }
+            ],
+            "destination": "/sitemap-academy.xml"
+        }
+    ]
+}

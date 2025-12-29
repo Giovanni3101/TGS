@@ -13,19 +13,23 @@ export const itemVariants = {
     hidden: {
         opacity: 0,
         y: 60,
-        filter: "blur(10px)"
+        // filter: "blur(10px)"
     },
     visible: {
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
+        // filter: "blur(0px)",
         transition: {
-            type: "spring",
-            damping: 25,
-            stiffness: 200,
-            duration: 0.8
+            // type: "spring",
+            // damping: 25,
+            // stiffness: 200,
+            // duration: 0.8
+            duration: 0.6
         },
     },
+    exit: {
+        opacity: 0, y: 40, transition: { duration: 0.5 }
+    }
 };
 
 export const cardVariants = {
