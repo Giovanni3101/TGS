@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Quote, QuoteIcon } from 'lucide-react';
 import { containerVariants, itemVariants, buttonVariants } from '../../animation/Animation';
+import { Link } from 'react-router'
+import { URLS } from '../../../utils/urls'
 
 function MissionBanner() {
     return (
@@ -30,23 +32,26 @@ function MissionBanner() {
                     variants={itemVariants}
                     className="bg-white/30 p-4 md:rounded-full rounded-2xl flex flex-col sm:flex-row gap-2 md:gap-6 items-center justify-center md:mt-14 mt-8"
                 >
-                    <motion.button
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className="min-w-[18rem] px-6 py-2 rounded-full text-lg text-gray-100 font-semibold bg-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
-                    >
-                        Explore Opportunities →
-                    </motion.button>
-
-                    <motion.button
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className="min-w-[18rem] px-6 py-2 rounded-full text-lg font-semibold bg-transparent text-gray-100 border-2 border-gray-100 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white"
-                    >
-                        Join TGS Academy
-                    </motion.button>
+                    <Link to={`${URLS.tgsAcademyUrl}/opportunities`} target="_blank">
+                        <motion.button
+                            variants={buttonVariants}
+                            whileHover="hover"
+                            whileTap="tap"
+                            className="min-w-[18rem] px-6 py-2 rounded-full text-lg text-gray-100 font-semibold bg-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
+                        >
+                            Explore Opportunities →
+                        </motion.button>
+                    </Link>
+                    <Link to={`${URLS.tgsAcademyUrl}/login`} target="_blank">
+                        <motion.button
+                            variants={buttonVariants}
+                            whileHover="hover"
+                            whileTap="tap"
+                            className="min-w-[18rem] px-6 py-2 rounded-full text-lg font-semibold bg-transparent text-gray-100 border-2 border-gray-100 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white"
+                        >
+                            Join TGS Academy
+                        </motion.button>
+                    </Link>
                 </motion.div>
             </motion.div>
         </motion.section>

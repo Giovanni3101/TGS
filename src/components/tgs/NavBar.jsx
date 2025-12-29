@@ -144,13 +144,6 @@ function Navbar() {
     // Composant récursif pour le menu desktop - version hover uniquement
     const renderDesktopMenuItem = (item, index) => {
         const isActive = location.pathname === item.path;
-        // console.log("Items en question:", item)
-        // console.log("Location pathname: ", location.pathname)
-        // console.log("Item pathname: ", item.path)
-        // console.log("Is activeee", isActive)
-
-        console.log("Items en question:", item)
-
         return (
             <li key={index} className="relative group space-x-2 px-3 py-6">
                 <HashLink
@@ -255,14 +248,16 @@ function Navbar() {
 
                                     {/* Boutons */}
                                     <div className="flex flex-col items-center space-y-4 mt-6">
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className="bg-sky-400 text-white w-full max-w-xs py-3 rounded-full hover:bg-sky-700 font-semibold"
-                                            onClick={toggleMenu}
-                                        >
-                                            TGS ACADEMY
-                                        </motion.button>
+                                        <Link to={URLS.tgsAcademyUrl}>
+                                            <motion.button
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                className="bg-sky-400 text-white w-full max-w-xs py-3 rounded-full hover:bg-sky-700 font-semibold"
+                                                onClick={toggleMenu}
+                                            >
+                                                TGS ACADEMY
+                                            </motion.button>
+                                        </Link>
                                     </div>
 
                                     {/* Footer */}

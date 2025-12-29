@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from 'react-router'
 import ambassader from '../../../assets/ambassader.png';
 import partner1 from '../../../assets/images/partners/1.png';
 import partner2 from '../../../assets/images/partners/2.jpeg';
@@ -97,14 +98,16 @@ function PartnerSection() {
                     >
                         <h1 className="text-start md:text-5xl text-3xl" style={{ fontFamily: "Great Vibes" }}>Become an Ambassador for Our Programs</h1>
                         <p className="mt-4 text-start">Join us as an ambassador and share your passion for our training programs and opportunities. As an ambassador, you will enjoy exclusive benefits while helping to promote our offerings to your network. Play a role in the success of our youth !</p>
-                        <motion.button
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="mt-6 px-6 py-3 bg-gray-100 border-3 border-sky-900 text-sky-900 rounded-xl hover:text-white hover:bg-sky-700 transition-colors duration-300"
-                        >
-                            Join as an ambassador
-                        </motion.button>
+                        <Link to='/contact'>
+                            <motion.button
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="mt-6 px-6 py-3 bg-gray-100 border-3 border-sky-900 text-sky-900 rounded-xl hover:text-white hover:bg-sky-700 transition-colors duration-300"
+                            >
+                                Join as an ambassador
+                            </motion.button>
+                        </Link>
                     </motion.div>
                     <motion.div
                         variants={itemVariants}

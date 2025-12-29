@@ -2,18 +2,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { containerVariants, itemVariants, buttonVariants } from '../../animation/Animation';
-
-// Importez vos images (ajoutez au moins 3-4 images pour le carrousel)
-import HeroPhoto1 from '../../../../public/hero1.webp';
+import { URLS } from '../../../utils/urls'
+import { Link } from 'react-router'
 import HeroPhoto2 from '../../../../public/hero2.jpeg';
-import HeroPhoto3 from '../../../../public/hero3.webp';
-import HeroPhoto4 from '../../../../public/hero4.jpeg';
-
-
-// Test second hero images
 import HeroPhoto5 from '../../../assets/images/hero/1.png'
-import HeroPhoto6 from '../../../assets/images/hero/2.webp'
-import HeroPhoto7 from '../../../assets/images/hero/3.avif'
 
 function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,19 +16,8 @@ function HeroSection() {
     // Animation de parallaxe pour le background
     const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
-    // const images = [
-    //     HeroPhoto1,
-    //     HeroPhoto2,
-    //     HeroPhoto3,
-    //     HeroPhoto4,
-    // ];
-
     const images = [
         HeroPhoto5,
-        // "https://img.freepik.com/premium-photo/crowd-young-people-dancing-enjoying-festival-party-celebration_1057738-33627.jpg",
-        // "https://media.istockphoto.com/id/1912509958/photo/group-of-happy-teenagers-talking-in-high-school-hallway.jpg?s=612x612&w=0&k=20&c=W4mpDip6o2Mt6NTAV67e5RDF06GvgrpgdVpUGPs9wQ8="
-        // HeroPhoto6,
-        // HeroPhoto7,
     ];
 
     // Animation automatique du carrousel
@@ -120,23 +101,26 @@ function HeroSection() {
                         variants={itemVariants}
                         className="flex flex-col sm:flex-row gap-2 md:gap-4 items-start mt-4"
                     >
-                        <motion.button
-                            variants={buttonVariants}
-                            whileHover="hover"
-                            whileTap="tap"
-                            className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
-                        >
-                            Explore Opportunities →
-                        </motion.button>
-
-                        <motion.button
-                            variants={buttonVariants}
-                            whileHover="hover"
-                            whileTap="tap"
-                            className="px-6 py-2 rounded-full text-lg font-semibold bg-transparent text-gray-800 border-2 border-gray-800 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white"
-                        >
-                            Join TGS Academy
-                        </motion.button>
+                        <Link to={`${URLS.tgsAcademyUrl}/opportunities`} target="_blank">
+                            <motion.button
+                                variants={buttonVariants}
+                                whileHover="hover"
+                                whileTap="tap"
+                                className="px-6 py-2 rounded-full text-lg text-white font-semibold bg-sky-900 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
+                            >
+                                Explore Opportunities →
+                            </motion.button>
+                        </Link>
+                        <Link to={`${URLS.tgsAcademyUrl}/login`} target="_blank">
+                            <motion.button
+                                variants={buttonVariants}
+                                whileHover="hover"
+                                whileTap="tap"
+                                className="px-6 py-2 rounded-full text-lg font-semibold bg-transparent text-gray-800 border-2 border-gray-800 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white"
+                            >
+                                Join TGS Academy
+                            </motion.button>
+                        </Link>
                     </motion.div>
                 </motion.div>
                 <motion.div
