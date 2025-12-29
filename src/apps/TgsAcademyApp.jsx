@@ -15,6 +15,7 @@ import ConsultationsPage from '../pages/TGSConnect/services/ConsultationsPage'
 import GOAFPage from '../pages/TGSConnect/services/GOAFPage'
 import GSPPage from "../pages/TGSConnect/services/GSPPage";
 import LoginSignIn from "../components/TGSConnect/LogIn";
+import { useEffect } from "react";
 
 function DefaultLayout({ children }) {
     return (

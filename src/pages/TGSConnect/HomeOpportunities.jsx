@@ -6,7 +6,7 @@ import FeaturedOpportunities from '../../components/TGSConnect/home/FeaturedOppo
 import ContactSection from '../../components/TGSConnect/home/ContactSection'
 import ServiceSection from '../../components/ServicesSection'
 import AcadmySection from '../../components/TGSConnect/home/AcadmySection'
-import Testimony from '../../components/tgs/home/Testimony'
+import Testimony from '../../components/TGSConnect/home/Testimony'
 
 function HomeOpportunities() {
     return (
