@@ -19,11 +19,13 @@ import Ambassadors from '../pages/tgs/AboutTgs/Ambassadors';
 import Footer from '../components/tgs/Footer';
 import Contact from '../pages/tgs/AboutTgs/Contact';
 import ArticleDetail from '../components/tgs/news/Pages/ArticleDetail';
+import { ScrollToTop } from '../ScrollToTop';
 
 function TgsApp() {
   return (
     <Router>
       <div className='flex flex-col items-center min-h-screen'>
+        <ScrollToTop />
         <Navbar />
         <main className='w-full'>
           <Routes>
