@@ -1,320 +1,341 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import SeoHead from '../../../components/SeoHead.jsx';
+import { Calendar, Users, Globe, Award, TrendingUp, MapPin } from 'lucide-react';
+import History1 from '../../../assets/images/history1.jpeg';
+import History2 from '../../../assets/images/history2.jpeg';
 
 const Story = () => {
-  const [activeYear, setActiveYear] = useState(2022);
-  const [isMobile, setIsMobile] = useState(false);
-  
-  // Détecter la taille de l'écran
+  const [isVisible, setIsVisible] = useState({});
+  const sectionRefs = useRef({});
+
+  // Intersection observer for scroll animations
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const observers = {};
+    
+    Object.keys(sectionRefs.current).forEach(key => {
+      if (sectionRefs.current[key]) {
+        observers[key] = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                setIsVisible(prev => ({ ...prev, [key]: true }));
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        observers[key].observe(sectionRefs.current[key]);
+      }
+    });
+
+    return () => {
+      Object.values(observers).forEach(observer => observer.disconnect());
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const timelineData = {
-    2022: {
-      title: "Foundation",
-      content: "It all started with a conversation. In 2022, during an informal exchange between Kyamoneka Benjamin, a law student, and Nonso Alan, a data science student, a clear reality emerged: thousands of talented individuals across the Global South possess immense potential, yet remain excluded from global opportunities due to limited access to information, guidance, and networks. This discussion marked the birth of a simple but ambitious idea — to create a bridge between talent and opportunity.",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2670&auto=format&fit=crop"
-    },
-    2023: {
-      title: "From Idea to Initiative",
-      content:  "The idea gradually took shape and became The Growth Sphere (TGS). At this stage, TGS was not yet a formal organization, but rather an initiative driven by a clear mission: to make academic, professional, and technological opportunities accessible to people from the Global South. Early efforts focused on identifying scholarships, conferences, programs, and job opportunities, centralizing them, and sharing them with a growing and engaged community.",
-      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2670&auto=format&fit=crop"
-    },
-    2024: {
-      title: "Building Support and Trust",
-      content:  "Over time, one reality became evident — access to information alone was not enough. Many beneficiaries expressed the need for personalized guidance, application support, strategic advice, and a reassuring framework to help them move forward with confidence. In response, The Growth Sphere expanded its mission by offering optional mentorship, academic and career orientation, and practical support adapted to local realities. TGS began to position itself not only as an opportunity hub, but as a trusted partner along each individual’s journey.",
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2670&auto=format&fit=crop"
-    },
-    2025: {
-      title: " A Growing Ecosystem",
-      content: "Today, The Growth Sphere is evolving into a growing ecosystem. The initiative sits at the intersection of humanitarian support, technology, and human capital development. Its vision is clear: to connect talent from the Global South with global opportunities, reduce systemic barriers, and foster sustainable, inclusive, and equitable growth.",
-      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2670&auto=format&fit=crop"
-    },
-  };
-
-  const years = Object.keys(timelineData).map(Number);
-  
-  const handlePrev = () => {
-    const currentIndex = years.indexOf(activeYear);
-    const prevIndex = currentIndex > 0 ? currentIndex - 1 : years.length - 1;
-    setActiveYear(years[prevIndex]);
-  };
-
-  const handleNext = () => {
-    const currentIndex = years.indexOf(activeYear);
-    const nextIndex = currentIndex < years.length - 1 ? currentIndex + 1 : 0;
-    setActiveYear(years[nextIndex]);
-  };
-
-  // Gestion du swipe sur mobile
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
-
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      handleNext();
-    }
-    if (isRightSwipe) {
-      handlePrev();
-    }
-  };
-
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-sky-700 to-white flex items-center justify-center p-4 md:p-8 font-sans">
-      
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
-        .font-serif-title { font-family: 'Playfair Display', serif; }
-        .font-sans-body { font-family: 'Inter', sans-serif; }
+    <>
+      <SeoHead
+        title="Our Story | The Growth Sphere"
+        description="Learn about The Growth Sphere’s mission, origins, and the values driving our work across Africa."
+        ogTitle="Our Story | The Growth Sphere"
+        ogDescription="Learn about The Growth Sphere’s mission, origins, and the values driving our work across Africa."
+        ogImage="/tgs1.png"
+      />
+      <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-sky-50 via-white to-sky-50 py-24 px-6 overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-200 rounded-full blur-3xl opacity-20 translate-y-1/2 -translate-x-1/2"></div>
         
-        /* Animations */
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-out;
-        }
-        
-        /* Styles pour la scrollbar de la timeline sur mobile */
-        .timeline-scrollbar {
-          scrollbar-width: thin;
-          scrollbar-color: #00A3E0 #f0f0f0;
-        }
-        
-        .timeline-scrollbar::-webkit-scrollbar {
-          height: 4px;
-        }
-        
-        .timeline-scrollbar::-webkit-scrollbar-track {
-          background: #f0f0f0;
-          border-radius: 10px;
-        }
-        
-        .timeline-scrollbar::-webkit-scrollbar-thumb {
-          background: #00A3E0;
-          border-radius: 10px;
-        }
-      `}</style>
-
-      <div className="w-full max-w-7xl bg-white rounded-3xl md:rounded-[40px] shadow-lg md:shadow-2xl overflow-hidden flex flex-col relative mx-2 md:mx-0">
-        
-        {/* Header Section */}
-        <div className="pt-12 md:pt-20 pb-8 md:pb-10 px-6 md:px-12 lg:px-24 text-center z-10 bg-white">
-          
-          <h3 className="text-[#0097B2] font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.25em] uppercase mb-3 md:mb-4">
-            History
-          </h3>
-          
-          <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] text-sky-900 font-serif-title font-bold mb-4 md:mb-6 leading-tight">
-            Our Story
-          </h1>
-          
-          <p className="text-gray-500 font-sans-body text-sm md:text-[15px] leading-6 md:leading-7 max-w-xl mx-auto mb-12 md:mb-16 px-4 md:px-0">
-            Discover the milestones that have shaped our journey and commitment to connecting talent from the Global South with global opportunities.
-          </p>
-          
-          {/* Timeline Years - Version Responsive */}
+        <div className="max-w-5xl mx-auto relative z-10">
           <div 
-            className={`
-              ${isMobile 
-                ? 'flex overflow-x-auto pb-4 px-4 gap-6 timeline-scrollbar snap-x snap-mandatory' 
-                : 'flex justify-center items-baseline flex-wrap gap-4 md:gap-8 lg:gap-16'
-              }
-              select-none transition-all duration-300
-            `}
-            onTouchStart={isMobile ? onTouchStart : undefined}
-            onTouchMove={isMobile ? onTouchMove : undefined}
-            onTouchEnd={isMobile ? onTouchEnd : undefined}
+            ref={el => sectionRefs.current['hero'] = el}
+            className={`transition-all duration-1000 ${
+              isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
           >
-            {years.map((year) => (
-              <div 
-                key={year} 
-                className={`
-                  relative group cursor-pointer flex flex-col items-center transition-all duration-300
-                  ${isMobile ? 'snap-center min-w-[80px]' : ''}
-                `}
-                onClick={() => setActiveYear(year)}
-              >
-                <span className={`
-                  font-bold font-sans-body transition-all duration-300
-                  ${activeYear === year 
-                    ? `text-[#00A3E0] ${isMobile ? 'text-2xl' : 'text-2xl md:text-3xl'}` 
-                    : `text-gray-300 hover:text-gray-500 ${isMobile ? 'text-xl' : 'text-lg md:text-xl'}`
-                  }
-                `}>
-                  {year}
-                </span>
-                
-                {/* Indicateur pour l'année active */}
-                {activeYear === year && (
-                  <div className={`
-                    absolute -bottom-2 md:-bottom-4 
-                    ${isMobile ? 'w-1.5 h-1.5' : 'w-2 h-2'} 
-                    bg-[#00A3E0] rounded-full animate-fadeIn
-                  `}></div>
-                )}
-              </div>
-            ))}
-          </div>
-          
-          {/* Indicateurs de swipe pour mobile */}
-          {isMobile && (
-            <div className="flex justify-center items-center mt-4 space-x-2">
-              {years.map((year) => (
-                <div 
-                  key={year}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    activeYear === year ? 'bg-[#00A3E0]' : 'bg-gray-200'
-                  }`}
-                />
-              ))}
+            <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Calendar className="w-4 h-4" />
+              <span>2019 — Present</span>
             </div>
-          )}
-        </div>
-
-        {/* Image & Content Overlay Section */}
-        <div 
-          className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px]"
-          onTouchStart={isMobile ? onTouchStart : undefined}
-          onTouchMove={isMobile ? onTouchMove : undefined}
-          onTouchEnd={isMobile ? onTouchEnd : undefined}
-        >
-          
-          {/* Background Image dynamique */}
-          <div className="absolute inset-0 w-full h-full transition-all duration-500">
-            <img 
-              src={timelineData[activeYear].image} 
-              alt={timelineData[activeYear].title} 
-              className="w-full h-full object-cover object-center md:object-bottom transition-all duration-500"
-              loading="lazy"
-            />
-            <div className="absolute top-0 left-0 right-0 h-12 md:h-16 bg-gradient-to-b from-white to-transparent opacity-60"></div>
-          </div>
-
-          {/* Floating White Content Card - Version Responsive */}
-          <div className={`
-            absolute ${isMobile ? 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' : 'top-0 left-1/2 transform -translate-x-1/2 -translate-y-2'} 
-            w-[calc(100%-2rem)] md:w-[90%] lg:w-[600px] z-20 px-2 md:px-0
-          `}>
             
-            <div className="bg-white p-6 md:p-10 lg:p-12 shadow-lg md:shadow-xl relative rounded-2xl md:rounded-none animate-fadeIn">
-              
-              {/* Upward Pointing Triangle - Seulement sur desktop */}
-              {!isMobile && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[12px] border-b-white"></div>
-              )}
-              
-              {/* Titre de l'année */}
-              <h3 className="text-[#0097B2] font-bold text-xs md:text-sm uppercase mb-2 md:mb-3">
-                {timelineData[activeYear].title}
-              </h3>
-              
-              {/* Contenu dynamique */}
-              <p className="text-gray-600 font-sans-body text-sm md:text-[15px] lg:text-[16px] leading-[1.7] md:leading-[1.8]">
-                {timelineData[activeYear].content}
-              </p>
-              
-              {/* Boutons de navigation pour mobile - à l'intérieur de la carte */}
-              {isMobile && (
-                <div className="flex justify-center mt-6 space-x-4">
-                  <button 
-                    onClick={handlePrev}
-                    className="w-10 h-10 bg-[#4DD0E1] hover:bg-[#26c6da] text-white flex items-center justify-center rounded-full transition-all duration-300 shadow-md active:scale-95"
-                    aria-label="Previous year"
-                  >
-                    <ChevronLeft size={20} strokeWidth={3} />
-                  </button>
-                  <div className="flex items-center space-x-1">
-                    {years.map((year) => (
-                      <div 
-                        key={year}
-                        className={`w-1.5 h-1.5 rounded-full ${
-                          activeYear === year ? 'bg-[#00A3E0]' : 'bg-gray-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <button 
-                    onClick={handleNext}
-                    className="w-10 h-10 bg-[#4DD0E1] hover:bg-[#26c6da] text-white flex items-center justify-center rounded-full transition-all duration-300 shadow-md active:scale-95"
-                    aria-label="Next year"
-                  >
-                    <ChevronRight size={20} strokeWidth={3} />
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Navigation Buttons - Version Desktop */}
-            {!isMobile && (
-              <div className="absolute -bottom-4 md:-bottom-6 right-4 md:-right-8 flex gap-1">
-                <button 
-                  onClick={handlePrev}
-                  className="w-10 h-10 md:w-12 md:h-12 bg-[#4DD0E1] hover:bg-[#26c6da] text-white flex items-center justify-center transition-all duration-300 shadow-md group hover:scale-105 active:scale-95 rounded-full md:rounded-none"
-                  aria-label="Previous year"
-                >
-                  <ChevronLeft size={isMobile ? 20 : 24} strokeWidth={3} className="group-hover:-translate-x-0.5 transition-transform"/>
-                </button>
-                <button 
-                  onClick={handleNext}
-                  className="w-10 h-10 md:w-12 md:h-12 bg-[#4DD0E1] hover:bg-[#26c6da] text-white flex items-center justify-center transition-all duration-300 shadow-md group hover:scale-105 active:scale-95 rounded-full md:rounded-none"
-                  aria-label="Next year"
-                >
-                  <ChevronRight size={isMobile ? 20 : 24} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform"/>
-                </button>
-              </div>
-            )}
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Our Story
+            </h1>
+            
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
+              From grassroots environmental action in Eastern DR Congo to a global ecosystem 
+              empowering youth across continents—this is the journey of transformation, 
+              commitment, and strategic growth.
+            </p>
           </div>
-
-          {/* Indicateur de swipe pour mobile */}
-          {isMobile && (
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-xs bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full">
-              ← Swipe → pour naviguer
-            </div>
-          )}
         </div>
-        
-        {/* Footer avec compteur pour mobile */}
-        {isMobile && (
-          <div className="bg-white py-4 px-6 border-t border-gray-100">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500 text-sm">
-                {years.indexOf(activeYear) + 1} / {years.length}
-              </span>
-              <span className="text-[#00A3E0] font-bold text-lg">
-                {activeYear}
-              </span>
+      </section>
+
+      {/* Foundational Work Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div 
+            ref={el => sectionRefs.current['foundation'] = el}
+            className={`transition-all duration-1000 delay-200 ${
+              isVisible['foundation'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            {/* Section Header */}
+            <div className="flex items-start gap-6 mb-12">
+              <div className="hidden md:block">
+                <div className="w-1 h-24 bg-gradient-to-b from-sky-400 to-sky-600 rounded-full"></div>
+              </div>
+              <div className="flex-1">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                  Foundational Work
+                </h2>
+                <p className="text-sky-600 font-semibold text-lg">2019 — 2024</p>
+              </div>
+            </div>
+
+            {/* Content Grid */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="space-y-6">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  The foundations of The Growth Sphere were laid through years of grassroots 
+                  leadership, institutional building, and capacity development led by 
+                  <span className="font-semibold text-gray-900"> Kyamoneka Mpey Benjamin</span>.
+                </p>
+                
+                <div className="bg-sky-50 border-l-4 border-sky-500 p-6 rounded-r-lg">
+                  <p className="text-gray-700 leading-relaxed">
+                    In December 2019, he co-founded <span className="font-semibold text-sky-700">EDDEC</span>, 
+                    a youth-led environmental organization rooted in local action. As Co-Founder and 
+                    President, he spearheaded a large-scale afforestation initiative that resulted in 
+                    the planting of <span className="font-bold text-sky-700">6,000 trees</span> across 
+                    <span className="font-bold text-sky-700"> 35 schools</span> in Goma (Eastern DR Congo).
+                  </p>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed">
+                  This initiative directly benefited over 3,000 students and secured strategic 
+                  partnerships with WWF and the Provincial Ministry of the Environment. EDDEC 
+                  further sustained its impact through trainings, workshops, and awareness campaigns 
+                  on climate change and sustainable development.
+                </p>
+              </div>
+
+              {/* Image */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-400 to-sky-600 rounded-2xl transform rotate-3"></div>
+                <img 
+                  src={History1}
+                  alt="Students planting trees in an environmental education program"
+                  className="relative rounded-2xl shadow-2xl w-full h-96 object-cover"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border border-sky-100">
+                  <div className="text-center">
+                    <p className="text-3xl font-bold text-sky-600">6,000</p>
+                    <p className="text-sm text-gray-600">Trees Planted</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Expansion Section */}
+            <div className="mt-16 space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="mt-1.5">
+                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Expanding Into Legal Advocacy
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Building on this experience, Benjamin expanded into legal advocacy and capacity 
+                    building. Between 2024 and 2025, he served as Managing Partner at 
+                    <span className="font-semibold"> Legal Alliance Associates</span> and as Country 
+                    Director for the <span className="font-semibold">Lawrit Journal of Law</span>, 
+                    where he trained over 100 students in legal research and coordinated academic 
+                    debates, webinars, and engagements reaching more than 1,500 students across 
+                    Africa and the Middle East.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      </section>
+
+      {/* Key Insight Callout */}
+      <section className="py-16 px-6 bg-gradient-to-r from-sky-500 to-sky-600">
+        <div className="max-w-5xl mx-auto">
+          <div 
+            ref={el => sectionRefs.current['insight'] = el}
+            className={`transition-all duration-1000 ${
+              isVisible['insight'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <div className="text-center space-y-6">
+              <TrendingUp className="w-12 h-12 text-white mx-auto" />
+              <blockquote className="text-2xl md:text-3xl font-medium text-white leading-relaxed">
+                "These experiences consistently revealed a vast pool of talent constrained 
+                not by ability, but by limited access to structured mentorship, global exposure, 
+                and opportunity pipelines."
+              </blockquote>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">35</div>
+                <div className="text-sky-100">Schools Reached</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">3,000+</div>
+                <div className="text-sky-100">Students Impacted</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">1,500+</div>
+                <div className="text-sky-100">Youth Trained</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Establishment of TGS */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div 
+            ref={el => sectionRefs.current['establishment'] = el}
+            className={`transition-all duration-1000 delay-200 ${
+              isVisible['establishment'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            {/* Section Header */}
+            <div className="flex items-start gap-6 mb-12">
+              <div className="hidden md:block">
+                <div className="w-1 h-24 bg-gradient-to-b from-sky-600 to-sky-800 rounded-full"></div>
+              </div>
+              <div className="flex-1">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                  Establishment of The Growth Sphere
+                </h2>
+                <p className="text-sky-600 font-semibold text-lg">2025</p>
+              </div>
+            </div>
+
+            {/* Content Grid - Reversed */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Image */}
+              <div className="relative order-2 md:order-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-600 to-sky-800 rounded-2xl transform -rotate-3"></div>
+                <img 
+                  src={History2}
+                  alt="Youth leaders at international forum representing global collaboration"
+                  className="relative rounded-2xl shadow-2xl w-full h-96 object-cover"
+                />
+                <div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-sky-100">
+                  <Globe className="w-8 h-8 text-sky-600" />
+                </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="space-y-6 order-1 md:order-2">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  The Growth Sphere (TGS) was established in 2025 as the institutional response 
+                  to the structural gaps observed throughout this foundational work.
+                </p>
+                
+                <div className="bg-sky-50 p-6 rounded-xl border border-sky-200">
+                  <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <Award className="w-5 h-5 text-sky-600" />
+                    The Decisive Moment
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    During Benjamin's participation in high-level global forums—including the 
+                    Venice School, the 2025 HISA Youth Fellowship at Oxford, the Youth Vision 
+                    Assembly in Amsterdam, the Youth Dialogue Forum in Dubai, and the United 
+                    Nations University Global Youth MIDORI Platform, where he was the only 
+                    participant from Africa.
+                  </p>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed">
+                  Across these spaces, a consistent pattern became evident: youth from Africa 
+                  and the wider Global South were significantly underrepresented. While many 
+                  possessed strong intellectual capacity and lived expertise, they often lacked 
+                  access to mentorship, strategic guidance, and skills aligned with global 
+                  selection and leadership ecosystems.
+                </p>
+              </div>
+            </div>
+
+            {/* The Response */}
+            <div className="mt-16 bg-gradient-to-br from-sky-50 to-white p-8 md:p-12 rounded-2xl border border-sky-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">The Response</h3>
+              <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                In response, Benjamin founded The Growth Sphere as a structured, action-oriented 
+                ecosystem designed to convert potential into measurable outcomes. Joined by 
+                <span className="font-semibold"> Alan Nonso</span> and 
+                <span className="font-semibold"> Amira Puji Hastuti</span> as co-founders, TGS 
+                was built to develop globally competitive youth through targeted skills training, 
+                mentorship, and equitable access to opportunities grounded in local realities and 
+                global standards.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200">
+                  <Users className="w-4 h-4 text-sky-600" />
+                  <span className="text-sm font-medium text-gray-700">Mentorship</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200">
+                  <TrendingUp className="w-4 h-4 text-sky-600" />
+                  <span className="text-sm font-medium text-gray-700">Skills Training</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200">
+                  <Globe className="w-4 h-4 text-sky-600" />
+                  <span className="text-sm font-medium text-gray-700">Global Standards</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200">
+                  <MapPin className="w-4 h-4 text-sky-600" />
+                  <span className="text-sm font-medium text-gray-700">Local Realities</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing Section */}
+      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-sky-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div 
+            ref={el => sectionRefs.current['closing'] = el}
+            className={`transition-all duration-1000 ${
+              isVisible['closing'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="inline-block p-4 bg-sky-100 rounded-full mb-6">
+              <Globe className="w-8 h-8 text-sky-600" />
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              From Grassroots to Global Impact
+            </h2>
+            
+            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              Our journey reflects a commitment to addressing systemic gaps through strategic 
+              action. From planting trees in Goma to building bridges across continents, 
+              The Growth Sphere continues to transform potential into measurable outcomes.
+            </p>
+
+            <div className="h-1 w-24 bg-gradient-to-r from-sky-400 to-sky-600 rounded-full mx-auto"></div>
+          </div>
+        </div>
+      </section>
     </div>
+    </>
   );
 };
 

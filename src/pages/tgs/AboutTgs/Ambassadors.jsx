@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import SeoHead from '../../../components/SeoHead.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, X, ExternalLink } from 'lucide-react';
 import Mary from '../../../assets/images/Mary.jpeg';
@@ -337,7 +338,15 @@ function BoardCard({ member, index }) {
  */
 export default function Board() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50/30 to-slate-50">
+    <>
+      <SeoHead
+        title="Ambassadors | The Growth Sphere"
+        description="Explore The Growth Sphere’s ambassadors championing youth empowerment and community impact globally."
+        ogTitle="Ambassadors | The Growth Sphere"
+        ogDescription="Explore The Growth Sphere’s ambassadors championing youth empowerment and community impact globally."
+        ogImage="/tgs1.png"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50/30 to-slate-50">
       {/* Subtle Background Pattern */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -386,7 +395,7 @@ export default function Board() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Our ambassadors are dedicated advocates who champion the voices of the Global South, fostering connections, driving impactful initiatives, and inspiring positive change through mentorship and community engagement.
+              Our ambassadors are young leaders driving change within their communities, championing youth voices and human rights on international platforms such as conferences and fellowships, while fostering local connections, mentoring peers, and leading impactful initiatives that inspire positive, sustainable change.
               <span className="block mt-2 text-sm text-sky-600">
                 Click on cards to view detailed profiles
               </span>
@@ -407,5 +416,6 @@ export default function Board() {
 
       </div>
     </div>
+    </>
   );
 }

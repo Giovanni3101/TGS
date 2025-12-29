@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SeoHead from '../../../components/SeoHead.jsx';
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Target, Eye, Globe, Users, BookOpen, TrendingUp, Award,
@@ -155,7 +156,15 @@ const Mission = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "'Raleway', sans-serif" }}>
+    <>
+      <SeoHead
+        title="Our Mission | The Growth Sphere"
+        description="The Growth Sphere advances youth leadership, human rights, and innovation through programs and partnerships."
+        ogTitle="Our Mission | The Growth Sphere"
+        ogDescription="The Growth Sphere advances youth leadership, human rights, and innovation through programs and partnerships."
+        ogImage="/tgs1.png"
+      />
+      <div className="min-h-screen bg-white" style={{ fontFamily: "'Raleway', sans-serif" }}>
 
       {/* Hero Section */}
       <motion.section
@@ -621,6 +630,7 @@ Learn More
 </motion.div>
 </section>
 </div>
+</>
 );
 };
 

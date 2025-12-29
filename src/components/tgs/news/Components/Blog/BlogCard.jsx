@@ -1,5 +1,14 @@
 // src/components/blog/BlogCard.jsx
 import React, { useState } from 'react';
+
+function slugify(str) {
+  return String(str || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
 import { Calendar, Clock, MapPin, Tag, ArrowRight } from 'lucide-react';
 import ContentTypeBadge from './ContentTypeBadge';
 
@@ -120,7 +129,10 @@ const BlogCard = ({ content, featured = false }) => {
           <button 
             className="flex items-center gap-2 text-sky-600 font-semibold text-sm hover:gap-3 transition-all"
             aria-label={`Read more about ${content.title}`}
-            onClick={() => window.location.href = `/news/${content.id}`}  
+            onClick={() => {
+              const slug = slugify(content.title);
+              window.location.href = `/news/${slug}`;
+            }}  
           >
             Read More
             <ArrowRight className="w-4 h-4" />
