@@ -7,6 +7,7 @@ import Beatrice from '../../../assets/images/Beatrice.jpeg';
 import Gloria from '../../../assets/images/Gloria.jpeg';
 import GloriaS from '../../../assets/images/GloriaS.jpeg';
 import Taylor from '../../../assets/images/Taylor.jpeg';
+import Richard from '../../../assets/images/Richard.jpeg';
 
 
 /**
@@ -79,6 +80,16 @@ const AmbassadorsMember = [
    
     photo: Taylor,
     tags: ['Youth Empowerment', 'Inclusive Leadership', 'Community Development', 'Global Advocacy']
+  },
+   {
+    id: 6,
+    name: 'Richard Chibaka',
+    role: 'TGS Ambassador - DRC',
+    fullDescription: ["Richard Chibaka is a Congolese youth leader, regional advocate, and TGS (The Growth Sphere) Ambassador committed to youth empowerment and East African regional integration. He currently serves as the EAC Youth Ambassador to the Democratic Republic of Congo (DRC) and Regional Coordinator of the EAC Youth Ambassadors Platform (EACYAP), where he advances youth participation, peacebuilding, and inclusive governance across the region.",
+                      "Richard is the Co-Founder of the Lumumba Leadership Forgium and the Coordination of Congolese Students in Uganda, leading initiatives that promote educational equity, leadership development, and support for displaced communities in Eastern Congo. A Fellow of the EAC Youth Fellowship Programme (Cohort II – 2024), he represents a new generation of African leaders dedicated to regional cooperation, socio-economic empowerment, and transformative leadership."],
+   
+    photo: Richard,
+    tags: ['Youth Empowerment', 'Regional Integration', 'Peacebuilding', 'Inclusive Governance']
   },
 ];
 

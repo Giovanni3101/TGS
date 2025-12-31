@@ -144,7 +144,7 @@ const teamMembers = [
     name: 'Abel Masirika',
     role: 'Program Research Assistant',
     shortBio: 'Research assistant focused on data-driven program evaluation and stakeholder insights.',
-    fullDescription: 'Abel Masirika is a dedicated research assistant with a strong background in program evaluation and data analysis. He has contributed to various research projects, focusing on impact assessment and stakeholder engagement. His work involves supporting program development and ensuring effective implementation of initiatives.',
+    fullDescription: 'Abel Masirika is passionate about chemistry, manufacturing, and innovation through emerging technologies. He is deeply committed to social and community development by sharing knowledge and values. Abel firmly believes that quality education, in all its forms, is the cornerstone of sustainable development and the foundation for building a peaceful and thriving society.',
     photo: Abel,
     linkedin: 'https://linkedin.com',
     email: 'abel@organization.org',
